@@ -1,0 +1,330 @@
+/*MIXIN REGLAS*/
+@mixin cajasindex ($direction, $justify, $margin-top, $width) {
+    display:flex;
+    flex-direction:$direction;
+    justify-content:$justify;
+    margin-top:$margin-top;
+    width:$width;
+    overflow: hidden;
+}
+@mixin textoTitulos{
+    display: block;
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $opacidadnegro4;
+    letter-spacing: -4px;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;}
+/***************************************************************************************************************************/
+/*MAIN 1920px*/
+
+    .carousel-indicators{
+        z-index: 100;
+    }
+    .carousel-control-next{
+        z-index: 500;
+    }
+    .carousel-control-prev{
+        z-index: 500;
+    }
+    .carousel-inner{
+        display: flex;
+        margin-top: 1%;
+        position: relative;
+        z-index: 3;
+        .d-block{
+            width: 100%;
+        }        
+    }
+    .cajaBienvenidos{
+        @include cajasindex(column,center,5%,100%);
+        align-items: center;
+        .cajaTexto{
+            @include cajasindex(column,center,0%,95%);
+            border-top-color: rgba(0, 0, 0, .25);
+            align-items: center;
+            border-top-style: solid;
+            border-width: 1px;
+            .tituloBienvenidos{
+                display: block;
+                font-size: 3rem;
+                font-family: Arial, Helvetica, sans-serif;
+                color: $opacidadnegro4;
+                letter-spacing: -4px;
+            }
+            .parrafoBienvenidos{
+                text-align: center;
+                display: block;
+                font-size: 1.2rem;
+                font-family: Arial, Helvetica, sans-serif;
+                color:$opacidadnegro3;
+                line-height:normal;
+            }
+        }
+        .cajaImgBienvenidos{
+            @include cajasindex(row,left,3%,90%);
+            justify-content: center;
+            .cajaImgBienvenidos--foto{
+                @include cajasindex(row,center,0%,auto);
+                height: fit-content;
+            }        
+        }
+    }
+    .cajaMasInformacion{
+        @include cajasindex(row,center,5%,100%);
+        .cajaQueHacemos{
+            @include cajasindex(column,space-between,0%,50%);
+            margin-left: 3%;
+            border-top-color: rgba(0, 0, 0, .25);
+            border-bottom-color: rgba(0, 0, 0, .25);
+            border-bottom-style: solid;
+            border-top-style: solid;
+            border-width: 1px;
+            padding-bottom: 5%;
+            .textoTitulos{
+                @include textoTitulos;
+            }
+            .cajaQueHacemos--abajo{
+                @include cajasindex(row,right,0%,100%);
+                .cajaQueHacemos--abajo--bis{
+                    @include cajasindex(column,center,0%,100%);
+                    padding-left: 3%;
+                    padding-right: 3%;
+                    padding-top: 5%;
+                    .cajaQueHacemos--abajo--texto{
+                        display: block;
+                        font-size: 1.2rem;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: $opacidadnegro3;
+                        line-height:normal;
+                    }
+                    .linkProductos{
+                        padding-top: 10%;
+                        padding-left: 50%;
+                        text-decoration: none;
+                        color: $opacidadnegro6;
+                        font-weight: bold;
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+                }
+            }
+        }
+        .cajaQueMateriales{
+            @include cajasindex(column,space-between,0%,50%);
+            margin-right: 3%;
+            border-top-color: rgba(0, 0, 0, .25);
+            border-bottom-color: rgba(0, 0, 0, .25);
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-width: 1px;  
+            padding-bottom: 5%;
+            .textoTitulos{
+                @include textoTitulos;
+            }
+            .cajaQueMateriales--abajo{
+                @include cajasindex(column,center,0%,100%);  
+                align-items: center; 
+                img{
+                    max-width: fit-content;
+                }         
+                .cajaQueMateriales--abajo--bis{
+                    @include cajasindex(column,center,0%,100%);
+                    .cajaQueMateriales--abajo--texto{
+                        display: block;
+                        font-size: 1.2rem;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: $opacidadnegro3;
+                        line-height:normal;
+                        padding-top: 2%;
+                    }
+                    .linkMateriales{
+                        text-decoration: none;
+                        color: $opacidadnegro6;
+                        font-weight: bold;
+                        font-family: Arial, Helvetica, sans-serif;
+                        padding-top: 1%;
+                        padding-left: 70%;
+                    }
+                }        
+            }
+        }
+    }
+    .cajaPagoYenvios{    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        color: $opacidadnegro7;
+        margin-top: 3%;
+        margin-bottom: 5%;
+        h2{
+            font-size: 1.5rem;
+        }
+        .cajaImgMdp{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            height: 100px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            .imgMdp{
+                width: auto;
+                height: 80px;
+            }
+        }     
+    }
+
+/*RESPONSIVE 1200****************************************************************************************************/
+@media screen and (max-width:1200px){
+    .cajaMasInformacion{
+        flex-direction: column;
+        .cajaQueHacemos{
+            align-items: center;
+            width: 100%;
+            .cajaQueHacemos--abajo{
+                flex-direction: column;
+                align-items: center;
+                img{                    
+                    width: 35%;
+                    height: auto;
+                }
+                .cajaQueHacemos--abajo--bis{
+                    text-align: center;
+                    .linkProductos{
+                        padding-top: 3%;
+                    }
+                }
+            }
+        }
+        .cajaQueMateriales{
+            align-items: center;
+            width: 100%;
+            border-top-style: none;
+            .cajaQueMateriales--abajo{
+                width: 90%;
+                margin-top: 2%;
+                .cajaQueMateriales--abajo--bis{
+                    p{
+                        text-align: center;
+                        width: 100%;
+                    }
+                    .linkMateriales{
+                        text-align: center;
+                        padding:0;
+                        padding-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .cajaPagoYenvios{
+        h2{
+            font-size: 1rem;
+            text-align: center;
+        }
+        .cajaImgMdp{
+            height: 80px;
+            padding-left: 5px;
+            padding-right: 5px;
+            .imgMdp{
+                width: auto;
+                height: 50px;
+            }
+        }
+    }   
+}
+
+
+/*RESPONSIVE 768**************************************************************************************************/
+@media screen and (max-width:768px){
+    .carousel{
+        margin-top: 1%;
+        justify-items: center;
+        .carousel-control-next{
+            display: none;
+        }
+        .carousel-control-prev{
+            display: none;
+        }
+        .carousel-indicators{
+        display: none;
+        }
+    }
+    .cajaBienvenidos{
+        flex-direction: column;
+        margin-top: 3%;
+        align-items: center;        
+        .cajaTexto{
+            flex-direction: column;
+            width: 100%;
+            margin: 0px;
+            padding-left: 1%;
+            padding-right: 1%;
+            .tituloBienvenidos{
+                font-size: 1.5rem;
+                letter-spacing: -2px;
+                text-align: center;
+                padding: 0;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            } 
+            .parrafoBienvenidos{
+                font-size: 1rem;
+                text-align: center;
+                margin-bottom: 30px;
+            }   
+        }
+        .cajaImgBienvenidos{
+            width: 80%;
+            margin: 0;
+            .cajaImgBienvenidos--foto{
+                height: auto;
+                padding: 0;
+            }
+        }
+    }
+    .cajaMasInformacion{
+        .cajaQueHacemos{
+            margin: 0;
+            padding-right: 0;
+            .textoTitulos{
+                font-size: 2.5rem;
+                letter-spacing: -2px;
+            }
+        }
+        .cajaQueMateriales{
+            .textoTitulos{
+                font-size: 2.5rem;
+                letter-spacing: -2px;
+                line-height: 40px;
+            }
+            .cajaQueMateriales--abajo{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .cajaPagoYenvios{
+        h2{
+            font-size: 1rem;
+            text-align: center;
+        }
+        .cajaImgMdp{
+            height: 80px;
+            padding-left: 5px;
+            padding-right: 5px;
+            .imgMdp{
+                width: auto;
+                height: 30px;
+            }
+        }
+    }   
+}
+
+/*RESPONSIVE 320*****************************************************************************************************/
+@media screen and (max-width:320px){
+}

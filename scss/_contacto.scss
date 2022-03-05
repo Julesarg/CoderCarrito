@@ -1,0 +1,240 @@
+/*MIXIN REGLAS*/
+@mixin  cajascontacto($height, $width, $align-items, $justify-content){
+    display:flex;
+    height:$height;
+    width:$width;
+    align-items:$align-items;
+    justify-content:$justify-content;    
+}
+@mixin textocontactoup($color, $font-size, $font-weight){
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    display: flex;
+    color:$color;
+    font-size:$font-size;
+    font-weight:$font-weight;
+}
+/***************************************************************************************************************************/
+/*MAIN 1920px*/
+    .fondoContacto{
+        @include cajascontacto(40vw,100%,none,center);
+        background-image: url(../images/contacto/fondogato.png);
+        background-repeat: no-repeat;
+        background-size: 100vw;
+        flex-direction: column;
+        padding-top: 0%;
+        margin-top: 0%;
+        animation-name: efecto1contacto;
+        animation-iteration-count: 1;
+        animation-duration: 2s;
+        div{
+            height: 100%;
+            padding-top: 3%;
+            display: flex;
+            flex-direction: column;
+                .textoDuda{
+                    @include textocontactoup(#545454,4vw,500);                    
+                    height:4.5vw;                    
+                    padding-left: 3%;
+                    animation-name: efecto1contacto;
+                    animation-iteration-count: 1;
+                    animation-duration: 3s;
+                }
+                .textoComentario{
+                    @include textocontactoup($opacidadnegro3,3vw,500);
+                    height:3vw;                    
+                    padding-left: 10%;
+                    animation-name: efecto1contacto;
+                    animation-iteration-count: 1;
+                    animation-duration: 3.5s;
+                }
+                .textoAyuda{
+                    @include textocontactoup(#9e9d9d,2vw,400);
+                    padding-left: 50%;
+                    animation-name: texto3;
+                    animation-iteration-count: 1;
+                    animation-duration: 2.5s;
+                }
+                .textoBottom{
+                    @include textocontactoup(#9e9d9d,2vw,400);
+                    align-self: flex-end;
+                    padding-top: 23%;  
+                    padding-right: 1%;
+                    animation-name: texto4;
+                    animation-iteration-count: 1;
+                    animation-duration: 1.5s;
+                }
+        }       
+    }
+    @keyframes efecto1contacto{
+        from{
+            opacity: 0;
+            transform:translateX(-30px);
+        }
+        to{          
+            opacity: 1;
+            transform:translateX(0px);
+        }    
+    }
+    @keyframes texto3{
+        from{
+            opacity: 0;
+            transform:translateX(30px);
+        }
+        to{          
+            opacity: 1;
+            transform:translateX(0px);
+        }    
+    }
+    @keyframes texto4{
+        from{
+            opacity: 0;
+        }
+        to{          
+            opacity: 1;
+        }    
+    }
+    .cajaGral{
+        display: flex;
+        flex-direction: row;
+        background-color:rgba(245, 144, 153, 0.63);
+        padding: 1.5%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 2%;
+        .cajaFormIzq{
+            width: 30%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            background-color:rgba(228, 228, 228, 0.25);
+            color: $opacidadnegro4;;
+            border-radius: 10px;
+            border-style:solid;
+            border-width: 1.5px;
+            border-color: $opacidadnegro2;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 1%;
+            label{
+                display: block;
+                padding: 0;
+            }
+            .recuadrosCampos{
+                border-style: none;
+                background-color: rgba(255, 255, 255, 0.66);
+                display: flex;
+                margin-bottom: 1%;
+            }
+            .cajaNewsLetter{
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                margin-top: 1%;
+                .newsLetter{
+                    margin-left: 2%;
+                }
+            }
+            .cajaCantidad{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                .cantidadGatos{
+                    display: inline-block;
+                }
+            }
+            input[type=text] {
+                outline: none;
+                border: 1px solid rgba(255, 255, 255, 0.66);
+            }  
+            input[type=text]:focus {
+                border: 1px solid $opacidadnegro5;
+                color: rgba$opacidadnegro3;
+            }
+        }
+        .cajaFormDer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 70%;
+            height: 296px;
+            margin-left: 1.5%;
+            .recuadroMensaje{
+                border-style: none;
+                border-radius: 5px;
+                width: 100%;
+                height: 220px;
+                background-color: rgba(255, 255, 255, 0.66);
+            }
+            .enviar{
+                background-color:rgba(245, 144, 153, 0.63);
+                color: $opacidadnegro6;
+                font-size: 1rem;
+                font-weight: 700;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            .limpiar{
+                background-color:rgba(245, 144, 153, 0.63);
+                color:$opacidadnegro6;
+                font-size: 0.9rem;
+                font-weight: 500;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        }
+        ::placeholder{
+            color: $opacidadnegro5;
+        }
+        textarea{
+            outline: none;
+            border: 1px solid rgba(255, 255, 255, 0.66);
+        }  
+        textarea:focus{
+            border: 1px solid $opacidadnegro7;
+            color: $opacidadnegro3;
+        }    
+    }
+
+/*RESPONSIVE 1200**************************************************************************************************/
+@media screen and (max-width:1200px){  
+
+    .cajaGral{
+        .cajaFormIzq{
+            font-size: 0.8rem;
+        }
+        .cajaFormDer{
+            height: 296px;
+            .recuadroMensaje{
+                height: 250px;
+            }
+            .enviar{
+                font-size: 0.8rem;
+            }
+            .limpiar{
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+/*RESPONSIVE 768***************************************************************************************************/
+@media screen and (max-width:768px){    
+    .cajaGral{
+        flex-direction: column;
+        .cajaFormIzq{
+            width: 100%;
+            font-size: 0.75rem;
+        }
+        .cajaFormDer{
+            width: 100%;
+            margin-left: 0%;
+            padding: 2%;
+        }    
+    }
+}
+
+/*RESPONSIVE 320****************************************************************************************************/
+@media screen and (max-width:320px){
+/*NADA QUE MODIFICAR*/  
+}
