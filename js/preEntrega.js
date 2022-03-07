@@ -1,7 +1,6 @@
 //VARIABLES GENERALES
 let descuentoGeneral = 0.1
-//VARIABLES pendientes QUE EL CLIENTE MODIFICA O PRECARGA con interacciones en html(como hago esto?)
-let cantidadDeProducto = 3
+//VARIABLES pendientes QUE EL CLIENTE MODIFICA O PRECARGA con interacciones en html
 let formaDePago = "efectivo"
 //VARIABLES QUE VARIAN CONSECUENTEMENTE A LO MODIFICADO O PRECARGADO POR EL CLIENTE
 let costoDeEnvio = 0
@@ -37,8 +36,8 @@ class Direccion{
 //ARRAY
 
 const datosEnvioCliente = []
-    let pais = prompt("indicar pais")
-    let provincia = prompt("indicar provincia")
+    let pais = "Argentina"
+    let provincia = "Buenos Aires"
     let localidad = prompt("indicar localidad")
     let codigo_postal = parseInt(prompt("indicar codigo postal"))
     let domicilio = prompt("indicar domicilio")
@@ -58,10 +57,9 @@ const listaProductos = [];
 
 //FUNCIONES
 
-//eleccion de un producto mediante prompt, aunque deberia ser clickeando el item en el html
-
-let seleccionProducto = prompt("Elija un producto a comprar"); //ej. Grecia
+let seleccionProducto = prompt("Elija un producto a comprar"); //ej. Grecia pero deberia elegirse clickeando el item en el html
 productoElegido = listaProductos.find((rascadores) => rascadores.modelo.toLowerCase() === seleccionProducto)
+let cantidadDeProducto = parseInt(prompt("Cuantos quieres?"));
 
 
 //ej. para COSTO DE ENVIO DEPENDIENDO LOCALIDAD
@@ -83,14 +81,21 @@ if (formaDePago === "efectivo"){
     resultadoFinal = ((producto - descuento) * cantidad) + envio;
     }
    totalPedidoEfectivo(productoElegido.precio, productoElegido.descuento, cantidadDeProducto, costoDeEnvio);
+
+   alert(`El producto elegido es el ${productoElegido.modelo} y su precio es de $${productoElegido.precio}\n
+   El descuento correspondiente al producto elegido es de $${productoElegido.descuento} cada uno, por un total de $${productoElegido.descuento *= cantidadDeProducto}\n
+   El costo de envio es de $${costoDeEnvio}\n
+   El valor final a abonar es de $${resultadoFinal}`)
+
+
 }else {
     function totalPedidoEfectivo (producto, cantidad, envio){
         resultadoFinal = producto * cantidad + envio;
     }    
-    totalPedidoEfectivo(productoElegido.precio, cantidadDeProducto, costoDeEnvio);       
+    totalPedidoEfectivo(productoElegido.precio, cantidadDeProducto, costoDeEnvio);
+
+    alert(`El producto elegido es el ${productoElegido.modelo} y su precio es de $${productoElegido.precio}\n    
+    El costo de envio es de $${costoDeEnvio}\n
+    El valor final a abonar es de $${resultadoFinal}`)    
 }
 
-console.log(`El producto elegido es el ${productoElegido.modelo} y su precio es de $${productoElegido.precio}`);
-console.log(`El descuento correspondiente al producto elegido es de $${productoElegido.descuento}`);
-console.log(`El costo de envio es de $${costoDeEnvio}`);
-console.log("El valor final a abonar es de $" + resultadoFinal);
