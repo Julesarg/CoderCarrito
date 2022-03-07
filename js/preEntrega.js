@@ -55,6 +55,12 @@ datosEnvioCliente.push(
   new Direccion(pais, provincia, localidad, codigo_postal, domicilio)
 );
 
+console.log(
+  `los datos ingresados del cliente se detallan en el array: ${JSON.stringify(
+    datosEnvioCliente[0]
+  )}`
+);
+
 const listaProductos = [];
 listaProductos.push(
   new Rascador(
@@ -165,9 +171,29 @@ listaProductos.push(
   )
 );
 
+console.log(
+  `listado de items de objeto Rascador ${JSON.stringify(listaProductos)}`
+);
+
 //FUNCIONES
 
-let seleccionProducto = prompt("Elija un producto a comprar"); //ej. Grecia pero deberia elegirse clickeando el item en el html
+//buscador de items
+
+let campoDeBusqueda = parseInt(prompt("ingresar precio minimo de rascador"));
+let campoDeBusqueda2 = parseInt(prompt("ingresar precio maximo de rascador"));
+let resultadoBusqueda = listaProductos.filter(
+  (rascadores) =>
+    rascadores.precio >= campoDeBusqueda &&
+    rascadores.precio <= campoDeBusqueda2
+);
+
+console.log(
+  `resultados del filtro de busqueda por precio: ${JSON.stringify(
+    resultadoBusqueda
+  )}`
+);
+
+let seleccionProducto = prompt("Elija un producto a comprar").toLowerCase(); //ej. Grecia pero deberia elegirse clickeando el item en el html
 productoElegido = listaProductos.find(
   (rascadores) => rascadores.modelo.toLowerCase() === seleccionProducto
 );
@@ -196,7 +222,7 @@ if (formaDePago === "efectivo") {
     costoDeEnvio
   );
 
-  alert(`El producto elegido es el ${
+  console.log(`El producto elegido es el ${
     productoElegido.modelo
   } y su precio es de $${productoElegido.precio}\n
    El descuento correspondiente al producto elegido es de $${
@@ -211,7 +237,7 @@ if (formaDePago === "efectivo") {
   }
   totalPedidoEfectivo(productoElegido.precio, cantidadDeProducto, costoDeEnvio);
 
-  alert(`El producto elegido es el ${productoElegido.modelo} y su precio es de $${productoElegido.precio}\n    
+  console.log(`El producto elegido es el ${productoElegido.modelo} y su precio es de $${productoElegido.precio}\n    
     El costo de envio es de $${costoDeEnvio}\n
-    El valor final a abonar es de $${resultadoFinal}`)
+    El valor final a abonar es de $${resultadoFinal}`);
 }
