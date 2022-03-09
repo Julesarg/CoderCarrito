@@ -10,8 +10,8 @@
 
 ### Sobre el Proyecto
 `
-Trabajo de 4 meses desde cero aplicando conocimientos aprendidos durante el transcurso de la cursada de HTML+CSS.
-Se elige un proyecto desde el maquetado hasta la subida al servidor.
+
+Se ira incorporando lenguaje de Javascript al trabajo desarrollado en la cursada previa
 `
 ### Herramientas y complementos
 
