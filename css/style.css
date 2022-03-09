@@ -1299,6 +1299,7 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   width: 70%;
 }
 .productosContenedor .cajaMenuDer .cajaTextoDondeEstoy {
+  width: 20%;
   display: flex;
   flex-direction: row;
   width: auto;
@@ -1314,6 +1315,42 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding-left: 5px;
   transition: 0.3s;
+}
+.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBusquedaMinimo {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 10%;
+}
+.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBusquedaMaximo {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 10%;
+}
+.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBusquedaGeneral {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 40%;
+}
+.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBuscar {
+  align-items: center;
+  text-align: right;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 10%;
 }
 .productosContenedor .cajaMenuDer .cajaTextoDondeEstoy :hover {
   opacity: 0.5;
