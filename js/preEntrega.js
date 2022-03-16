@@ -209,15 +209,58 @@ listaProductos.push(
   )
 );
 
-//AGREGADO DOM DE PRODUCTOS
-const cajaProductos = document.getElementById("cajaProductos");
+
+////////////////////////////DOM caja de buscador
+const cajaBuscador = document.getElementById("cajaBuscador");
+
+const cajaBusquedaMinimo = document.createElement(`input`);
+const cajaBusquedaMaximo = document.createElement(`input`);
+const cajaBusquedaGeneral = document.createElement(`input`);
+const cajaBotonBuscar = document.createElement(`div`);
+
+cajaBusquedaMinimo.className = `cajaBusquedaMinimo`;
+cajaBusquedaMaximo.className = `cajaBusquedaMaximo`;
+cajaBusquedaGeneral.className = `cajaBusquedaGeneral`;
+cajaBotonBuscar.className = `cajaBuscar`;
+cajaBusquedaMinimo.id = `cajaBusquedaMinimo`;
+cajaBusquedaMaximo.id = `cajaBusquedaMaximo`;
+cajaBusquedaGeneral.id = `cajaBusquedaGeneral`;
+cajaBotonBuscar.id = `cajaBuscar`;
+cajaBusquedaMinimo.placeholder = `precio min.`
+cajaBusquedaMaximo.placeholder = `precio max.`
+
+cajaBotonBuscar.innerHTML = `Buscar`; // interaccion
+
+cajaBuscador.append(cajaBusquedaMinimo, cajaBusquedaMaximo, cajaBusquedaGeneral, cajaBotonBuscar);
+
+//////////////////////////DOM caja de productos
+const cajaGeneralProductos = document.getElementById("cajaProductos");
 
 for (const producto of listaProductos) {
-  const cardGeneralItems = document.createElement(`div`);
-  cardGeneralItems.className = `cajitaImagen`;
-  cardGeneralItems.innerHTML = `<img src="${producto.img}" alt="${producto.modelo}" class="imagenProductoListado"><a class="textoprueba1">${producto.modelo}</a>`;
-  cajaProductos.append(cardGeneralItems);
+ const cajaIndividual = document.createElement(`div`); //caja individual general del grid
+ const cajaInferior = document.createElement(`div`) // caja contenedora de nombre y precio
+ const cajaImagen = document.createElement(`img`); //caja img
+ const cajaNombreProducto = document.createElement(`p`); //caja nombre de producto
+ const cajaPrecio = document.createElement(`p`); // caja precio de producto
+ const cajaComprar = document.createElement(`p`) //caja de boton de compra
+ 
+  cajaIndividual.className = `cajaIndividual`; //clase de caja individual general
+  cajaInferior.className = `cajaInferior` // clase de caja contenedora de nombre y prod
+  cajaImagen.src= `${producto.img}`; //src de imagen
+  cajaImagen.className = `cajaImagen` // clase de imagen
+  cajaNombreProducto.className = `nombreModelo`; //clase del texto de nombre de producto
+  cajaPrecio.className = `precioProducto` // clase del texto de precio del producto
+  cajaComprar.className = `botonComprar` // clase de boton comprar
+
+  cajaNombreProducto.innerHTML = `${producto.modelo}`;
+  cajaPrecio.innerHTML = `$${producto.precio}`;
+  cajaComprar.innerHTML = `COMPRAR`;
+
+  cajaGeneralProductos.append(cajaIndividual);
+  cajaIndividual.append(cajaImagen, cajaInferior, cajaComprar);
+  cajaInferior.append(cajaNombreProducto, cajaPrecio);  
 }
+
 
 // console.table(listaProductos);
 

@@ -1083,8 +1083,6 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   }
 }
 /*RESPONSIVE 320*****************************************************************************************************/
-/*MIXIN REGLAS*/
-/***************************************************************************************************************************/
 /*bootstrap correciones*/
 .bannerFooterTexto:hover {
   color: white;
@@ -1092,7 +1090,6 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 
 /*fin correciones*/
 /***************************************************************************************************************************/
-/*MAIN 1920px*/
 .bannerFondoProductos {
   width: 100%;
   height: 100%;
@@ -1298,106 +1295,145 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   margin-right: 5%;
   width: 70%;
 }
-.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy {
-  width: 20%;
+.productosContenedor .cajaMenuDer .cajaBuscador {
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
-  width: auto;
-  margin: 5px;
-}
-.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .textoDondeEstoy {
-  display: inline-block;
-  color: black;
-  opacity: 0.3;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding-left: 5px;
-  transition: 0.3s;
-}
-.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBusquedaMinimo {
-  display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  font-size: 1rem;
   text-align: right;
-  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.productosContenedor .cajaMenuDer .cajaBuscador .cajaBusquedaMinimo {
+  text-align: center;
+  border-radius: 10px;
   background-color: white;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
-  width: 10%;
+  width: 7%;
+  margin-right: 30px;
+  font-style: italic;
 }
-.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBusquedaMaximo {
-  display: flex;
-  align-items: center;
-  text-align: right;
-  border-radius: 20px;
+.productosContenedor .cajaMenuDer .cajaBuscador .cajaBusquedaMaximo {
+  text-align: center;
+  border-radius: 10px;
   background-color: white;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
-  width: 10%;
+  width: 7%;
+  margin-right: 30px;
+  font-style: italic;
 }
-.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBusquedaGeneral {
-  display: flex;
+.productosContenedor .cajaMenuDer .cajaBuscador .cajaBusquedaGeneral {
   flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: white;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
   width: 40%;
+  padding-left: 10px;
+  margin-right: 30px;
+  font-style: italic;
 }
-.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .cajaBuscar {
-  align-items: center;
-  text-align: right;
+.productosContenedor .cajaMenuDer .cajaBuscador ::placeholder {
+  padding-left: 5px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.productosContenedor .cajaMenuDer .cajaBuscador .cajaBuscar {
   border-radius: 20px;
   background-color: white;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
   width: 10%;
-}
-.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy :hover {
-  opacity: 0.5;
-  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  margin-right: 30px;
+  font-weight: bold;
 }
 .productosContenedor .cajaMenuDer .cajaProductos {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 250px);
-  grid-template-rows: repeat(auto-fill, 240px);
-  grid-column-gap: 100px;
+  grid-template-columns: repeat(auto-fill, 275px);
+  grid-template-rows: repeat(auto-fill, 360px);
+  grid-column-gap: 60px;
   grid-row-gap: 100px;
   height: auto;
   border-top-style: solid;
   border-top-color: rgba(0, 0, 0, 0.3);
   border-top-width: 3px;
-  padding-top: 2%;
+  padding-top: 4%;
 }
-.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen {
-  position: relative;
-  width: 250px;
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 275px;
+  height: fit-content;
+  border-radius: 10px;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaImagen {
+  display: flex;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.3);
 }
-.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen .textoprueba1 {
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior {
   display: flex;
-  position: absolute;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2%;
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .nombreModelo {
+  color: darkgrey;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .precioProducto {
+  color: grey;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar {
+  display: flex;
+  width: 90%;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #d9737f;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
   justify-content: center;
   align-items: center;
-  top: 105%;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  background-color: rgba(191, 85, 124, 0.3);
-  box-shadow: 2px 2px 4px 3px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 13px;
-  transition: 0.5s ease;
-  font-size: 1.25rem;
-  padding-bottom: 5px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 500;
-  color: rgba(191, 85, 124, 0);
-  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: white;
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  transition-property: color;
+  transition-duration: 0.3s;
 }
-.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen:hover .textoprueba1 {
-  height: 12%;
-  color: slategrey;
-  text-decoration: none;
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #e7132c;
+  border-radius: 40px;
+  transform: scaleX(0);
+  transform-origin: 50%;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:hover,
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:focus,
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:active {
+  color: white;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:hover:before,
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:focus:before,
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:active:before {
+  transform: scaleX(1);
 }
 
 .accordion-collapse {
@@ -1433,130 +1469,6 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   display: block;
 }
 
-/*RESPONSIVE 1200***************************************************************************************************/
-@media screen and (max-width: 1200px) {
-  div.separador {
-    display: block;
-  }
-
-  section.productosContenedor {
-    flex-direction: column;
-    align-items: center;
-  }
-  section.productosContenedor .cajaMenuIzq {
-    margin-left: 0%;
-    margin-top: 0%;
-    margin-bottom: 3%;
-    width: 100%;
-    border-radius: 0px;
-  }
-  section.productosContenedor .cajaMenuIzq .textoProductos {
-    font-size: 1.4rem;
-  }
-  section.productosContenedor .cajaMenuIzq .accordion {
-    margin-top: 1%;
-  }
-  section.productosContenedor .cajaMenuIzq .accordion .accordion-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  section.productosContenedor .cajaMenuIzq .accordion .accordion-item .accordion-header .accordion-button {
-    font-size: 1.2rem;
-  }
-  section.productosContenedor .cajaMenuIzq .accordion .accordion-button::after {
-    display: none;
-  }
-  section.productosContenedor .cajaMenuDer {
-    margin-right: 0%;
-    width: 90%;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos {
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-template-rows: repeat(auto-fill, 200px);
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen {
-    width: 200px;
-    height: 200px;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen a .imagenProductoListado {
-    width: 200px;
-    height: 200px;
-    display: block;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen .textoprueba1 {
-    top: 101%;
-  }
-
-  .accordion-collapse {
-    width: 100%;
-  }
-  .accordion-collapse .hipervinculosTextoProductos {
-    font-size: 1.25rem;
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-}
-/*RESPONSIVE 768***************************************************************************************************/
-@media screen and (max-width: 768px) {
-  div.bannerCajaTexto {
-    bottom: 50px;
-    height: 50px;
-  }
-  div.bannerCajaTexto .bannerFooterTexto {
-    font-size: 1.5rem;
-  }
-
-  div.separador {
-    display: none;
-  }
-
-  section.productosContenedor {
-    flex-direction: column;
-  }
-  section.productosContenedor .cajaMenuIzq .textoProductos {
-    font-size: 1rem;
-  }
-  section.productosContenedor .cajaMenuIzq .accordion .accordion-item .accordion-header .accordion-button {
-    font-size: 1rem;
-  }
-  section.productosContenedor .cajaMenuIzq .accordion .accordion-item .accordion-collapse .hipervinculosTextoProductos {
-    font-size: 1rem;
-  }
-  section.productosContenedor .cajaMenuDer .cajaTextoDondeEstoy .textoDondeEstoy {
-    font-size: 1.4rem;
-    padding-left: 0px;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos {
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-template-rows: repeat(auto-fill, 150px);
-    grid-column-gap: 20px;
-    grid-row-gap: 50px;
-    justify-items: center;
-    padding-top: 25px;
-    margin-bottom: 10%;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen {
-    height: 150px;
-    width: 150px;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen a .imagenProductoListado {
-    width: 150px;
-    height: 150px;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen .textoprueba1 {
-    top: 100%;
-    font-size: 1.1rem;
-  }
-  section.productosContenedor .cajaMenuDer .cajaProductos .cajitaImagen:hover .textoprueba1 {
-    height: 20%;
-  }
-}
-/*RESPONSIVE 320*****************************************************************************************************/
-@media screen and (max-width: 320px) {
-  /*NADA QUE MODIFICAR*/
-}
 /*MIXIN REGLAS*/
 /***************************************************************************************************************************/
 /*MAIN 1920px*/
