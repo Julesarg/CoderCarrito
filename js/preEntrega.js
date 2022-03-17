@@ -262,6 +262,10 @@ for (const producto of listaProductos) {
 }
 
 
+
+
+
+
 // console.table(listaProductos);
 
 // ////////////////////////FUNCIONES
