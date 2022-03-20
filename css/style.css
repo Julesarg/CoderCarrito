@@ -1364,11 +1364,15 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 275px;
+  width: 250px;
   height: fit-content;
   border-radius: 10px;
 }
-.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaImagen {
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual a {
+  width: fit-content;
+  transition-duration: 0.2s;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual a .cajaImagen {
   display: flex;
   width: 100%;
   height: auto;
@@ -1376,20 +1380,51 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   border-top-right-radius: 10px;
   box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.3);
 }
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual a:hover {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior {
   display: flex;
-  width: 100%;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 2%;
-  font-size: 1.2rem;
+  width: 100%;
+  height: auto;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .nombreModelo {
+  display: flex;
+  width: 100%;
+  font-size: 1.2rem;
+  color: #d9737f;
+  text-align: left;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #e09ba3;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .cajaPrecioLista {
+  display: flex;
+  justify-content: space-between;
   color: darkgrey;
 }
-.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .precioProducto {
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .cajaPrecioEfvo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: grey;
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .cajaPrecioEfvo .descuentoPrecioEfvo {
+  font-size: 0.9rem;
+  color: rgba(0, 139, 7, 0.7);
+}
+.productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .cajaInferior .cajaPrecioEfvo .precioEfvo {
+  font-size: 1.2rem;
 }
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar {
   display: flex;

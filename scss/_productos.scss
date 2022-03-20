@@ -275,30 +275,72 @@
         flex-direction: column;
         text-align: center;
         align-items: center;
-        width: 275px;
+        width: 250px;
         height: fit-content;
         border-radius: 10px;
-        .cajaImagen {
-          display: flex;
-          width: 100%;
-          height: auto;
+        a{
+          width: fit-content;
+          transition-duration: 0.2s;
+          .cajaImagen {
+            display: flex;
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.3);
+          }
+        }
+        a:hover{
           border-top-left-radius: 10px;
           border-top-right-radius: 10px;
           box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.3);
+          transform: scale(1.02)
+
         }
         .cajaInferior {
           display: flex;
-          width: 100%;
+          flex-direction: column;
           justify-content: space-between;
-          padding: 2%;
-          font-size: 1.2rem;
+          width: 100%;
+          height: auto;
           font-family: "Poppins", sans-serif;
           font-weight: 600;
+          margin-bottom: 10px;
           .nombreModelo {
-            color: darkgrey;
+            display: flex;
+            width: 100%;
+            font-size: 1.2rem;
+            color:#d9737f;
+            text-align: left;
+            padding-top: 5px;
+            margin-bottom: 5px;
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            border-bottom-color: #e09ba3;
           }
-          .precioProducto {
+          .cajaPrecioLista{
+            display: flex;
+            justify-content: space-between;            
+            color: darkgrey;
+            .textoPrecioLista{             
+            }
+            .precioLista{
+            }
+          }
+          .cajaPrecioEfvo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             color: grey;
+            .textoPrecioEfvo{
+            }
+            .descuentoPrecioEfvo{
+              font-size: 0.9rem;
+              color: rgb(0, 139, 7, 0.7);
+            }
+            .precioEfvo{
+              font-size: 1.2rem;
+            }
           }
         }
         .botonComprar {
