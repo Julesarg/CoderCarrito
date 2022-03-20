@@ -3,7 +3,6 @@ let resultadoFinal = 0;
 const descuentoGeneral = 0.1
 const precioEfectivo = 0.9
 
-
 // console.table(listaProductos);
 
 // ////////////////////////FUNCIONES

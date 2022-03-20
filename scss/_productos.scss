@@ -257,7 +257,6 @@
         font-weight: bold;
       }
     }
-
     .cajaProductos {
       display: grid;
       justify-content: center;
@@ -381,6 +380,7 @@
         .botonComprar:focus,
         .botonComprar:active {
           color: white;
+          cursor: pointer;
         }
         .botonComprar:hover:before,
         .botonComprar:focus:before,
@@ -388,6 +388,43 @@
           transform: scaleX(1);
         }
       }
+    }
+    .cajaCarritoGeneral{
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      margin-top: 2%;
+      .cajaCarritoProducto{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border-radius: 20px;
+        background-color: white;
+        box-shadow: 1px 1px 20px rgb(0 0 0 / 40%);
+        font-size: 1.4rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: #fa576a;
+        text-align: right;
+        padding: 20px;        
+        img{
+          width: 140px;
+          height: 140px;
+          box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+          margin-top: 15px;
+        }
+        p{
+          font-size: 1.2rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          color: #d9737f;
+          text-align: left;
+        }  
+      }    
+    }
+    button{
+      width: 30%;
     }
   }
 }

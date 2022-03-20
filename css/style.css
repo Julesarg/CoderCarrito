@@ -1464,11 +1464,49 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:focus,
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:active {
   color: white;
+  cursor: pointer;
 }
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:hover:before,
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:focus:before,
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:active:before {
   transform: scaleX(1);
+}
+.productosContenedor .cajaMenuDer .cajaCarritoGeneral {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fa576a;
+  text-align: right;
+  padding: 20px;
+}
+.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto img {
+  width: 140px;
+  height: 140px;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+}
+.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto p {
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #d9737f;
+  text-align: left;
+}
+.productosContenedor .cajaMenuDer button {
+  width: 30%;
 }
 
 .accordion-collapse {

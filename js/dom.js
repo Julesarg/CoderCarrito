@@ -1,6 +1,7 @@
 ////////////////////////////DOM caja de buscador
 const cajaBuscador = document.getElementById("cajaBuscador");
 
+////////////////////////////////////////////////////////////////////
 const cajaBusquedaMinimo = document.createElement(`input`);
 const cajaBusquedaMaximo = document.createElement(`input`);
 const cajaBusquedaGeneral = document.createElement(`input`);
@@ -20,14 +21,17 @@ cajaBusquedaMaximo.placeholder = `precio max.`
 cajaBotonBuscar.innerHTML = `Buscar`; // interaccion
 
 cajaBuscador.append(cajaBusquedaMinimo, cajaBusquedaMaximo, cajaBusquedaGeneral, cajaBotonBuscar);
+// ///////////////////////////////////////////////////////////////////////
 
 //////////////////////////DOM CAJA DE PRODUCTOS
 
+
 const cajaGeneralProductos = document.getElementById("cajaProductos");
+const botonCarrito = document.getElementById(`botonCarrito`);
 
 for (const producto of listaProductos) {
- const cajaIndividual = document.createElement(`div`); 
 
+ const cajaIndividual = document.createElement(`div`);
  const linkProducto = document.createElement(`a`); 
  const cajaImagen = document.createElement(`img`);
  const cajaInferior = document.createElement(`div`);
@@ -41,7 +45,6 @@ for (const producto of listaProductos) {
  const precioEfvo = document.createElement(`p`);
  const cajaComprar = document.createElement(`p`);
 
-//clases
   cajaIndividual.className = `cajaIndividual`;  
   cajaImagen.className = `cajaImagen`;
   cajaInferior.className = `cajaInferior`;
@@ -54,9 +57,8 @@ for (const producto of listaProductos) {
   descuentoPrecioEfvo.className = `descuentoPrecioEfvo`;
   precioEfvo.className = `precioEfvo`;
   cajaComprar.className = `botonComprar`;
+  cajaComprar.id = `${producto.id}`
 
-
-//contenido de nodos
   linkProducto.target = "_blank";
   linkProducto.setAttribute("href", `${producto.link}`);
   cajaImagen.src= `${producto.img}`;
@@ -68,11 +70,38 @@ for (const producto of listaProductos) {
   precioEfvo.innerHTML = `$${producto.precioEfectivo()}`;
   cajaComprar.innerHTML = `COMPRAR`;
 
-
   cajaGeneralProductos.append(cajaIndividual);
   cajaIndividual.append(linkProducto, cajaInferior, cajaComprar);
   linkProducto.append(cajaImagen);
   cajaInferior.append(cajaNombreProducto, cajaPrecioLista, cajaPrecioEfvo);
   cajaPrecioLista.append(textoPrecioLista, precioLista);
   cajaPrecioEfvo.append(textoPrecioEfvo, descuentoPrecioEfvo, precioEfvo);
+
+  cajaComprar.onclick = () => {
+    const productoComprado = listaProductos.find(producto => producto.id === cajaComprar.id);
+    carrito.push({img: productoComprado.img, modelo:productoComprado.modelo, precio:productoComprado.precio})
+    alert('producto agregado al carrito'); //ver
+  }
 }
+
+
+
+const cajaCarritoGeneral = document.getElementById('cajaCarritoGeneral');
+const cajaCarritoProducto = document.createElement(`div`);
+cajaCarritoProducto.className = `cajaCarritoProducto`;
+
+const mostrarCarrito = () => {  
+  for (const producto of carrito){
+    const imagenProducto = `<img src="${producto.img}">`;
+    const nombreProducto = `<p>Modelo: ${producto.modelo}</p>`;
+    const precioProducto = `<p>Precio: $${producto.precio}</p>`;
+    cajaCarritoProducto.innerHTML += imagenProducto;
+    cajaCarritoProducto.innerHTML += nombreProducto;
+    cajaCarritoProducto.innerHTML += precioProducto;
+  }
+  const totalCompra = carrito.reduce((accumulador, producto) => accumulador + producto.precio, 0);
+  cajaCarritoProducto.append(`TOTAL: $${totalCompra}`);
+  cajaCarritoGeneral.append(cajaCarritoProducto);
+}
+
+  botonCarrito.onclick = mostrarCarrito;
