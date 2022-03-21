@@ -74,4 +74,5 @@ listaProductos.push(
   new Rascador("8","../images/productos/ruma.png","Rumapets","Rascador","Ruma",25200, listaPropiedadesProductos[8],"https://www.rumapets.com.ar/rascadores-grandes/rascador-ruma"));
 
 //carrito de compras
- const carrito = []
+ const carrito =[];
+ const carritoLocal = JSON.parse(localStorage.getItem(`carritoLocal`));

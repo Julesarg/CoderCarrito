@@ -84,7 +84,8 @@ for (const producto of listaProductos) {
 
   cajaComprar.onclick = () => {
     const productoComprado = listaProductos.find(producto => producto.id === cajaComprar.id);
-    carrito.push({img: productoComprado.img, modelo:productoComprado.modelo, precio:productoComprado.precio})
+    carrito.push({img: productoComprado.img, modelo:productoComprado.modelo, precio:productoComprado.precio});
+    localStorage.setItem(`carritoLocal`, JSON.stringify(carrito));
     alert('producto agregado al carrito, luego modificare esto'); //hacer pop up no invasivo con bootstrap despues
   }
 }
@@ -98,6 +99,7 @@ cajaTextoSuperior.className = `cajaTextoSuperior`;
 cajaTextoSuperior.innerHTML = `<p>Articulo</> <p>Carrito</p>`
 
 const mostrarCarrito = () => {
+  const carrito = JSON.parse(localStorage.getItem(`carritoLocal`));
   cajaCarritoGeneral.append(cajaTextoSuperior);  
 
   for (const producto of carrito){
