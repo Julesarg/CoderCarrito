@@ -3,12 +3,8 @@ let resultadoFinal = 0;
 const descuentoGeneral = 0.1;
 const precioEfectivo = 0.9;
 
-////////////////////////////DOM BARRA BUSCADOR
+////////////////////////////BARRA BUSQUEDA
 const cajaBuscador = document.getElementById("cajaBuscador");
-let input1 = document.getElementById(`cajaBusquedaMinimo`);
-let input2 = document.getElementById(`cajaBusquedaMaximo`);
-let input3 = document.getElementById(`cajaBusquedaGeneral`);
-
 const cajaBusquedaMinimo = document.createElement(`input`);
 const cajaBusquedaMaximo = document.createElement(`input`);
 const cajaBusquedaGeneral = document.createElement(`input`);
@@ -16,10 +12,10 @@ const cajaBotonBuscar = document.createElement(`button`);
 
 cajaBusquedaMinimo.className = `cajaBusquedaMinimo`;
 cajaBusquedaMaximo.className = `cajaBusquedaMaximo`;
-cajaBusquedaGeneral.className = `cajaBusquedaGeneral`;
-cajaBotonBuscar.className = `cajaBuscar`;
 cajaBusquedaMinimo.type = `number`;
 cajaBusquedaMaximo.type = `number`;
+cajaBusquedaGeneral.className = `cajaBusquedaGeneral`;
+cajaBotonBuscar.className = `cajaBuscar`;
 cajaBusquedaMinimo.id = `cajaBusquedaMinimo`;
 cajaBusquedaMaximo.id = `cajaBusquedaMaximo`;
 cajaBusquedaGeneral.id = `cajaBusquedaGeneral`;
@@ -36,7 +32,10 @@ cajaBuscador.append(
   cajaBotonBuscar
 );
 
-/////////////////FUNCIONES Y EVENTOS BARRA BUSCADOR
+let input1 = document.getElementById(`cajaBusquedaMinimo`);
+let input2 = document.getElementById(`cajaBusquedaMaximo`);
+let input3 = document.getElementById(`cajaBusquedaGeneral`);
+
 input1.onchange = () => {
   resultadoBusquedaValores = listaProductos.filter(
     (rascadores) =>
@@ -141,7 +140,7 @@ cajaBotonBuscar.onclick = () => {
   }
 };
 
-//////////////////////////DOM CAJA DE PRODUCTOS
+//////////////////////////CAJA DE PRODUCTOS
 
 const cajaGeneralProductos = document.getElementById("cajaProductos");
 const botonCarrito = document.getElementById(`botonCarrito`);
@@ -208,7 +207,8 @@ for (const producto of listaProductos) {
   };
 }
 
-//////////////////////////DOM CARRITO
+////////////////////////////CARRITO
+
 let cajaCarritoProducto;
 const cajaCarritoGeneral = document.getElementById("cajaCarritoGeneral");
 
@@ -253,8 +253,7 @@ const mostrarCarrito = () => {
 };
 botonCarrito.onclick = mostrarCarrito;
 
-////////////////////////FUNCIONES PENDIENTES
-
+////////////////////////FUNCIONES PENDIENTES?
 
 // //ej. para COSTO DE ENVIO DEPENDIENDO LOCALIDAD
 
