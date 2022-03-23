@@ -1555,7 +1555,8 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   text-align: right;
   padding-right: 10px;
 }
-.productosContenedor .cajaMenuDer button {
+.productosContenedor .cajaMenuDer .botonCarrito {
+  margin-top: 30px;
   width: 30%;
 }
 
