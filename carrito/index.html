@@ -21,17 +21,21 @@
     <!--estilos personales de web-->
     <link rel="stylesheet" href="../css/style.css">
     <!--script js-->
-    <script src="../js/preEntrega.js" async></script>    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
+    <script src="../js/objetos_y_listas.js" async></script>
+    <script src="../js/dom_y_logica.js" async></script>    
     <!--titulo-->      
     <title>Rascadores para gatos Rumapets | Materiales</title>
 </head>
 <!--------------------------------------BODY----------------------------------------------------------------->
 <body>
     <header>
-        <section class="headerBox">
-            <div>
-                <a href="../carrito/index.html"><img src="../images/carrito/carrito.png" class="imgCarrito"></a>
-            </div>
+        <section class="headerBox">            
+            <button type="button" class="botonCarritoHeader">
+                <a href="../carrito/index.html"><img src="../images/carrito/carritovacio.png" class="imgCarrito"></a>
+                <span id="badgeCarrito" class="contadorCarrito">0</span>
+              </button>
+  
         </section>  
     </header>
     <section class="navegacion">
@@ -39,11 +43,11 @@
             <label for="hamburguesa"><img src="../images/navbar/hamburguesa.png" alt="botonmenu"></label>
         <nav>
             <ul>
-                <li class="cajaNavBar"><a href="../index.html" class="textoNavBar" >INICIO</a></li>
+                <li class="cajaNavBar"><a href="../404.html" class="textoNavBar" >INICIO</a></li>
                 <li class="cajaNavBar"><a href="../productos"class="textoNavBar">PRODUCTOS</a></li>
                 <li class="LiImagen"><img src="../images/logo/logo.png"alt="logo"></li>            
-                <li class="cajaNavBar"><a href="../clientes" class="textoNavBar">CLIENTES</a></li>
-                <li class="cajaNavBar"><a href="../materiales" class="textoNavBar">MATERIALES</a></li>
+                <li class="cajaNavBar"><a href="../404.html" class="textoNavBar">CLIENTES</a></li>
+                <li class="cajaNavBar"><a href="../404.html" class="textoNavBar">MATERIALES</a></li>
             </ul>
         </nav>
     </section>
@@ -51,7 +55,13 @@
 <section class="fondoHuellas">
 <section class="efectoEntrePaginas">
 
+    <div class="cajaCarritoGeneral" id="cajaCarritoGeneral">
+    </div>
+    <button id="botonCarrito">VER CARRITO</button>
 
+
+
+<!-- 
     <div class="contenedorCarritoGeneral">
         <div class="carritoArticulo">
             <div class="carritoArticulo--superior">
@@ -113,7 +123,7 @@
             </div>        
         </div>
     </div>
-    
+     -->
 
 
 

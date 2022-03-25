@@ -166,12 +166,45 @@ main {
 }
 
 /*HEADER************************************************/
-.headerBox {
+header{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  background-color: white;
+  margin-top: 15px;
+    .headerBox {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background-color: white;  
+      justify-content:right;
+      .botonCarritoHeader{
+        width: 6%;
+        display: flex;
+        justify-content: right;
+        border-style: none;
+        background-color: white;
+        padding-bottom: 2px;
+            .imgCarrito{
+              height: 40px;
+              width: auto;
+            }
+            .contadorCarrito{
+              display: flex;
+              position: relative;
+              right: 15px;
+              justify-content: center;
+              align-items: center;
+              background-color: red;
+              color: white;
+              font-family: "Poppins", sans-serif;
+              font-weight: 600;
+              font-size: 0.9rem;
+              width: 20px;
+              height: 20px;
+              border-radius: 100%;
+            }
+      }
+    }
   .headerBoxText {
     display: flex;
     width: 100%;
@@ -184,26 +217,89 @@ main {
     text-transform: uppercase;
     margin: 0%;
     padding: 0%;
+    }
+    .logoHeader {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      bottom: 40px;
+      display: none;
+    }
+  }    
+
+
+  /*sweet alert*/
+.swal2-container{
+  background:rgba(0,0,0,.2)!important;
+  .swal2-popup.swal2-show.swal2-modal.swal2-icon-success{
+    display: flex !important;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background:rgba(255,255,255,.9);
+    box-shadow: 1px 1px 10px rgb(0 0 0 / 20%);
+    .swal2-icon.swal2-success.swal2-icon-show{
+      margin: 0px;
+      .swal2-success-circular-line-left{
+        margin: 0px;
+        background-color:transparent !important;
+      }
+      .swal2-success-circular-line-right{
+        margin: 0px;
+        background-color:transparent !important;
+    }  
+    .swal2-success-fix{
+      margin: 0px;
+        background-color:transparent !important;
+    }
+  } 
+    .swal2-image{
+      margin: 0px;
+      height: auto;
+          }
+    .swal2-title{
+      font-size: 1.5rem;
+      padding: 0;
+      width: 35%;
+    }
   }
-  .logoHeader {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    bottom: 40px;
-    display: none;
-  }
-  div{
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    .imgCarrito{
-      height: 40px;
-      width: auto;
-      padding-right: 20px;
+  .swal2-popup.swal2-hide.swal2-modal.swal2-icon-success{
+      display: flex !important;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background:rgba(255,255,255,.9);
+    box-shadow: 1px 1px 10px rgb(0 0 0 / 20%);
+    .swal2-icon.swal2-success.swal2-icon-show{
+      margin: 0px;
+      .swal2-success-circular-line-left{
+        margin: 0px;
+        background-color:transparent !important;
+      }
+      .swal2-success-circular-line-right{
+        margin: 0px;
+        background-color:transparent !important;
+    }  
+    .swal2-success-fix{
+      margin: 0px;
+        background-color:transparent !important;
+    }
+  } 
+    .swal2-image{
+      margin: 0px;
+      height: auto;
+          }
+    .swal2-title{
+      font-size: 1.5rem;
+      padding: 0;
+      width: 35%;
     }
   }
 }
-
 
 /*BARRA DE NAVEGACION************************************/
 .navegacion {

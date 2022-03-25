@@ -133,9 +133,20 @@ cajaBotonBuscar.onclick = () => {
         img: productoComprado.img,
         modelo: productoComprado.modelo,
         precio: productoComprado.precio,
-      });
+      });      
+
       localStorage.setItem(`carritoLocal`, JSON.stringify(carrito));
-      alert("producto agregado al carrito, luego modificare esto"); //hacer pop up no invasivo con bootstrap despues
+
+      Swal.fire({
+        position: "bottom-end",
+        imageUrl: `${producto.img}`,
+        icon: `success`,
+        imageWidth: `100px`,
+        imageHeight: `100px`,
+        title: `Has agregado el rascador "${producto.modelo}" a tu carrito`,
+        showConfirmButton: false,
+        timer: 2500,
+      });
     };
   }
 };
@@ -202,9 +213,23 @@ for (const producto of listaProductos) {
       modelo: productoComprado.modelo,
       precio: productoComprado.precio,
     });
+     
     localStorage.setItem(`carritoLocal`, JSON.stringify(carrito));
-    alert("producto agregado al carrito, luego modificare esto"); //hacer pop up no invasivo con bootstrap despues
+
+
+
+    Swal.fire({
+      position: "bottom-end",
+      imageUrl: `${producto.img}`,
+      icon: `success`,
+      imageWidth: `100px`,
+      imageHeight: `100px`,
+      title: `Has agregado el rascador "${producto.modelo}" a tu carrito`,
+      showConfirmButton: false,
+      timer: 2500,
+    });
   };
+ 
 }
 
 ////////////////////////////CARRITO

@@ -1,171 +1,237 @@
-.contenedorCarritoGeneral {
+.cajaCarritoGeneral {
+  width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  margin-top: 3%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  .carritoArticulo {
+  margin-top: 2%;
+  .cajaTextoSuperior {
     display: flex;
-    flex-direction: column;
-    width: 90%;
-    font-size: 1.2rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    color: #d9737f;
+    width: 100%;
     margin-top: 2%;
-    .carritoArticulo--superior {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      .carritoArticulo--superior--texto {
-        display: block;
-        padding-left: 20px;
-        padding-right: 20px;
-        text-decoration: none;
-      }
-    }
-    
-    .carritoArticulo--inferior {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
-      border-radius: 20px;
-      background-color: white;
-      box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
-      .carritoArticulo--inferior--imagen {
-        display: flex;
-        width: 100%;
-        padding: 20px;
-        img {
-          width: 35%;
-        }
-      }
-      .carritoArticulo--inferior--cantidad {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .carritoArticulo--inferior--precio {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .carritoArticulo--inferior--eliminar {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        img {
-          width: 10%;
-          height: auto;
-        }
-      }
+    justify-content: space-between;
+    p {
+      display: block;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      color: #d9737f;
     }
   }
-  .carritoEnvio {
+  .cajaCarritoProducto {
     display: flex;
-    flex-direction: column;
-    width: 90%;
-    font-size: 1.2rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    color: #d9737f;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    .carritoEnvio--superior {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      .carritoEnvio--superior--texto {
-        display: block;
-        padding-left: 20px;
-        padding-right: 20px;
-        text-decoration: none;
-      }
-    }
-    .carritoEnvio--inferior {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      border-radius: 15px;
-      background-color: white;
-      box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
-      .carritoEnvio--inferior--imagenEnvio {
-        display: flex;
-        width: 100%;
-        padding: 20px;
-      }
-      .carritoEnvio--inferior--domicilio {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        text-align: center;
-      }
-      .carritoEnvio--inferior--precio {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .carritoEnvio--inferior--modificarEnvio {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
-  }
-  .carritoTotal {
-    margin-top: 10px;
-    display: inline-flex;
-    width: 90%;
-    font-size: 1.2rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    color: #d9737f;
-    flex-direction: row;
+    height: auto;
+    margin-bottom: 10px;
+    justify-content: space-between;
     align-items: center;
-    text-align: right;
-    padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: white;
-    box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
-    .carritoTotal--textoTotal {
-      width: 100%;
+    box-shadow: 1px 1px 10px rgb(0 0 0 / 20%);
+    font-size: 1.4rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: #fa576a;
+    text-align: right;
+    padding-left: 60px;
+    padding-right: 60px;
+    img {
+      width: 140px;
+      height: 140px;
+      box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
-    .carritoTotal--totalNumero {
-      width: 20%;
-      padding-right: 30px;
-      font-size: 1.6rem;
-    }
-  }
-}
-.carritoContinuarPago {
-  display: flex;
-  width: 90%;
-  justify-content: right;
-  margin-bottom: 5%;
-  .carritoContinuarPago--globo {
-    display: flex;
-    width: 300px;
-    height: 50px;
-    border-radius: 40px;
-    background-color: #d9737f;
-    box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
     p {
       font-size: 1.2rem;
       font-family: "Poppins", sans-serif;
       font-weight: 600;
-      color: white;
+      color: #d9737f;
+      text-align: center;
+    }
+    .eliminarProducto {
+      display: flex;
+      width: 100px;
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      img {
+        display: flex;
+        width: 35px;
+        height: 35px;
+        box-shadow: none;
+      }
+    }
+  }
+  .montoTotal {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: right;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 60%);
+    p {
+      font-family: "Poppins", sans-serif;
+      width: 20%;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #d9737f;
+      text-align: right;
+      padding-right: 10px;
     }
   }
 }
+.botonCarrito {
+  margin-top: 30px;
+  width: 30%;
+}
+   
+//     .carritoArticulo--inferior {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       justify-content: space-evenly;
+//       border-radius: 20px;
+//       background-color: white;
+//       box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+//       .carritoArticulo--inferior--imagen {
+//         display: flex;
+//         width: 100%;
+//         padding: 20px;
+//         img {
+//           width: 35%;
+//         }
+//       }
+//       .carritoArticulo--inferior--cantidad {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//       }
+//       .carritoArticulo--inferior--precio {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//       }
+//       .carritoArticulo--inferior--eliminar {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         img {
+//           width: 10%;
+//           height: auto;
+//         }
+//       }
+//     }
+//   }
+//   .carritoEnvio {
+//     display: flex;
+//     flex-direction: column;
+//     width: 90%;
+//     font-size: 1.2rem;
+//     font-family: "Poppins", sans-serif;
+//     font-weight: 600;
+//     color: #d9737f;
+//     margin-top: 2%;
+//     margin-bottom: 2%;
+//     .carritoEnvio--superior {
+//       display: flex;
+//       justify-content: space-between;
+//       flex-direction: row;
+//       .carritoEnvio--superior--texto {
+//         display: block;
+//         padding-left: 20px;
+//         padding-right: 20px;
+//         text-decoration: none;
+//       }
+//     }
+//     .carritoEnvio--inferior {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       border-radius: 15px;
+//       background-color: white;
+//       box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+//       .carritoEnvio--inferior--imagenEnvio {
+//         display: flex;
+//         width: 100%;
+//         padding: 20px;
+//       }
+//       .carritoEnvio--inferior--domicilio {
+//         width: 100%;
+//         display: flex;
+//         align-items: center;
+//         text-align: center;
+//       }
+//       .carritoEnvio--inferior--precio {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         text-align: center;
+//       }
+//       .carritoEnvio--inferior--modificarEnvio {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         text-align: center;
+//       }
+//     }
+//   }
+//   .carritoTotal {
+//     margin-top: 10px;
+//     display: inline-flex;
+//     width: 90%;
+//     font-size: 1.2rem;
+//     font-family: "Poppins", sans-serif;
+//     font-weight: 600;
+//     color: #d9737f;
+//     flex-direction: row;
+//     align-items: center;
+//     text-align: right;
+//     padding: 10px;
+//     border-radius: 10px;
+//     background-color: white;
+//     box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+//     .carritoTotal--textoTotal {
+//       width: 100%;
+//     }
+//     .carritoTotal--totalNumero {
+//       width: 20%;
+//       padding-right: 30px;
+//       font-size: 1.6rem;
+//     }
+//   }
+// }
+// .carritoContinuarPago {
+//   display: flex;
+//   width: 90%;
+//   justify-content: right;
+//   margin-bottom: 5%;
+//   .carritoContinuarPago--globo {
+//     display: flex;
+//     width: 300px;
+//     height: 50px;
+//     border-radius: 40px;
+//     background-color: #d9737f;
+//     box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+//     margin-top: 20px;
+//     justify-content: center;
+//     align-items: center;
+//     p {
+//       font-size: 1.2rem;
+//       font-family: "Poppins", sans-serif;
+//       font-weight: 600;
+//       color: white;
+//     }
+//   }
+// }

@@ -75,5 +75,5 @@ listaProductos.push(
 
 
 //carrito de compras
- const carrito =[];
+ const carrito = [];
  const carritoLocal = JSON.parse(localStorage.getItem(`carritoLocal`));
