@@ -1,6 +1,6 @@
 //OBJETOS CONSTRUCTOR RASCADORES Y PROPIEDADES
 class Rascador {
-    constructor(id,img,marca,tipo,modelo,precio, propiedades, link) {
+    constructor(id,img,marca,tipo,modelo,precio, propiedades, link, cantidad) {
       this.id = id;
       this.img = img;
       this.marca = marca;
@@ -9,6 +9,7 @@ class Rascador {
       this.precio = parseFloat(precio);
       this.propiedades = propiedades;
       this.link = link;
+      this.cantidad = parseInt(cantidad);
     }
     descuentoDeProducto(){
         return this.precio * descuentoGeneral
@@ -55,25 +56,26 @@ listaPropiedadesProductos.push(
 const listaProductos = [];
 
 listaProductos.push(
-    new Rascador("0","../images/productos/mian.png","Rumapets","Rascador","Mian Alfombra",4100, listaPropiedadesProductos[0],"https://www.rumapets.com.ar/rascadores-chicos/rascador-mian"));
+    new Rascador(0,"../images/productos/mian.png","Rumapets","Rascador","Mian Alfombra",4100, listaPropiedadesProductos[0],"https://www.rumapets.com.ar/rascadores-chicos/rascador-mian",1));
 listaProductos.push(
-    new Rascador("1","../images/productos/grecia.png","Rumapets","Rascador","Grecia",4560, listaPropiedadesProductos[1],"https://www.rumapets.com.ar/rascadores-chicos/rascador-grecia"));
+    new Rascador(1,"../images/productos/grecia.png","Rumapets","Rascador","Grecia",4560, listaPropiedadesProductos[1],"https://www.rumapets.com.ar/rascadores-chicos/rascador-grecia",1));
 listaProductos.push(
-  new Rascador("2","../images/productos/mianyute.png","Rumapets","Rascador","Mian Yute",5100, listaPropiedadesProductos[2],"https://www.rumapets.com.ar/rascadores-chicos/rascador-mian-yute-sisal"));
+  new Rascador(2,"../images/productos/mianyute.png","Rumapets","Rascador","Mian Yute",5100, listaPropiedadesProductos[2],"https://www.rumapets.com.ar/rascadores-chicos/rascador-mian-yute-sisal",1));
 listaProductos.push(
-    new Rascador("3","../images/productos/ivy.png","Rumapets","Rascador","Ivy",8160, listaPropiedadesProductos[3],"https://www.rumapets.com.ar/rascadores-chicos/rascador-ivy"));
+    new Rascador(3,"../images/productos/ivy.png","Rumapets","Rascador","Ivy",8160, listaPropiedadesProductos[3],"https://www.rumapets.com.ar/rascadores-chicos/rascador-ivy",1));
 listaProductos.push(
-    new Rascador("4","../images/productos/atalaya.png","Rumapets","Rascador","Atalaya",8160, listaPropiedadesProductos[4],"https://www.rumapets.com.ar/rascadores-medianos/rascador-atalaya"));
+    new Rascador(4,"../images/productos/atalaya.png","Rumapets","Rascador","Atalaya",8160, listaPropiedadesProductos[4],"https://www.rumapets.com.ar/rascadores-medianos/rascador-atalaya",1));
 listaProductos.push(
-    new Rascador("5","../images/productos/nuagealfombra.png","Rumapets","Rascador","Nuage Alfombra",11040, listaPropiedadesProductos[5],"https://www.rumapets.com.ar/rascadores-medianos/rascador-nuage-alfombra"));
+    new Rascador(5,"../images/productos/nuagealfombra.png","Rumapets","Rascador","Nuage Alfombra",11040, listaPropiedadesProductos[5],"https://www.rumapets.com.ar/rascadores-medianos/rascador-nuage-alfombra",1));
 listaProductos.push(
-    new Rascador("6","../images/productos/nuage.png","Rumapets","Rascador","Nuage Yute",14160, listaPropiedadesProductos[6],"https://www.rumapets.com.ar/rascadores-medianos/rascador-nuage-yute"));
+    new Rascador(6,"../images/productos/nuage.png","Rumapets","Rascador","Nuage Yute",14160, listaPropiedadesProductos[6],"https://www.rumapets.com.ar/rascadores-medianos/rascador-nuage-yute",1));
 listaProductos.push(
-  new Rascador("7","../images/productos/kamui.png","Rumapets","Rascador","Kamui",17400, listaPropiedadesProductos[7],"https://www.rumapets.com.ar/rascadores-medianos/rascador-kamui"));
+  new Rascador(7,"../images/productos/kamui.png","Rumapets","Rascador","Kamui",17400, listaPropiedadesProductos[7],"https://www.rumapets.com.ar/rascadores-medianos/rascador-kamui",1));
 listaProductos.push(
-  new Rascador("8","../images/productos/ruma.png","Rumapets","Rascador","Ruma",25200, listaPropiedadesProductos[8],"https://www.rumapets.com.ar/rascadores-grandes/rascador-ruma"));
+  new Rascador(8,"../images/productos/ruma.png","Rumapets","Rascador","Ruma",25200, listaPropiedadesProductos[8],"https://www.rumapets.com.ar/rascadores-grandes/rascador-ruma",1));
 
 
 //carrito de compras
  const carrito = [];
+ 
  const carritoLocal = JSON.parse(localStorage.getItem(`carritoLocal`));

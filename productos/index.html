@@ -25,16 +25,20 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
     <script src="../js/objetos_y_listas.js" async></script>
-    <script src="../js/dom_y_logica.js" async></script>
+    <script src="../js/dom.js" async></script>    
+    <!-- <script src="../js/logica.js" async></script> -->
+    <script src="../js/prueba.js" async></script>
+
     
 </head>
 <!--------------------------------------BODY----------------------------------------------------------------->
 <body>
     <header>
-        <section class="headerBox">            
-            <button type="button" class="botonCarritoHeader">
+        <section class="headerBox"> 
+                    
+            <button type="button" class="botonCarritoHeader" id="botonPaginaCarrito">
                 <a href="../carrito/index.html"><img src="../images/carrito/carritovacio.png" class="imgCarrito"></a>
-                <span id="badgeCarrito" class="contadorCarrito">0</span>
+                <span id="contadorCarrito" class="contadorCarrito">0</span>
               </button>
   
         </section>  
@@ -118,19 +122,41 @@
         </section>
 
 <!---------------------------------------------MENU DOM PARA JS----------------------------------------->
-        <section class="cajaMenuDer">
-            <div class="cajaBuscador" id="cajaBuscador">
-            </div>
-            <div class="cajaProductos" id="cajaProductos2">                
-            </div>
-            <div class="cajaProductos" id="cajaProductos">                
-            </div>
-<!--------------------carrito de compras-------------------->
-            <div class="cajaCarritoGeneral" id="cajaCarritoGeneral">
-            </div>
-            <button id="botonCarrito">VER CARRITO</button>
-        </section>     
-    </section>
+<section class="cajaMenuDer">
+    <div class="cajaBuscador" id="cajaBuscador">
+    </div>
+    <div class="cajaProductos" id="cajaProductos2">                
+    </div>
+    <div class="cajaProductos" id="cajaProductos">                
+    </div>
+</section>
+</section>
+
+<section id="contenedorCarritoTotal">
+    <div class="cajaCarritoGeneral" id="cajaCarritoGeneral">
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  <!-------------------FOOTER--------------------------->

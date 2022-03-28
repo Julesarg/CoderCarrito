@@ -1562,20 +1562,42 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 .productosContenedor .cajaMenuDer .cajaProductos .cajaIndividual .botonComprar:active:before {
   transform: scaleX(1);
 }
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral {
-  width: 100%;
-  height: fit-content;
+
+.contenedorCarritoTotal {
   display: flex;
   flex-direction: column;
-  margin-top: 2%;
-}
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaTextoSuperior {
-  display: flex;
   width: 100%;
   margin-top: 2%;
+  align-items: center;
+}
+.contenedorCarritoTotal .montoTotal {
+  margin-top: 10px;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: right;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+.contenedorCarritoTotal .montoTotal p {
+  font-family: "Poppins", sans-serif;
+  width: 20%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #d9737f;
+  text-align: right;
+  padding-right: 10px;
+}
+.contenedorCarritoTotal .cajaTextoSuperior {
+  display: flex;
+  width: 90%;
   justify-content: space-between;
 }
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaTextoSuperior p {
+.contenedorCarritoTotal .cajaTextoSuperior p {
   display: block;
   padding-left: 20px;
   padding-right: 20px;
@@ -1585,7 +1607,26 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   font-weight: 600;
   color: #d9737f;
 }
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto {
+.contenedorCarritoTotal .cajaCarritoGeneral {
+  width: 90%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.contenedorCarritoTotal .cajaCarritoGeneral .botonVaciarCarrito {
+  width: 10%;
+  height: 40px;
+  border-radius: 40px;
+  border-width: 1px;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: white;
+}
+.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto {
   display: flex;
   height: auto;
   margin-bottom: 10px;
@@ -1602,58 +1643,34 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   padding-left: 60px;
   padding-right: 60px;
 }
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto img {
+.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto img {
   width: 140px;
   height: 140px;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto p {
+.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto p {
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #d9737f;
   text-align: center;
 }
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto {
+.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto {
   display: flex;
   width: 100px;
   height: 100px;
   align-items: center;
   justify-content: center;
+  border-style: none;
+  background-color: transparent;
 }
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto img {
+.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto img {
   display: flex;
   width: 35px;
   height: 35px;
   box-shadow: none;
-}
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .montoTotal {
-  margin-top: 10px;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: right;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-}
-.productosContenedor .cajaMenuDer .cajaCarritoGeneral .montoTotal p {
-  font-family: "Poppins", sans-serif;
-  width: 20%;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #d9737f;
-  text-align: right;
-  padding-right: 10px;
-}
-.productosContenedor .cajaMenuDer .botonCarrito {
-  margin-top: 30px;
-  width: 30%;
 }
 
 .accordion-collapse {
@@ -2394,10 +2411,11 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   /*NADA QUE MODIFICAR*/
 }
 .cajaCarritoGeneral {
-  width: 100%;
+  width: 80%;
   height: fit-content;
   display: flex;
   flex-direction: column;
+  align-self: center;
   margin-top: 2%;
 }
 .cajaCarritoGeneral .cajaTextoSuperior {
