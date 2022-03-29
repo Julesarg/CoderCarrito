@@ -24,10 +24,12 @@
     <title>Rascadores para gatos Rumapets | Productos</title>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
+    
+    <script src="../js/dom.js" async></script>
     <script src="../js/objetos_y_listas.js" async></script>
-    <script src="../js/dom.js" async></script>    
     <!-- <script src="../js/logica.js" async></script> -->
-    <script src="../js/prueba.js" async></script>
+    <!-- <script src="../js/prueba.js" async></script> -->
+    <script src="../js/logica2.js" async></script>
 
     
 </head>
@@ -37,7 +39,8 @@
         <section class="headerBox"> 
                     
             <button type="button" class="botonCarritoHeader" id="botonPaginaCarrito">
-                <a href="../carrito/index.html"><img src="../images/carrito/carritovacio.png" class="imgCarrito"></a>
+                <!-- <a href="../carrito/index.html"></a> -->
+                    <img src="../images/carrito/carritovacio.png" class="imgCarrito">
                 <span id="contadorCarrito" class="contadorCarrito">0</span>
               </button>
   
@@ -72,70 +75,72 @@
     </div>
 <!---------FIN DE PRESENTACION DE PRODUCTO------------>
 
-<div class="separador"></div>
-    <section class="productosContenedor" data-aos="fade-up" data-aos-duration="1500">
-        <section class="cajaMenuIzq">
-            <p class="textoProductos">PRODUCTOS</p>       
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Rascadores
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">                    
-                        <a class="hipervinculosTextoProductos" id="botonRascadoresChicos">Chicos</a>
-                        <a href="#" class="hipervinculosTextoProductos">Medianos</a>
-                        <a href="#" class="hipervinculosTextoProductos">Grandes</a>                    
+    <div class="separador"></div>
+        <section class="productosContenedor" data-aos="fade-up" data-aos-duration="1500">
+            <section class="cajaMenuIzq">
+                <p class="textoProductos">PRODUCTOS</p>       
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Rascadores
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">                    
+                            <a class="hipervinculosTextoProductos" id="botonRascadoresChicos">Chicos</a>
+                            <a href="#" class="hipervinculosTextoProductos">Medianos</a>
+                            <a href="#" class="hipervinculosTextoProductos">Grandes</a>                    
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Accesorios
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">                    
+                            <a href="#" class="hipervinculosTextoProductos">Mantas</a>
+                            <a href="#" class="hipervinculosTextoProductos">Almohadones</a>                      
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Alimentos
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">                    
+                            <a href="#" class="hipervinculosTextoProductos">Royal Canin</a>
+                            <a href="#" class="hipervinculosTextoProductos">VitalCan</a>                      
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Otros
+                            </button>
+                        </h2>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accesorios
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">                    
-                        <a href="#" class="hipervinculosTextoProductos">Mantas</a>
-                        <a href="#" class="hipervinculosTextoProductos">Almohadones</a>                      
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Alimentos
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">                    
-                        <a href="#" class="hipervinculosTextoProductos">Royal Canin</a>
-                        <a href="#" class="hipervinculosTextoProductos">VitalCan</a>                      
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Otros
-                        </button>
-                    </h2>
-                </div>
-            </div>
-        </section>
+            </section>
 
-<!---------------------------------------------MENU DOM PARA JS----------------------------------------->
-<section class="cajaMenuDer">
-    <div class="cajaBuscador" id="cajaBuscador">
-    </div>
-    <div class="cajaProductos" id="cajaProductos2">                
-    </div>
-    <div class="cajaProductos" id="cajaProductos">                
-    </div>
-</section>
-</section>
+                                                    <!---------------------------------------------MENU DOM PARA JS----------------------------------------->
+            <section class="cajaMenuDer">
+                <div class="cajaBuscador" id="cajaBuscador">
+                </div>
+                <div class="cajaProductos" id="cajaProductos2">                
+                </div>
+                <div class="cajaProductos" id="cajaProductos">                
+                </div>
+            </section>
+    </section>    
+    
+    <section id="contenedorCarritoTotal">
+        <div class="cajaCarritoGeneral" id="cajaCarritoGeneral">
+        </div>
+    </section>
+        
 
-<section id="contenedorCarritoTotal">
-    <div class="cajaCarritoGeneral" id="cajaCarritoGeneral">
-    </div>
-</section>
 
 
 

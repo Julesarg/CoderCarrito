@@ -1,3 +1,8 @@
+let costoDeEnvio = 0;
+let resultadoFinal = 0;
+const descuentoGeneral = 0.1;
+const precioEfectivo = 0.9;
+
 //OBJETOS CONSTRUCTOR RASCADORES Y PROPIEDADES
 class Rascador {
     constructor(id,img,marca,tipo,modelo,precio, propiedades, link, cantidad) {
@@ -74,8 +79,4 @@ listaProductos.push(
 listaProductos.push(
   new Rascador(8,"../images/productos/ruma.png","Rumapets","Rascador","Ruma",25200, listaPropiedadesProductos[8],"https://www.rumapets.com.ar/rascadores-grandes/rascador-ruma",1));
 
-
-//carrito de compras
- const carrito = [];
- 
- const carritoLocal = JSON.parse(localStorage.getItem(`carritoLocal`));
+  const carrito = []
