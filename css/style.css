@@ -1657,6 +1657,18 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   color: #d9737f;
   text-align: center;
 }
+.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .cantidadProducto {
+  display: flex;
+  align-items: center;
+}
+.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .cantidadProducto button {
+  margin: 10px;
+  width: 30px;
+  color: red;
+  background-color: transparent;
+  border-width: 0.5px;
+  border-color: rgba(0, 0, 0, 0.3);
+}
 .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto {
   display: flex;
   width: 100px;

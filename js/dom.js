@@ -7,7 +7,9 @@ const cajaBotonBuscar = document.createElement(`button`);
 cajaBusquedaMinimo.className = `cajaBusquedaMinimo`;
 cajaBusquedaMaximo.className = `cajaBusquedaMaximo`;
 cajaBusquedaMinimo.type = `number`;
+cajaBusquedaMinimo.min = "0";
 cajaBusquedaMaximo.type = `number`;
+cajaBusquedaMaximo.min = "0";
 cajaBusquedaGeneral.className = `cajaBusquedaGeneral`;
 cajaBotonBuscar.className = `cajaBuscar`;
 cajaBusquedaMinimo.id = `cajaBusquedaMinimo`;
@@ -27,7 +29,6 @@ let input1 = document.getElementById(`cajaBusquedaMinimo`);
 let input2 = document.getElementById(`cajaBusquedaMaximo`);
 let input3 = document.getElementById(`cajaBusquedaGeneral`);
 
-
 //nodos estaticos de caja de productos
 let cajaCarritoProducto;
 const cajaProductos = document.getElementById(`cajaProductos`)
@@ -44,22 +45,6 @@ cajaTextoSuperior.innerHTML = `<p>Articulo</> <p>Carrito</p>`;
 botonVaciarCarrito.innerHTML = `<p>Vaciar Carrito</p>`
 montoTotal.innerHTML = `<p>Total $0</p>`
 contenedorCarritoTotal.append(cajaTextoSuperior, cajaCarritoGeneral, montoTotal)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //nodo contenedor de resultados de busqueda
 const cajaFiltroProductos = document.getElementById("cajaProductos2");

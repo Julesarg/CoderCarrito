@@ -473,6 +473,18 @@
         color: #d9737f;
         text-align: center;
       }
+      .cantidadProducto{
+        display: flex;
+        align-items: center;
+        button{
+          margin: 10px;
+          width: 30px;
+          color: red;
+          background-color: transparent;
+          border-width: 0.5px;
+          border-color:rgba(0, 0, 0, 0.3);          
+        }
+      }
       .eliminarProducto {
         display: flex;
         width: 100px;
