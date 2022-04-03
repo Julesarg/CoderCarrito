@@ -1563,70 +1563,63 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   transform: scaleX(1);
 }
 
-.contenedorCarritoTotal {
+.modal-dialog {
+  max-width: 50%;
+}
+.modal-dialog .modal-content {
+  width: 100%;
+  height: fit-content;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: fit-content;
   margin-top: 2%;
   align-items: center;
 }
-.contenedorCarritoTotal .montoTotal {
-  margin-top: 10px;
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaTextoSuperior {
   display: flex;
-  width: 90%;
-  align-items: center;
-  justify-content: right;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-}
-.contenedorCarritoTotal .montoTotal p {
-  font-family: "Poppins", sans-serif;
-  width: 20%;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #d9737f;
-  text-align: right;
-  padding-right: 10px;
-}
-.contenedorCarritoTotal .cajaTextoSuperior {
-  display: flex;
-  width: 90%;
+  width: 85%;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
-.contenedorCarritoTotal .cajaTextoSuperior p {
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaTextoSuperior p {
   display: block;
   padding-left: 20px;
   padding-right: 20px;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #d9737f;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral {
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral {
   width: 90%;
   height: fit-content;
   display: flex;
   flex-direction: column;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .botonVaciarCarrito {
-  width: 10%;
-  height: 40px;
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .botonVaciarCarrito {
+  width: 15%;
+  margin-bottom: 10px;
+  height: fit-content;
+  padding: 10px;
   border-radius: 40px;
   border-width: 1px;
-  background-color: red;
+  background-color: grey;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: white;
+  transition: 0.3s;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto {
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .botonVaciarCarrito:hover {
+  background-color: red;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto {
   display: flex;
   height: auto;
   margin-bottom: 10px;
@@ -1635,41 +1628,66 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   border-radius: 20px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
-  font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #fa576a;
   text-align: right;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto img {
-  width: 140px;
-  height: 140px;
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .imagenProducto {
+  display: flex;
+  width: 20%;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .imagenProducto img {
+  width: 90px;
+  height: 90px;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto p {
-  font-size: 1.2rem;
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .nombreProducto {
+  display: flex;
+  width: 20%;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .nombreProducto p {
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #d9737f;
   text-align: center;
+  width: 50%;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .cantidadProducto {
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .precioProducto {
   display: flex;
+  width: 20%;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .precioProducto p {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #d9737f;
+  text-align: center;
+  width: 50%;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .cantidadProducto {
+  display: flex;
+  width: 20%;
   align-items: center;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .cantidadProducto button {
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .cantidadProducto button {
   margin: 10px;
-  width: 30px;
+  width: 20px;
+  height: 20px;
   color: red;
   background-color: transparent;
   border-width: 0.5px;
   border-color: rgba(0, 0, 0, 0.3);
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto {
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .cantidadProducto button p {
+  font-size: 0.8rem;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto {
   display: flex;
   width: 100px;
   height: 100px;
@@ -1678,11 +1696,125 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   border-style: none;
   background-color: transparent;
 }
-.contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto img {
+.modal-dialog .modal-content .contenedorCarritoTotal .cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto img {
   display: flex;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   box-shadow: none;
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .montoTotal {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: 2%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+.modal-dialog .modal-content .contenedorCarritoTotal .montoTotal p {
+  font-family: "Poppins", sans-serif;
+  width: 20%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d9737f;
+  text-align: right;
+  padding-right: 10px;
+}
+.modal-dialog .modal-content .modal-footer button {
+  border-style: none;
+  display: flex;
+  width: auto;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #d9737f;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: white;
+  background-color: #d9737f;
+}
+
+.contenedorEnvioTotal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  margin-top: 2%;
+  align-items: center;
+}
+.contenedorEnvioTotal .cajaTextoEnvio {
+  display: flex;
+  width: 85%;
+  margin-bottom: 5px;
+}
+.contenedorEnvioTotal .cajaTextoEnvio p {
+  display: block;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #d9737f;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral {
+  display: flex;
+  width: 90%;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaImagenEnvio {
+  display: flex;
+  width: 25%;
+  justify-content: center;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaImagenEnvio img {
+  width: 110px;
+  height: auto;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .domicilioEnvio {
+  display: flex;
+  width: 25%;
+  text-align: center;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .domicilioEnvio p {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d9737f;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .precioEnvio {
+  display: flex;
+  text-align: center;
+  width: 25%;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .precioEnvio p {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d9737f;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .modificarEnvio {
+  display: flex;
+  text-align: center;
+  width: 25%;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .modificarEnvio p {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d9737f;
 }
 
 .accordion-collapse {
@@ -2422,102 +2554,6 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 @media screen and (max-width: 320px) {
   /*NADA QUE MODIFICAR*/
 }
-.cajaCarritoGeneral {
-  width: 80%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  margin-top: 2%;
-}
-.cajaCarritoGeneral .cajaTextoSuperior {
-  display: flex;
-  width: 100%;
-  margin-top: 2%;
-  justify-content: space-between;
-}
-.cajaCarritoGeneral .cajaTextoSuperior p {
-  display: block;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #d9737f;
-}
-.cajaCarritoGeneral .cajaCarritoProducto {
-  display: flex;
-  height: auto;
-  margin-bottom: 10px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 20px;
-  background-color: white;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
-  font-size: 1.4rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #fa576a;
-  text-align: right;
-  padding-left: 60px;
-  padding-right: 60px;
-}
-.cajaCarritoGeneral .cajaCarritoProducto img {
-  width: 140px;
-  height: 140px;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.cajaCarritoGeneral .cajaCarritoProducto p {
-  font-size: 1.2rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #d9737f;
-  text-align: center;
-}
-.cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto {
-  display: flex;
-  width: 100px;
-  height: 100px;
-  align-items: center;
-  justify-content: center;
-}
-.cajaCarritoGeneral .cajaCarritoProducto .eliminarProducto img {
-  display: flex;
-  width: 35px;
-  height: 35px;
-  box-shadow: none;
-}
-.cajaCarritoGeneral .montoTotal {
-  margin-top: 10px;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: right;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-}
-.cajaCarritoGeneral .montoTotal p {
-  font-family: "Poppins", sans-serif;
-  width: 20%;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #d9737f;
-  text-align: right;
-  padding-right: 10px;
-}
-
-.botonCarrito {
-  margin-top: 30px;
-  width: 30%;
-}
-
 /*fin importados*/
 
 /*# sourceMappingURL=style.css.map */

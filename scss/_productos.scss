@@ -378,159 +378,298 @@
           transform: scaleX(1);
         }
       }
-    }    
+    }
   }
 }
 
-.contenedorCarritoTotal{
+//carrito
+.modal-dialog {
+  max-width: 50%;
+  .modal-content {
+    width: 100%;
+    height: fit-content;
+    .contenedorCarritoTotal {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: fit-content;
+      margin-top: 2%;
+      align-items: center;
+      .cajaTextoSuperior {
+        display: flex;
+        width: 85%;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        p {
+          display: block;
+          padding-left: 20px;
+          padding-right: 20px;
+          text-decoration: none;
+          font-size: 1rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          color: #d9737f;
+        }
+      }
+      .cajaCarritoGeneral {
+        width: 90%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        .botonVaciarCarrito {
+          width: 15%;
+          margin-bottom: 10px;
+          height: fit-content;
+          padding: 10px;
+          border-radius: 40px;
+          border-width: 1px;
+          background-color: grey;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.8rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          color: white;
+          transition: 0.3s;
+        }
+        .botonVaciarCarrito:hover {
+          background-color: red;
+        }
+        .cajaCarritoProducto {
+          display: flex;
+          height: auto;
+          margin-bottom: 10px;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 20px;
+          background-color: white;
+          box-shadow: 1px 1px 10px rgb(0 0 0 / 20%);
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          color: #fa576a;
+          text-align: right;
+          padding-left: 40px;
+          padding-right: 40px;
+          .imagenProducto {
+            display: flex;
+            width: 20%;
+            img {
+              width: 90px;
+              height: 90px;
+              box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+              margin-top: 20px;
+              margin-bottom: 20px;
+            }
+          }
+          .nombreProducto {
+            display: flex;
+            width: 20%;
+            p {
+              font-size: 1rem;
+              font-family: "Poppins", sans-serif;
+              font-weight: 600;
+              color: #d9737f;
+              text-align: center;
+              width: 50%;
+            }
+          }
+          .precioProducto {
+            display: flex;
+            width: 20%;
+
+            p {
+              font-size: 1rem;
+              font-family: "Poppins", sans-serif;
+              font-weight: 600;
+              color: #d9737f;
+              text-align: center;
+              width: 50%;
+            }
+          }
+          .cantidadProducto {
+            display: flex;
+            width: 20%;
+            align-items: center;
+            button {
+              margin: 10px;
+              width: 20px;
+              height: 20px;
+              color: red;
+              background-color: transparent;
+              border-width: 0.5px;
+              border-color: rgba(0, 0, 0, 0.3);
+              p {
+                font-size: 0.8rem;
+              }
+            }
+          }
+          .eliminarProducto {
+            display: flex;
+            width: 100px;
+            height: 100px;
+            align-items: center;
+            justify-content: center;
+            border-style: none;
+            background-color: transparent;
+            img {
+              display: flex;
+              width: 25px;
+              height: 25px;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+      .montoTotal {
+        display: flex;
+        width: 90%;
+        align-items: center;
+        justify-content: right;
+        margin-bottom: 2%;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 1px 1px 5px rgb(0 0 0 / 60%);
+        p {
+          font-family: "Poppins", sans-serif;
+          width: 20%;
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #d9737f;
+          text-align: right;
+          padding-right: 10px;
+        }
+      }
+    }
+    .modal-footer {
+      button {
+        border-style: none;
+        display: flex;
+        width: auto;
+        height: 40px;
+        border-radius: 30px;
+        background-color: #d9737f;
+        box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: white;
+        background-color: #d9737f;
+      }
+    }
+  }
+}
+
+//modal enviocarrito
+
+.contenedorEnvioTotal {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: fit-content;
   margin-top: 2%;
   align-items: center;
-  .montoTotal {
-    margin-top: 10px;
+  .cajaTextoEnvio {
     display: flex;
-    width: 90%;
-    align-items: center;
-    justify-content: right;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 1px 1px 5px rgb(0 0 0 / 60%);
-    p {
-      font-family: "Poppins", sans-serif;
-      width: 20%;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #d9737f;
-      text-align: right;
-      padding-right: 10px;
-    }
-  }
-  .cajaTextoSuperior {
-    display: flex;
-    width: 90%;
-    justify-content: space-between;
+    width: 85%;
+    margin-bottom: 5px;
     p {
       display: block;
       padding-left: 20px;
       padding-right: 20px;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-family: "Poppins", sans-serif;
       font-weight: 600;
       color: #d9737f;
     }
   }
-  .cajaCarritoGeneral {
-    width: 90%;
-    height: fit-content;
+  .cajaEnvioGeneral {
     display: flex;
-    flex-direction: column;        
-    .botonVaciarCarrito{
-      width: 10%;
-      height: 40px;
-      border-radius: 40px;
-      border-width: 1px;
-      background-color: red;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      color: white;
-    }      
-    .cajaCarritoProducto {
+    width: 90%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 60%);
+    .cajaImagenEnvio {
       display: flex;
-      height: auto;
-      margin-bottom: 10px;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 20px;
-      background-color: white;
-      box-shadow: 1px 1px 10px rgb(0 0 0 / 20%);
-      font-size: 1.4rem;
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      color: #fa576a;
-      text-align: right;
-      padding-left: 60px;
-      padding-right: 60px;
+      width: 25%;
+      justify-content: center;
       img {
-        width: 140px;
-        height: 140px;
-        box-shadow: 2px 2px 1px rgb(0 0 0 / 20%);
-        margin-top: 30px;
-        margin-bottom: 30px;
+        width: 110px;
+        height: auto;
       }
+    }
+    .domicilioEnvio {
+      display: flex;
+      width: 25%;
+      text-align: center;
       p {
+        width: 100%;
         font-size: 1.2rem;
-        font-family: "Poppins", sans-serif;
         font-weight: 600;
         color: #d9737f;
-        text-align: center;
       }
-      .cantidadProducto{
-        display: flex;
-        align-items: center;
-        button{
-          margin: 10px;
-          width: 30px;
-          color: red;
-          background-color: transparent;
-          border-width: 0.5px;
-          border-color:rgba(0, 0, 0, 0.3);          
-        }
+    }
+    .precioEnvio {
+      display: flex;
+      text-align: center;
+      width: 25%;
+      p {
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #d9737f;
       }
-      .eliminarProducto {
-        display: flex;
-        width: 100px;
-        height: 100px;
-        align-items: center;
-        justify-content: center;
-        border-style: none;
-        background-color: transparent;
-        img {
-          display: flex;
-          width: 35px;
-          height: 35px;
-          box-shadow: none;
-        }
+    }
+    .modificarEnvio {
+      display: flex;
+      text-align: center;
+      width: 25%;
+      p {
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #d9737f;
       }
-    }        
+    }
   }
 }
-  .accordion-collapse {
-    background-color: rgba(191, 85, 124, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    .hipervinculosTextoProductos {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      width: 100%;
-      text-decoration: none;
-      display: block;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-left: 30%;
-      padding-right: 25%;
-      color: rgba(255, 255, 255, 0.6);
-      font-weight: 700;
-      font-size: 1.25rem;
-      transition: 0.2s;
-    }
-    .hipervinculosTextoProductos:hover {
-      background-color: rgba(191, 85, 124, 0.3);
-      color: $opacidadnegro3;
-    }
-  }
-  .imagenProductoListado {
-    width: 250px;
-    height: 250px;
+
+.accordion-collapse {
+  background-color: rgba(191, 85, 124, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  .hipervinculosTextoProductos {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    text-decoration: none;
     display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30%;
+    padding-right: 25%;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: 0.2s;
   }
+  .hipervinculosTextoProductos:hover {
+    background-color: rgba(191, 85, 124, 0.3);
+    color: $opacidadnegro3;
+  }
+}
+.imagenProductoListado {
+  width: 250px;
+  height: 250px;
+  display: block;
+}

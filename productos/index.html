@@ -26,11 +26,9 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" async></script>
-    
-    <script src="../js/dom.js" async></script>
+
     <script src="../js/objetos_y_listas.js" async></script>
-    <!-- <script src="../js/logica.js" async></script> -->
-    <!-- <script src="../js/prueba.js" async></script> -->
+    <script src="../js/dom.js" async></script>
     <script src="../js/logica2.js" async></script>
 
     
@@ -40,8 +38,7 @@
     <header>
         <section class="headerBox"> 
                     
-            <button type="button" class="botonCarritoHeader" id="botonPaginaCarrito">
-                <!-- <a href="../carrito/index.html"></a> -->
+            <button type="button" class="botonCarritoHeader" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">                
                     <img src="../images/carrito/carritovacio.png" class="imgCarrito">
                 <span id="contadorCarrito" class="contadorCarrito">0</span>
               </button>
@@ -125,8 +122,7 @@
                     </div>
                 </div>
             </section>
-
-                                                    <!---------------------------------------------MENU DOM PARA JS----------------------------------------->
+<!---------------------------------------------MENU DOM PARA JS----------------------------------------->
             <section class="cajaMenuDer">
                 <div class="cajaBuscador" id="cajaBuscador">
                 </div>
@@ -135,34 +131,60 @@
                 <div class="cajaProductos" id="cajaProductos">                
                 </div>
             </section>
-    </section>    
-    
-    <section id="contenedorCarritoTotal">
-        <div class="cajaCarritoGeneral" id="cajaCarritoGeneral">
+        </section>    
+<!-------------------------------------MODAL DOM PARA SALIDA DE CARRITO----------------------->
+      <div class="modal fade" id="exampleModalToggle" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalToggleLabel" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel">Carrito</h5>
+            </div>
+            <div class="modal-body" id="contenedorCarritoTotal">
+                <div class="cajaCarritoGeneral" id="cajaCarritoGeneral">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-dismiss="modal" >Cancelar</button>
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Continuar a ENVIO</button>
+            </div>
+          </div>
         </div>
-    </section>
-        
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalToggleLabel2" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel2">Carrito</h5>
+            </div>
+            <div class="modal-body" id="contenedorEnvioTotal">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-dismiss="modal" >Cancelar</button>
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Volver a PRODUCTOS</button>
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal">Continuar a PAGO</button>
+            </div>
+          </div>
+        </div>
+      </div>    
+      
+      <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalToggleLabel3" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel3">Carrito</h5>
+            </div>
+            <div class="modal-body">
+              MONTO FINAL
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-dismiss="modal" >Cancelar</button>
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Volver a ENVIO</button>
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">Terminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

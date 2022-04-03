@@ -1,10 +1,13 @@
 ///JSON QUE NO FUNCIONA//////////
-document.addEventListener(`DOMContentLoaded`, () => {
-  if (localStorage.getItem(`carrito`)) {
-    carrito.JSON.parse(localStorage.getItem(`carrito`));
-    actualizarCarrito();
+if (!localStorage.getItem(`productos`)) localStorage.setItem(`productos`, JSON.stringify(listaProductos));
+
+
+document.addEventListener(`DOMContentLoaded`, () => {  
+  if (localStorage.getItem(`carrito`)){
+    carrito = JSON.parse(localStorage.getItem(`carrito`))
+    actualizarCarrito()
   }
-});
+})
 
 //////////////////////////LISTA DE PRODUCTOS
 listaProductos.forEach((producto) => {
@@ -171,6 +174,19 @@ const agregarAlCarrito = (IdProducto) => {
   if (productoExistente) {
     const producto = carrito.map((producto) => {
       if (producto.id === IdProducto) {
+        Toastify({
+          text: `Agregaste rascador "${producto.modelo}" a tu carrito`,
+          duration: 1500,
+          newWindow: true,
+          close: true,
+          gravity: "bottom",
+          position: "center",
+          stopOnFocus: true,
+          style: {
+            background: "linear-gradient(to right, #14e7b2, #49c93d)",            
+          },
+          onClick: function(){}
+        }).showToast();
         producto.cantidad++;
       }
     });
@@ -182,6 +198,7 @@ const agregarAlCarrito = (IdProducto) => {
   }
   actualizarCarrito();
 };
+
 
 //funcion restar del carrito
 const restarAlCarrito = (IdProducto) => {  
@@ -205,11 +222,19 @@ const restarAlCarrito = (IdProducto) => {
           onClick: function(){}
         }).showToast();
         producto.cantidad--;
+        if (producto.cantidad === 0){
+          const item = carrito.find((producto) => producto.id === IdProducto);
+         const indice = carrito.indexOf(item);
+         item.cantidad = 1;
+          carrito.splice(indice, 1);
+
+        }
       }
     });
   }
   actualizarCarrito();
 };
+
 
 //funcion eliminar del carrito
 const eliminarDeCarrito = (idParaEliminar) => {
@@ -219,6 +244,7 @@ const eliminarDeCarrito = (idParaEliminar) => {
   carrito.splice(indice, 1);
   actualizarCarrito();
 };
+
 
 //funcion vaciar carrito
 botonVaciarCarrito.onclick = () => {
@@ -230,10 +256,11 @@ botonVaciarCarrito.onclick = () => {
   actualizarCarrito();
 };
 
-//funcion actualizar carrito
-const actualizarCarrito = () => {
-  cajaCarritoGeneral.innerHTML = "";
 
+//funcion actualizar carrito
+const actualizarCarrito = () => {  
+  cajaCarritoGeneral.innerHTML = "";
+  
   carrito.forEach((producto) => {
     const cajaCarritoProducto = document.createElement(`div`);
     const imagenProducto = document.createElement(`div`);
@@ -247,16 +274,18 @@ const actualizarCarrito = () => {
     const cajaEliminarProducto = document.createElement(`button`);
 
     cajaCarritoProducto.className = `cajaCarritoProducto`;
+    imagenProducto.className = `imagenProducto`;
+    nombreProducto.className =`nombreProducto`;
+    precioProducto.className = `precioProducto`
     cajaEliminarProducto.className = `eliminarProducto`;
     cantidadProducto.className = `cantidadProducto`;
 
     imagenProducto.innerHTML = `<img src="${producto.img}">`;
     nombreProducto.innerHTML = `<p>Modelo <br>${producto.modelo}</p>`;
     precioProducto.innerHTML = `<p>Precio<br>$${producto.precio}</p>`;
-    botonMenosCantidad.innerHTML = `-`
+    botonMenosCantidad.innerHTML = `<p>-</p>`
     botonCantidad.innerHTML = `<p type ="number" min="0">${producto.cantidad}</p>`;
-    botonMasCantidad.innerHTML = `+`
-
+    botonMasCantidad.innerHTML = `<p>+</p>`
     cajaEliminarProducto.innerHTML = `<img src="../images/carrito/tacho.png">`;
 
     botonMasCantidad.onclick = () => agregarAlCarrito(producto.id);
@@ -270,7 +299,7 @@ const actualizarCarrito = () => {
       cantidadProducto,
       cajaEliminarProducto
     );
-    cantidadProducto.append(botonMenosCantidad, botonCantidad, botonMasCantidad)
+    cantidadProducto.append(botonMenosCantidad, botonCantidad, botonMasCantidad);
 
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
   });
@@ -281,6 +310,22 @@ const actualizarCarrito = () => {
     0
   )}`;
 };
+
+
+//funcion terminar compra
+// confirmarCompra.onclick =() => {
+
+//   if (carrito.length === 0) {
+//     actualizarCarrito();
+//     alert(`tu carrito esta vacio`)
+//   }
+//   else {
+//   carrito.length = 0; 
+//   actualizarCarrito();
+//   alert(`compra Realizada`)
+// }
+// };
+
 
 
 //////////////////////FUNCIONES PENDIENTES?
