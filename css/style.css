@@ -1318,6 +1318,7 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   flex-direction: row;
   width: 100%;
   height: auto;
+  margin-top: 5%;
   margin-bottom: 5%;
   justify-content: space-between;
 }

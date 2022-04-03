@@ -1,16 +1,14 @@
 ///JSON QUE NO FUNCIONA//////////
-if (!localStorage.getItem(`productos`)) localStorage.setItem(`productos`, JSON.stringify(listaProductos));
-
 
 document.addEventListener(`DOMContentLoaded`, () => {  
   if (localStorage.getItem(`carrito`)){
     carrito = JSON.parse(localStorage.getItem(`carrito`))
     actualizarCarrito()
+    
   }
 })
-
 //////////////////////////LISTA DE PRODUCTOS
-listaProductos.forEach((producto) => {
+for (const producto of listaProductos){
   document.getElementById(`cajaProductos`).style.display = `grid`;
   document.getElementById(`cajaBuscador`).style.display = `flex`;
   const cajaIndividual = document.createElement(`div`);
@@ -76,7 +74,7 @@ listaProductos.forEach((producto) => {
       timer: 2000,
     });
   };
-});
+};
 
 /////////////////////LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.onclick = () => {
@@ -166,6 +164,7 @@ input1.onchange = funcionDeBusqueda;
 input2.onchange = funcionDeBusqueda;
 input3.onchange = funcionDeBusqueda;
 
+
 //funcion agregar al carrito
 const agregarAlCarrito = (IdProducto) => {
   const productoExistente = carrito.some(
@@ -200,6 +199,7 @@ const agregarAlCarrito = (IdProducto) => {
 };
 
 
+
 //funcion restar del carrito
 const restarAlCarrito = (IdProducto) => {  
   const productoExistente = carrito.some(
@@ -227,7 +227,7 @@ const restarAlCarrito = (IdProducto) => {
          const indice = carrito.indexOf(item);
          item.cantidad = 1;
           carrito.splice(indice, 1);
-
+          localStorage.setItem(`carrito`, JSON.stringify(carrito));
         }
       }
     });
@@ -235,33 +235,27 @@ const restarAlCarrito = (IdProducto) => {
   actualizarCarrito();
 };
 
-
 //funcion eliminar del carrito
 const eliminarDeCarrito = (idParaEliminar) => {
   const item = carrito.find((producto) => producto.id === idParaEliminar);
   const indice = carrito.indexOf(item);
-        item.cantidad = 1;
   carrito.splice(indice, 1);
+  localStorage.setItem(`carrito`, JSON.stringify(carrito));
   actualizarCarrito();
 };
-
 
 //funcion vaciar carrito
 botonVaciarCarrito.onclick = () => {
-  carrito.forEach((idParaEliminar) => {
-    const items = carrito.find((producto) => producto.id === idParaEliminar.id);
-    items.cantidad = 1;
-  })
   carrito.length = 0; 
+  localStorage.setItem(`carrito`, JSON.stringify(carrito));
   actualizarCarrito();
 };
-
 
 //funcion actualizar carrito
 const actualizarCarrito = () => {  
   cajaCarritoGeneral.innerHTML = "";
   
-  carrito.forEach((producto) => {
+  for (const producto of carrito) {
     const cajaCarritoProducto = document.createElement(`div`);
     const imagenProducto = document.createElement(`div`);
     const nombreProducto = document.createElement(`div`);
@@ -302,7 +296,9 @@ const actualizarCarrito = () => {
     cantidadProducto.append(botonMenosCantidad, botonCantidad, botonMasCantidad);
 
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
-  });
+
+    console.log(carrito)
+  };
   contadorCarrito.innerText = carrito.length;
   montoTotal.innerHTML = `<p>Total: $${carrito.reduce(
     (accumulador, producto) =>
@@ -313,18 +309,19 @@ const actualizarCarrito = () => {
 
 
 //funcion terminar compra
-// confirmarCompra.onclick =() => {
-
-//   if (carrito.length === 0) {
-//     actualizarCarrito();
-//     alert(`tu carrito esta vacio`)
-//   }
-//   else {
-//   carrito.length = 0; 
-//   actualizarCarrito();
-//   alert(`compra Realizada`)
-// }
-// };
+terminarCompra.onclick =() => {
+  if (carrito.length === 0) {
+    localStorage.setItem(`carrito`, JSON.stringify(carrito));
+    actualizarCarrito();
+    alert(`tu carrito esta vacio`)
+  }
+  else {
+  carrito.length = 0;
+  localStorage.setItem(`carrito`, JSON.stringify(carrito)); 
+  actualizarCarrito();
+  alert(`compra Realizada`)
+}
+};
 
 
 

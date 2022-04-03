@@ -58,7 +58,7 @@ const confirmarCompra = document.getElementById(`confirmarCompra`);
 
 //nodos estaticos de metodo de envio
 const contenedorEnvioTotal = document.getElementById(`contenedorEnvioTotal`);
-
+const terminarCompra = document.getElementById(`terminarCompra`)
 
 const cajaTextoEnvio = document.createElement(`div`);
 const cajaEnvioGeneral = document.createElement(`div`);
@@ -79,3 +79,4 @@ cajaEnvioGeneral.innerHTML = `<div class="cajaImagenEnvio"><img src= "../images/
 cajaTextoEnvio.innerHTML = `<p>Metodo de Envio</p>`;
 
 contenedorEnvioTotal.append(cajaTextoEnvio, cajaEnvioGeneral);
+
