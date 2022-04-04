@@ -598,10 +598,22 @@
     border-radius: 10px;
     background-color: white;
     box-shadow: 1px 1px 5px rgb(0 0 0 / 60%);
-    .cajaImagenEnvio {
+    .cajaFormaDeEnvio {
       display: flex;
       width: 25%;
       justify-content: center;
+      .form-select {
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #d9737f;
+        option {
+          width: 100%;
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #d9737f;
+        }
+      }
       img {
         width: 110px;
         height: auto;

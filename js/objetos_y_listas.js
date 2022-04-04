@@ -81,3 +81,10 @@ listaProductos.push(
 
 
 let carrito = []
+
+document.addEventListener(`DOMContentLoaded`, () => {
+    if (localStorage.getItem(`carrito`)) {
+      carrito = JSON.parse(localStorage.getItem(`carrito`));
+      actualizarCarrito();
+    }
+  });

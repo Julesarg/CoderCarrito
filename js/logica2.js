@@ -1,22 +1,10 @@
-///JSON QUE NO FUNCIONA//////////
-
-document.addEventListener(`DOMContentLoaded`, () => {  
-  if (localStorage.getItem(`carrito`)){
-    carrito = JSON.parse(localStorage.getItem(`carrito`))
-    actualizarCarrito()
-    
-  }
-})
 //////////////////////////LISTA DE PRODUCTOS
-for (const producto of listaProductos){
-  document.getElementById(`cajaProductos`).style.display = `grid`;
-  document.getElementById(`cajaBuscador`).style.display = `flex`;
+for (const producto of listaProductos) {
   const cajaIndividual = document.createElement(`div`);
   const linkProducto = document.createElement(`a`);
   const cajaImagen = document.createElement(`img`);
   const cajaInferior = document.createElement(`div`);
   const cajaComprar = document.createElement(`p`);
-
   const cajaNombreProducto = document.createElement(`p`);
   const cajaPrecioLista = document.createElement(`div`);
   const cajaPrecioEfvo = document.createElement(`div`);
@@ -74,10 +62,11 @@ for (const producto of listaProductos){
       timer: 2000,
     });
   };
-};
+}
 
 /////////////////////LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.onclick = () => {
+
   document.getElementById(`cajaProductos`).style.display = `none`;
   document.getElementById(`cajaProductos2`).style.display = `grid`;
 
@@ -108,11 +97,12 @@ cajaBotonBuscar.onclick = () => {
     descuentoPrecioEfvo.className = `descuentoPrecioEfvo`;
     precioEfvo.className = `precioEfvo`;
     cajaComprar.className = `botonComprar`;
-    cajaComprar.id = `${producto.id}`;
 
+    cajaComprar.id = `${producto.id}`;
     linkProducto.target = "_blank";
     linkProducto.setAttribute("href", `${producto.link}`);
     cajaImagen.src = `${producto.img}`;
+    
     cajaNombreProducto.innerHTML = `${producto.modelo}`;
     textoPrecioLista.innerHTML = `Tarjeta`;
     textoPrecioEfvo.innerHTML = `Efectivo`;
@@ -164,7 +154,6 @@ input1.onchange = funcionDeBusqueda;
 input2.onchange = funcionDeBusqueda;
 input3.onchange = funcionDeBusqueda;
 
-
 //funcion agregar al carrito
 const agregarAlCarrito = (IdProducto) => {
   const productoExistente = carrito.some(
@@ -182,9 +171,9 @@ const agregarAlCarrito = (IdProducto) => {
           position: "center",
           stopOnFocus: true,
           style: {
-            background: "linear-gradient(to right, #14e7b2, #49c93d)",            
+            background: "linear-gradient(to right, #14e7b2, #49c93d)",
           },
-          onClick: function(){}
+          onClick: function () {},
         }).showToast();
         producto.cantidad++;
       }
@@ -198,13 +187,11 @@ const agregarAlCarrito = (IdProducto) => {
   actualizarCarrito();
 };
 
-
-
 //funcion restar del carrito
-const restarAlCarrito = (IdProducto) => {  
+const restarAlCarrito = (IdProducto) => {
   const productoExistente = carrito.some(
     (producto) => producto.id === IdProducto
-  );  
+  );
   if (productoExistente) {
     const producto = carrito.map((producto) => {
       if (producto.id === IdProducto) {
@@ -217,15 +204,15 @@ const restarAlCarrito = (IdProducto) => {
           position: "center",
           stopOnFocus: true,
           style: {
-            background: "linear-gradient(to right, #db0606, #c9813d)",            
+            background: "linear-gradient(to right, #db0606, #c9813d)",
           },
-          onClick: function(){}
+          onClick: function () {},
         }).showToast();
         producto.cantidad--;
-        if (producto.cantidad === 0){
+        if (producto.cantidad === 0) {
           const item = carrito.find((producto) => producto.id === IdProducto);
-         const indice = carrito.indexOf(item);
-         item.cantidad = 1;
+          const indice = carrito.indexOf(item);
+          item.cantidad = 1;
           carrito.splice(indice, 1);
           localStorage.setItem(`carrito`, JSON.stringify(carrito));
         }
@@ -246,45 +233,46 @@ const eliminarDeCarrito = (idParaEliminar) => {
 
 //funcion vaciar carrito
 botonVaciarCarrito.onclick = () => {
-  carrito.length = 0; 
+  carrito.length = 0;
   localStorage.setItem(`carrito`, JSON.stringify(carrito));
   actualizarCarrito();
 };
 
 //funcion actualizar carrito
-const actualizarCarrito = () => {  
+const actualizarCarrito = () => {
   cajaCarritoGeneral.innerHTML = "";
-  
+
   for (const producto of carrito) {
+
     const cajaCarritoProducto = document.createElement(`div`);
     const imagenProducto = document.createElement(`div`);
     const nombreProducto = document.createElement(`div`);
     const precioProducto = document.createElement(`div`);
-
     const cantidadProducto = document.createElement(`div`);
-    const botonMenosCantidad = document.createElement(`button`)
-    const botonCantidad = document.createElement(`div`)
-    const botonMasCantidad = document.createElement(`button`)
+    const botonMenosCantidad = document.createElement(`button`);
+    const botonCantidad = document.createElement(`div`);
+    const botonMasCantidad = document.createElement(`button`);
     const cajaEliminarProducto = document.createElement(`button`);
 
     cajaCarritoProducto.className = `cajaCarritoProducto`;
     imagenProducto.className = `imagenProducto`;
-    nombreProducto.className =`nombreProducto`;
-    precioProducto.className = `precioProducto`
+    nombreProducto.className = `nombreProducto`;
+    precioProducto.className = `precioProducto`;
     cajaEliminarProducto.className = `eliminarProducto`;
     cantidadProducto.className = `cantidadProducto`;
 
     imagenProducto.innerHTML = `<img src="${producto.img}">`;
     nombreProducto.innerHTML = `<p>Modelo <br>${producto.modelo}</p>`;
     precioProducto.innerHTML = `<p>Precio<br>$${producto.precio}</p>`;
-    botonMenosCantidad.innerHTML = `<p>-</p>`
+    botonMenosCantidad.innerHTML = `<p>-</p>`;
     botonCantidad.innerHTML = `<p type ="number" min="0">${producto.cantidad}</p>`;
-    botonMasCantidad.innerHTML = `<p>+</p>`
+    botonMasCantidad.innerHTML = `<p>+</p>`;
     cajaEliminarProducto.innerHTML = `<img src="../images/carrito/tacho.png">`;
 
     botonMasCantidad.onclick = () => agregarAlCarrito(producto.id);
     botonMenosCantidad.onclick = () => restarAlCarrito(producto.id);
     cajaEliminarProducto.onclick = () => eliminarDeCarrito(producto.id);
+
     cajaCarritoGeneral.append(cajaCarritoProducto, botonVaciarCarrito);
     cajaCarritoProducto.append(
       imagenProducto,
@@ -293,13 +281,16 @@ const actualizarCarrito = () => {
       cantidadProducto,
       cajaEliminarProducto
     );
-    cantidadProducto.append(botonMenosCantidad, botonCantidad, botonMasCantidad);
+    cantidadProducto.append(
+      botonMenosCantidad,
+      botonCantidad,
+      botonMasCantidad
+    );
 
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
-
-    console.log(carrito)
-  };
+  }
   contadorCarrito.innerText = carrito.length;
+
   montoTotal.innerHTML = `<p>Total: $${carrito.reduce(
     (accumulador, producto) =>
       accumulador + producto.precio * producto.cantidad,
@@ -307,21 +298,26 @@ const actualizarCarrito = () => {
   )}`;
 };
 
-
 //funcion terminar compra
-terminarCompra.onclick =() => {
+terminarCompra.onclick = () => {
   if (carrito.length === 0) {
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
     actualizarCarrito();
-    alert(`tu carrito esta vacio`)
+    alert(`tu carrito esta vacio`);
+  } else {
+    carrito.length = 0;
+    localStorage.setItem(`carrito`, JSON.stringify(carrito));
+    actualizarCarrito();
+    alert(`compra Realizada`);
   }
-  else {
-  carrito.length = 0;
-  localStorage.setItem(`carrito`, JSON.stringify(carrito)); 
-  actualizarCarrito();
-  alert(`compra Realizada`)
-}
 };
+
+
+
+
+
+
+
 
 
 

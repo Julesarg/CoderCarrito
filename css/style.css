@@ -1775,12 +1775,24 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   background-color: white;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
 }
-.contenedorEnvioTotal .cajaEnvioGeneral .cajaImagenEnvio {
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio {
   display: flex;
   width: 25%;
   justify-content: center;
 }
-.contenedorEnvioTotal .cajaEnvioGeneral .cajaImagenEnvio img {
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio .form-select {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d9737f;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio .form-select option {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d9737f;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio img {
   width: 110px;
   height: auto;
 }
