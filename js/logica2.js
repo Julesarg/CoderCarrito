@@ -1,3 +1,5 @@
+let carrito = []
+
 //////////////////////////LISTA DE PRODUCTOS
 for (const producto of listaProductos) {
   const cajaIndividual = document.createElement(`div`);
@@ -49,7 +51,7 @@ for (const producto of listaProductos) {
 
   const botonComprar = document.getElementById(producto.id);
 
-  botonComprar.onclick = () => {
+  botonComprar.addEventListener(`click`, () => {
     agregarAlCarrito(producto.id);
     Swal.fire({
       position: "bottom-end",
@@ -61,11 +63,11 @@ for (const producto of listaProductos) {
       showConfirmButton: false,
       timer: 2000,
     });
-  };
+  });
 }
 
 /////////////////////LISTA DE PRODUCTOS FILTRADOS
-cajaBotonBuscar.onclick = () => {
+cajaBotonBuscar.addEventListener(`click`, () => {
 
   document.getElementById(`cajaProductos`).style.display = `none`;
   document.getElementById(`cajaProductos2`).style.display = `grid`;
@@ -120,7 +122,7 @@ cajaBotonBuscar.onclick = () => {
 
     const botonComprar = document.getElementById(producto.id);
 
-    botonComprar.onclick = () => {
+    botonComprar.addEventListener(`click`, () => {
       agregarAlCarrito(producto.id);
       Swal.fire({
         position: "bottom-end",
@@ -132,9 +134,9 @@ cajaBotonBuscar.onclick = () => {
         showConfirmButton: false,
         timer: 2000,
       });
-    };
+    });
   }
-};
+});
 
 //////////////////////////////////////FUNCIONES GENERALES
 
@@ -232,11 +234,11 @@ const eliminarDeCarrito = (idParaEliminar) => {
 };
 
 //funcion vaciar carrito
-botonVaciarCarrito.onclick = () => {
+botonVaciarCarrito.addEventListener(`click`, () => {
   carrito.length = 0;
   localStorage.setItem(`carrito`, JSON.stringify(carrito));
   actualizarCarrito();
-};
+});
 
 //funcion actualizar carrito
 const actualizarCarrito = () => {
@@ -269,9 +271,9 @@ const actualizarCarrito = () => {
     botonMasCantidad.innerHTML = `<p>+</p>`;
     cajaEliminarProducto.innerHTML = `<img src="../images/carrito/tacho.png">`;
 
-    botonMasCantidad.onclick = () => agregarAlCarrito(producto.id);
-    botonMenosCantidad.onclick = () => restarAlCarrito(producto.id);
-    cajaEliminarProducto.onclick = () => eliminarDeCarrito(producto.id);
+    botonMasCantidad.addEventListener(`click`, () => agregarAlCarrito(producto.id));
+    botonMenosCantidad.addEventListener(`click`, () => restarAlCarrito(producto.id));
+    cajaEliminarProducto.addEventListener(`click`, () => eliminarDeCarrito(producto.id));
 
     cajaCarritoGeneral.append(cajaCarritoProducto, botonVaciarCarrito);
     cajaCarritoProducto.append(
@@ -299,7 +301,7 @@ const actualizarCarrito = () => {
 };
 
 //funcion terminar compra
-terminarCompra.onclick = () => {
+terminarCompra.addEventListener(`click`,() => {
   if (carrito.length === 0) {
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
     actualizarCarrito();
@@ -310,11 +312,12 @@ terminarCompra.onclick = () => {
     actualizarCarrito();
     alert(`compra Realizada`);
   }
-};
+});
 
 
 
-
+carrito = JSON.parse(localStorage.getItem("carrito")) || []
+actualizarCarrito();
 
 
 
