@@ -185,22 +185,23 @@ header{
         background-color: white;
         padding-bottom: 2px;
             .imgCarrito{
-              height: 40px;
+              height: 30px;
               width: auto;
             }
             .contadorCarrito{
               display: flex;
               position: relative;
-              right: 15px;
+              right: 10px;
+              bottom: 5px;
               justify-content: center;
               align-items: center;
               background-color: red;
               color: white;
               font-family: "Poppins", sans-serif;
               font-weight: 600;
-              font-size: 0.9rem;
-              width: 20px;
-              height: 20px;
+              font-size: 0.8rem;
+              width: 18px;
+              height: 18px;
               border-radius: 100%;
             }
       }

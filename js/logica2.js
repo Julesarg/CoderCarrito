@@ -1,4 +1,4 @@
-let carrito = []
+let carrito = [];
 
 //////////////////////////LISTA DE PRODUCTOS
 for (const producto of listaProductos) {
@@ -68,7 +68,6 @@ for (const producto of listaProductos) {
 
 /////////////////////LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.addEventListener(`click`, () => {
-
   document.getElementById(`cajaProductos`).style.display = `none`;
   document.getElementById(`cajaProductos2`).style.display = `grid`;
 
@@ -104,7 +103,7 @@ cajaBotonBuscar.addEventListener(`click`, () => {
     linkProducto.target = "_blank";
     linkProducto.setAttribute("href", `${producto.link}`);
     cajaImagen.src = `${producto.img}`;
-    
+
     cajaNombreProducto.innerHTML = `${producto.modelo}`;
     textoPrecioLista.innerHTML = `Tarjeta`;
     textoPrecioEfvo.innerHTML = `Efectivo`;
@@ -245,12 +244,12 @@ const actualizarCarrito = () => {
   cajaCarritoGeneral.innerHTML = "";
 
   for (const producto of carrito) {
-
     const cajaCarritoProducto = document.createElement(`div`);
     const imagenProducto = document.createElement(`div`);
     const nombreProducto = document.createElement(`div`);
     const precioProducto = document.createElement(`div`);
     const cantidadProducto = document.createElement(`div`);
+    const cantidadProductoInterior = document.createElement(`div`);
     const botonMenosCantidad = document.createElement(`button`);
     const botonCantidad = document.createElement(`div`);
     const botonMasCantidad = document.createElement(`button`);
@@ -262,18 +261,33 @@ const actualizarCarrito = () => {
     precioProducto.className = `precioProducto`;
     cajaEliminarProducto.className = `eliminarProducto`;
     cantidadProducto.className = `cantidadProducto`;
+    cantidadProductoInterior.className = `cantidadProductoInterior`;
 
+    cantidadProducto.innerHTML = `<p>Cantidad</p>`;
     imagenProducto.innerHTML = `<img src="${producto.img}">`;
-    nombreProducto.innerHTML = `<p>Modelo <br>${producto.modelo}</p>`;
-    precioProducto.innerHTML = `<p>Precio<br>$${producto.precio}</p>`;
+    nombreProducto.innerHTML = `<div class="nombreProductoInterior"><p class="modelo">Modelo</p><p>${producto.modelo}</p></div>`;
+    precioProducto.innerHTML = `<div class="precioProductoInterior"><p class="precio">Precio</p><p>$${producto.precio}</p></div>`;
     botonMenosCantidad.innerHTML = `<p>-</p>`;
     botonCantidad.innerHTML = `<p type ="number" min="0">${producto.cantidad}</p>`;
     botonMasCantidad.innerHTML = `<p>+</p>`;
-    cajaEliminarProducto.innerHTML = `<img src="../images/carrito/tacho.png">`;
+    cajaEliminarProducto.innerHTML = `<section>
+                                      <span class="trash"><img src="../images/carrito/tachobajo.png">
+                                        <span>
+                                        <img src="../images/carrito/tachotapa.png">
+                                        </span>
+                                          <i></i>
+                                        </span>
+                                      </section>`;
 
-    botonMasCantidad.addEventListener(`click`, () => agregarAlCarrito(producto.id));
-    botonMenosCantidad.addEventListener(`click`, () => restarAlCarrito(producto.id));
-    cajaEliminarProducto.addEventListener(`click`, () => eliminarDeCarrito(producto.id));
+    botonMasCantidad.addEventListener(`click`, () =>
+      agregarAlCarrito(producto.id)
+    );
+    botonMenosCantidad.addEventListener(`click`, () =>
+      restarAlCarrito(producto.id)
+    );
+    cajaEliminarProducto.addEventListener(`click`, () =>
+      eliminarDeCarrito(producto.id)
+    );
 
     cajaCarritoGeneral.append(cajaCarritoProducto, botonVaciarCarrito);
     cajaCarritoProducto.append(
@@ -283,7 +297,8 @@ const actualizarCarrito = () => {
       cantidadProducto,
       cajaEliminarProducto
     );
-    cantidadProducto.append(
+    cantidadProducto.append(cantidadProductoInterior);
+    cantidadProductoInterior.append(
       botonMenosCantidad,
       botonCantidad,
       botonMasCantidad
@@ -301,7 +316,7 @@ const actualizarCarrito = () => {
 };
 
 //funcion terminar compra
-terminarCompra.addEventListener(`click`,() => {
+terminarCompra.addEventListener(`click`, () => {
   if (carrito.length === 0) {
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
     actualizarCarrito();
@@ -314,15 +329,8 @@ terminarCompra.addEventListener(`click`,() => {
   }
 });
 
-
-
-carrito = JSON.parse(localStorage.getItem("carrito")) || []
+carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 actualizarCarrito();
-
-
-
-
-
 
 //////////////////////FUNCIONES PENDIENTES?
 

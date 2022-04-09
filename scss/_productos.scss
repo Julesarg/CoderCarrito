@@ -389,6 +389,18 @@
   .modal-content {
     width: 100%;
     height: fit-content;
+    border-radius: 10px;
+    .modal-header {
+      padding: 0.75rem 0.75rem;
+      display: flex;
+      justify-content: center;
+      .modal-title {
+        font-size: 1.2rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: grey;
+      }
+    }
     .contenedorCarritoTotal {
       display: flex;
       flex-direction: column;
@@ -404,7 +416,7 @@
         p {
           display: block;
           padding-left: 20px;
-          padding-right: 20px;
+          padding-right: 60px;
           text-decoration: none;
           font-size: 1rem;
           font-family: "Poppins", sans-serif;
@@ -435,6 +447,7 @@
         }
         .botonVaciarCarrito:hover {
           background-color: red;
+          transition: transform 250ms;
         }
         .cajaCarritoProducto {
           display: flex;
@@ -465,58 +478,149 @@
           .nombreProducto {
             display: flex;
             width: 20%;
-            p {
-              font-size: 1rem;
-              font-family: "Poppins", sans-serif;
-              font-weight: 600;
-              color: #d9737f;
-              text-align: center;
-              width: 50%;
+            justify-content: center;
+            align-items: center;
+            .nombreProductoInterior {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              .modelo {
+                color: #c95663;
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: rgba(0, 0, 0, 0.2);
+              }
+              p {
+                font-size: 1rem;
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                color: #d9737f;
+                text-align: center;
+                width: 100%;
+              }
             }
           }
           .precioProducto {
             display: flex;
             width: 20%;
-
-            p {
-              font-size: 1rem;
-              font-family: "Poppins", sans-serif;
-              font-weight: 600;
-              color: #d9737f;
-              text-align: center;
-              width: 50%;
+            height: 90%;
+            justify-content: center;
+            align-items: center;
+            .precioProductoInterior {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              .precio {
+                color: #c95663;
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: rgba(0, 0, 0, 0.2);
+              }
+              p {
+                font-size: 1rem;
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                color: #d9737f;
+                text-align: center;
+                width: 50%;
+              }
             }
           }
           .cantidadProducto {
             display: flex;
+            flex-direction: column;
             width: 20%;
+            height: 90%;
+            justify-content: center;
             align-items: center;
-            button {
-              margin: 10px;
-              width: 20px;
-              height: 20px;
-              color: red;
-              background-color: transparent;
-              border-width: 0.5px;
-              border-color: rgba(0, 0, 0, 0.3);
-              p {
-                font-size: 0.8rem;
+            p {
+              color: #c95663;
+              border-bottom-style: solid;
+              border-bottom-width: 1px;
+              border-bottom-color: rgba(0, 0, 0, 0.2);
+            }
+            .cantidadProductoInterior {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-style: none;
+                width: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+                height: 20px;
+                background-color: transparent;
+                border-width: 0.5px;
+                border-color: rgba(0, 0, 0, 0.3);
+                p {
+                  border-bottom-style: none;
+                }
+              }
+              div {
+                p {
+                  font-size: 1rem;
+                  font-family: "Poppins", sans-serif;
+                  font-weight: 600;
+                  color: #d9737f;
+                  text-align: center;
+                  width: 50%;
+                }
               }
             }
           }
           .eliminarProducto {
-            display: flex;
-            width: 100px;
-            height: 100px;
-            align-items: center;
-            justify-content: center;
             border-style: none;
+            display: flex;
+            width: 20%;
+            height: 90%;
+            justify-content: center;
+            align-items: center;
             background-color: transparent;
-            img {
-              display: flex;
-              width: 25px;
-              height: 25px;
-              box-shadow: none;
+            section {
+              font-size: small;
+              .trash {
+                width: 66px;
+                height: 80px;
+                margin: 0 auto;
+                position: relative;
+                -webkit-border-bottom-right-radius: 6px;
+                -webkit-border-bottom-left-radius: 6px;
+                -moz-border-radius-bottomright: 6px;
+                -moz-border-radius-bottomleft: 6px;
+                border-bottom-right-radius: 6px;
+                border-bottom-left-radius: 6px;
+                img {
+                  width: 21px;
+                  height: auto;
+                }
+              }
+              .trash span {
+                position: absolute;
+                border-style: none;
+                top: -15px;
+                left: -10px;
+                right: -10px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                transform: rotate(0deg);
+                transition: transform 250ms;
+                transform-origin: 30% 100%;
+                img {
+                  width: 23px;
+                  height: auto;
+                }
+              }
+              .trash:hover span {
+                transform: rotate(-45deg);
+                transition: transform 250ms;
+              }
             }
           }
         }
