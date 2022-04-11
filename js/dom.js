@@ -1,16 +1,13 @@
-//////////////////////////////////////////////////////////nodos barra de busqueda
+//BARRA DE BUSQUEDA
 const cajaBuscador = document.getElementById("cajaBuscador");
-
 const cajaBusquedaMinimo = document.createElement(`input`);
 const cajaBusquedaMaximo = document.createElement(`input`);
 const cajaBusquedaGeneral = document.createElement(`input`);
 const cajaBotonBuscar = document.createElement(`button`);
-
 cajaBusquedaMinimo.className = `cajaBusquedaMinimo`;
 cajaBusquedaMaximo.className = `cajaBusquedaMaximo`;
 cajaBusquedaGeneral.className = `cajaBusquedaGeneral`;
 cajaBotonBuscar.className = `cajaBuscar`;
-
 cajaBusquedaMinimo.type = `number`;
 cajaBusquedaMinimo.min = "0";
 cajaBusquedaMaximo.type = `number`;
@@ -28,12 +25,11 @@ cajaBuscador.append(
   cajaBusquedaGeneral,
   cajaBotonBuscar
 );
-
 let input1 = document.getElementById(`cajaBusquedaMinimo`);
 let input2 = document.getElementById(`cajaBusquedaMaximo`);
 let input3 = document.getElementById(`cajaBusquedaGeneral`);
 
-////////////////////////////////////////////////////////nodos caja de productos
+//CAJA DE PRODUCTOS
 let cajaCarritoProducto;
 const cajaProductos = document.getElementById(`cajaProductos`);
 const contenedorCarritoTotal = document.getElementById(
@@ -42,62 +38,85 @@ const contenedorCarritoTotal = document.getElementById(
 const cajaCarritoGeneral = document.getElementById(`cajaCarritoGeneral`);
 const contadorCarrito = document.getElementById(`contadorCarrito`);
 const botonPaginaCarrito = document.getElementById(`botonPaginaCarrito`);
-
 const cajaTextoSuperior = document.createElement(`div`);
 const botonVaciarCarrito = document.createElement(`button`);
 const montoTotal = document.createElement(`div`);
-
 contenedorCarritoTotal.className = `contenedorCarritoTotal`;
 cajaTextoSuperior.className = `cajaTextoSuperior`;
 cajaCarritoGeneral.className = `cajaCarritoGeneral`;
 botonVaciarCarrito.className = `botonVaciarCarrito`;
 montoTotal.className = `montoTotal`;
-
 cajaTextoSuperior.innerHTML = `<p>Articulo</> <p>Eliminar</p>`;
 botonVaciarCarrito.innerHTML = `<p>Vaciar Carrito</p>`;
 montoTotal.innerHTML = `<p>Total $0</p>`;
-
 contenedorCarritoTotal.append(
   cajaTextoSuperior,
   cajaCarritoGeneral,
   montoTotal
 );
 
-//////////////////////////////////////////////////////nodo contenedor de resultados de busqueda
+//CAJA DE RESULTADO DE BUSQUEDA INICIALMENTE OCULTO
 const cajaFiltroProductos = document.getElementById("cajaProductos2");
 document.getElementById(`cajaProductos2`).style.display = `none`;
 
-///////////////////////////////////////////////////////////////nodos de metodo de envio
+//CAJA METODO DE ENVIO
 const contenedorEnvioTotal = document.getElementById(`contenedorEnvioTotal`);
-
 const cajaTextoEnvio = document.createElement(`div`);
 const cajaEnvioGeneral = document.createElement(`div`);
-
 contenedorEnvioTotal.className = `contenedorEnvioTotal`;
 cajaTextoEnvio.className = `cajaTextoEnvio`;
 cajaEnvioGeneral.className = `cajaEnvioGeneral`;
-
+cajaEnvioGeneral.id = `cajaEnvioGeneral`;
 cajaTextoEnvio.innerHTML = `<p>Metodo de Envio</p>`;
-cajaEnvioGeneral.innerHTML = `<div class="cajaFormaDeEnvio">
-<select class="form-select" aria-label="Default select example"> 
-<option selected>Open this select menu</option>
-  <option value="1" id="envioDomicilio">Envio a Domicilio</option>
-  <option value="2" id="retiroLocal">Retiro en local</option>
-</select>
+cajaEnvioGeneral.innerHTML = `<div id="cajaFormaDeEnvio" class="cajaFormaDeEnvio">
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+    Seleccionar
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><button class="dropdown-item" type="button" id=envioDomicilio>Envio a Domicilio</button></li>
+    <li><button class="dropdown-item" type="button" id=retiroEnTienda>Retiro en Tienda</button></li>
+  </ul>
+</div>
 </div>`;
-
 contenedorEnvioTotal.append(cajaTextoEnvio, cajaEnvioGeneral);
 
-envioDomicilio.addEventListener(`click`, () => {
-  cajaEnvioGeneral.innerHTML += `<p>Ingrese su Domicilio</p>`;
-  cajaEnvioGeneral.innerHTML += `<input id="domicilioIngresado"></input>`;
-  contenedorEnvioTotal.append(cajaEnvioGeneral);
 
-  let domicilioIngresado = document.getElementById(`domicilioIngresado`);
-  domicilioIngresado.onchange = () => {
-    alert(`hola`);
-  }
-  });
+//CAJA FINALIZAR COMPRA Y VACIAR CARRO
+const contenedorFinal = document.getElementById(`contenedorMontoFinal`);
+const contenedorProductos = document.createElement(`div`);
+const contenedorEnvio = document.createElement(`div`);
+const contenedorPrecioFinal = document.createElement(`div`);
+const costoFinalProductos = document.createElement(`div`);
+const costoFinalEnvio = document.createElement(`div`);
 
-//////////////////////////////////nodo finalizar compra
+contenedorFinal.className = `contenedorFinal`;
+contenedorProductos.className = `contenedorProductos`;
+contenedorEnvio.className = `contenedorEnvio`;
+contenedorPrecioFinal.className = `contenedorPrecioFinal`;
+costoFinalProductos.className = `costoFinalProductos`;
+costoFinalEnvio.className = `costoFinalEnvio`;
+
+contenedorFinal.append(
+  contenedorProductos,
+  contenedorEnvio,
+  contenedorPrecioFinal
+);
+contenedorPrecioFinal.append(costoFinalProductos, costoFinalEnvio);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//nodo finalizar compra
 const terminarCompra = document.getElementById(`terminarCompra`);

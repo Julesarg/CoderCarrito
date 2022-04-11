@@ -1817,10 +1817,7 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   border-radius: 10px;
   background-color: white;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
-}
-.modal-dialog .modal-content .contenedorCarritoTotal .montoTotal p {
   font-family: "Poppins", sans-serif;
-  width: 20%;
   font-size: 1.2rem;
   font-weight: 600;
   color: #d9737f;
@@ -1869,10 +1866,10 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 }
 .contenedorEnvioTotal .cajaEnvioGeneral {
   display: flex;
+  flex-direction: column;
   width: 90%;
   height: auto;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 2%;
   padding: 20px;
   border-radius: 10px;
@@ -1881,8 +1878,7 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 }
 .contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio {
   display: flex;
-  width: 25%;
-  justify-content: center;
+  width: 100%;
 }
 .contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio .form-select {
   width: 100%;
@@ -1900,12 +1896,13 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   width: 110px;
   height: auto;
 }
-.contenedorEnvioTotal .cajaEnvioGeneral .domicilioEnvio {
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio .dropdown button:after {
+  display: none;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaFormaDeEnvio .dropdown .dropdown-menu li .dropdown-item {
   display: flex;
   width: 25%;
   text-align: center;
-}
-.contenedorEnvioTotal .cajaEnvioGeneral .domicilioEnvio p {
   width: 100%;
   font-size: 1.2rem;
   font-weight: 600;
@@ -1932,6 +1929,88 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #d9737f;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaOpcionesEnvio {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  border-style: none;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fa576a;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.contenedorEnvioTotal .cajaEnvioGeneral .cajaOpcionesEnvio div {
+  width: 20%;
+}
+
+.contenedorFinal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  margin-top: 2%;
+  align-items: center;
+}
+.contenedorFinal .contenedorProductos {
+  display: flex;
+  height: 100px;
+  width: 90%;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fa576a;
+  text-align: right;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.contenedorFinal .contenedorEnvio {
+  display: flex;
+  height: 100px;
+  width: 90%;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fa576a;
+  text-align: right;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.contenedorFinal .contenedorPrecioFinal {
+  display: flex;
+  height: 100px;
+  width: 90%;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fa576a;
+  text-align: right;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .accordion-collapse {

@@ -1,0 +1,6 @@
+[
+    {"id":1, "domicilio": "Honorio Pueyrredon 1553", "localidad": "Capital Federal", "provincia": "Buenos Aires", "cp":1408, "precio":"Gratis"},
+    {"id":2, "domicilio": "Av del Libertador 4450", "localidad": "Capital Federal", "provincia": "Buenos Aires", "cp":1378, "precio":700},
+    {"id":3, "domicilio": "Pedernera 654 5C", "localidad": "Lomas de Zamora", "provincia": "Buenos Aires", "cp":1832, "precio":1300}    
+]
+

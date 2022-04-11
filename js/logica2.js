@@ -1,6 +1,6 @@
 let carrito = [];
 
-//////////////////////////LISTA DE PRODUCTOS
+//LISTA DE PRODUCTOS
 for (const producto of listaProductos) {
   const cajaIndividual = document.createElement(`div`);
   const linkProducto = document.createElement(`a`);
@@ -15,7 +15,6 @@ for (const producto of listaProductos) {
   const precioEfvo = document.createElement(`p`);
   const textoPrecioEfvo = document.createElement(`p`);
   const descuentoPrecioEfvo = document.createElement(`p`);
-
   cajaIndividual.className = `cajaIndividual`;
   cajaImagen.className = `cajaImagen`;
   cajaInferior.className = `cajaInferior`;
@@ -28,12 +27,10 @@ for (const producto of listaProductos) {
   precioEfvo.className = `precioEfvo`;
   textoPrecioEfvo.className = `textoPrecioEfvo`;
   descuentoPrecioEfvo.className = `descuentoPrecioEfvo`;
-
   cajaImagen.src = `${producto.img}`;
   linkProducto.target = "_blank";
   linkProducto.setAttribute("href", `${producto.link}`);
   cajaComprar.id = `${producto.id}`;
-
   cajaComprar.innerHTML = `COMPRAR`;
   cajaNombreProducto.innerHTML = `${producto.modelo}`;
   precioLista.innerHTML = `$${producto.precio}`;
@@ -41,16 +38,13 @@ for (const producto of listaProductos) {
   precioEfvo.innerHTML = `$${producto.precioEfectivo()}`;
   descuentoPrecioEfvo.innerHTML = `-$${producto.descuentoDeProducto()} (10%)`;
   textoPrecioEfvo.innerHTML = `Efectivo`;
-
   cajaProductos.append(cajaIndividual);
   cajaIndividual.append(linkProducto, cajaInferior, cajaComprar);
   linkProducto.append(cajaImagen);
   cajaInferior.append(cajaNombreProducto, cajaPrecioLista, cajaPrecioEfvo);
   cajaPrecioLista.append(textoPrecioLista, precioLista);
   cajaPrecioEfvo.append(textoPrecioEfvo, descuentoPrecioEfvo, precioEfvo);
-
   const botonComprar = document.getElementById(producto.id);
-
   botonComprar.addEventListener(`click`, () => {
     agregarAlCarrito(producto.id);
     Swal.fire({
@@ -66,11 +60,10 @@ for (const producto of listaProductos) {
   });
 }
 
-/////////////////////LISTA DE PRODUCTOS FILTRADOS
-cajaBotonBuscar.addEventListener(`click`, () => {
+//LISTA DE PRODUCTOS FILTRADOS
+cajaBotonBuscar.onclick = () => {
   document.getElementById(`cajaProductos`).style.display = `none`;
   document.getElementById(`cajaProductos2`).style.display = `grid`;
-
   for (const producto of resultadoBusquedaValores) {
     const cajaIndividual = document.createElement(`div`);
     const linkProducto = document.createElement(`a`);
@@ -85,7 +78,6 @@ cajaBotonBuscar.addEventListener(`click`, () => {
     const descuentoPrecioEfvo = document.createElement(`p`);
     const precioEfvo = document.createElement(`p`);
     const cajaComprar = document.createElement(`p`);
-
     cajaIndividual.className = `cajaIndividual`;
     cajaImagen.className = `cajaImagen`;
     cajaInferior.className = `cajaInferior`;
@@ -98,12 +90,10 @@ cajaBotonBuscar.addEventListener(`click`, () => {
     descuentoPrecioEfvo.className = `descuentoPrecioEfvo`;
     precioEfvo.className = `precioEfvo`;
     cajaComprar.className = `botonComprar`;
-
     cajaComprar.id = `${producto.id}`;
     linkProducto.target = "_blank";
     linkProducto.setAttribute("href", `${producto.link}`);
     cajaImagen.src = `${producto.img}`;
-
     cajaNombreProducto.innerHTML = `${producto.modelo}`;
     textoPrecioLista.innerHTML = `Tarjeta`;
     textoPrecioEfvo.innerHTML = `Efectivo`;
@@ -111,16 +101,13 @@ cajaBotonBuscar.addEventListener(`click`, () => {
     descuentoPrecioEfvo.innerHTML = `-$${producto.descuentoDeProducto()} (10%)`;
     precioEfvo.innerHTML = `$${producto.precioEfectivo()}`;
     cajaComprar.innerHTML = `COMPRAR`;
-
     cajaFiltroProductos.append(cajaIndividual);
     cajaIndividual.append(linkProducto, cajaInferior, cajaComprar);
     linkProducto.append(cajaImagen);
     cajaInferior.append(cajaNombreProducto, cajaPrecioLista, cajaPrecioEfvo);
     cajaPrecioLista.append(textoPrecioLista, precioLista);
     cajaPrecioEfvo.append(textoPrecioEfvo, descuentoPrecioEfvo, precioEfvo);
-
     const botonComprar = document.getElementById(producto.id);
-
     botonComprar.addEventListener(`click`, () => {
       agregarAlCarrito(producto.id);
       Swal.fire({
@@ -135,7 +122,7 @@ cajaBotonBuscar.addEventListener(`click`, () => {
       });
     });
   }
-});
+};
 
 //////////////////////////////////////FUNCIONES GENERALES
 
@@ -308,14 +295,99 @@ const actualizarCarrito = () => {
   }
   contadorCarrito.innerText = carrito.length;
 
-  montoTotal.innerHTML = `<p>Total: $${carrito.reduce(
+  montoTotal.innerHTML = `${carrito.reduce(
     (accumulador, producto) =>
       accumulador + producto.precio * producto.cantidad,
     0
   )}`;
+  contenedorProductos.innerHTML = `${montoTotal.innerHTML}`;
+  costoFinalProductos.innerHTML = `${parseInt(contenedorProductos.innerHTML)}`;
 };
 
-//funcion terminar compra
+//////////////////TRABAJANDO//////////////////////////////////////////////////////////////////////////////////////////////
+
+//funcion eleccion de metodo de envio con fetch
+
+//envio
+const envioDomicilio = document.getElementById(`envioDomicilio`);
+envioDomicilio.onclick = () => {
+  fetch(`../envio.json`)
+    .then((resultado) => resultado.json())
+    .then((envio) => {
+      envio.forEach((direccion) => {
+        if (direccion.id > 1) {
+          const cajaEnvioGeneral = document.getElementById(`cajaEnvioGeneral`);
+          const cajaOpcionesEnvio = document.createElement(`button`);
+          const domicilio = document.createElement(`div`);
+          const localidad = document.createElement(`div`);
+          const provincia = document.createElement(`div`);
+          const cp = document.createElement(`div`);
+          const precio = document.createElement(`div`);
+          cajaOpcionesEnvio.className = `cajaOpcionesEnvio`;
+          domicilio.innerHTML = `Domicilio: ${direccion.domicilio}`;
+          localidad.innerHTML = `Loc: ${direccion.localidad}`;
+          provincia.innerHTML = `Pcia: ${direccion.provincia}`;
+          cp.innerHTML = `CP: ${direccion.cp}`;
+          precio.innerHTML = `Costo: ${direccion.precio}`;
+          cajaEnvioGeneral.append(cajaOpcionesEnvio);
+          cajaOpcionesEnvio.append(domicilio, localidad, provincia, cp, precio);
+
+          cajaOpcionesEnvio.onclick = () => {
+            buscarDondeEnviar(direccion.id);
+          };
+          const buscarDondeEnviar = (idDireccion) => {
+            const item = envio.find(
+              (direccion) => direccion.id === idDireccion
+            );
+            contenedorEnvio.innerHTML = `${item.precio}`;
+            costoFinalEnvio.innerHTML = `${contenedorEnvio.innerHTML}`;
+          };
+        }
+      });
+    });
+};
+
+//retiro
+const retiroEnTienda = document.getElementById(`retiroEnTienda`);
+retiroEnTienda.onclick = () => {
+  fetch(`../envio.json`)
+    .then((resultado) => resultado.json())
+    .then((envio) => {
+      envio.forEach((direccion) => {
+        if (direccion.id === 1) {
+          const cajaEnvioGeneral = document.getElementById(`cajaEnvioGeneral`);
+          const cajaOpcionesEnvio = document.createElement(`button`);
+          const domicilio = document.createElement(`div`);
+          const localidad = document.createElement(`div`);
+          const provincia = document.createElement(`div`);
+          const cp = document.createElement(`div`);
+          const precio = document.createElement(`div`);
+          cajaOpcionesEnvio.className = `cajaOpcionesEnvio`;
+          domicilio.innerHTML = `Domicilio: ${direccion.domicilio}`;
+          localidad.innerHTML = `Loc: ${direccion.localidad}`;
+          provincia.innerHTML = `Pcia: ${direccion.provincia}`;
+          cp.innerHTML = `CP: ${direccion.cp}`;
+          precio.innerHTML = `Costo: ${direccion.precio}`;
+          cajaEnvioGeneral.append(cajaOpcionesEnvio);
+          cajaOpcionesEnvio.append(domicilio, localidad, provincia, cp, precio);
+
+          cajaOpcionesEnvio.onclick = () => {
+            buscarDondeRetirar(direccion.id);
+          };
+          const buscarDondeRetirar = (idDireccion) => {
+            const item = envio.find(
+              (direccion) => direccion.id === idDireccion
+            );
+            contenedorEnvio.innerHTML = `${item.precio}`;
+            costoFinalEnvio.innerHTML = `${contenedorEnvio.innerHTML}`;
+          };
+        }
+      });
+    });
+};
+
+//carrito SALIDA
+//funcion terminar compra y vaciar carrito
 terminarCompra.addEventListener(`click`, () => {
   if (carrito.length === 0) {
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
@@ -329,6 +401,7 @@ terminarCompra.addEventListener(`click`, () => {
   }
 });
 
+//json
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 actualizarCarrito();
 
