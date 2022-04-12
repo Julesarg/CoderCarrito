@@ -62,6 +62,7 @@ for (const producto of listaProductos) {
 
 //LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.onclick = () => {
+  cajaFiltroProductos.innerHTML = "";
   document.getElementById(`cajaProductos`).style.display = `none`;
   document.getElementById(`cajaProductos2`).style.display = `grid`;
   for (const producto of resultadoBusquedaValores) {

@@ -40,20 +40,34 @@ const contadorCarrito = document.getElementById(`contadorCarrito`);
 const botonPaginaCarrito = document.getElementById(`botonPaginaCarrito`);
 const cajaTextoSuperior = document.createElement(`div`);
 const botonVaciarCarrito = document.createElement(`button`);
+
+const cajaMontoTotal = document.createElement(`div`);
+const textoMontoTotal = document.createElement(`p`);
 const montoTotal = document.createElement(`div`);
+
+
+
 contenedorCarritoTotal.className = `contenedorCarritoTotal`;
 cajaTextoSuperior.className = `cajaTextoSuperior`;
 cajaCarritoGeneral.className = `cajaCarritoGeneral`;
 botonVaciarCarrito.className = `botonVaciarCarrito`;
+cajaMontoTotal.className = `cajaMontoTotal`;
+textoMontoTotal.className = `textoMontoTotal`;
 montoTotal.className = `montoTotal`;
+
 cajaTextoSuperior.innerHTML = `<p>Articulo</> <p>Eliminar</p>`;
 botonVaciarCarrito.innerHTML = `<p>Vaciar Carrito</p>`;
-montoTotal.innerHTML = `<p>Total $0</p>`;
+textoMontoTotal.innerHTML = `<p>Subtotal: $`
+montoTotal.innerHTML = `<p>0</p>`;
 contenedorCarritoTotal.append(
   cajaTextoSuperior,
   cajaCarritoGeneral,
-  montoTotal
+  cajaMontoTotal
 );
+
+cajaMontoTotal.append(textoMontoTotal, montoTotal)
+
+
 
 //CAJA DE RESULTADO DE BUSQUEDA INICIALMENTE OCULTO
 const cajaFiltroProductos = document.getElementById("cajaProductos2");
