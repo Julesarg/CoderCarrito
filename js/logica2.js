@@ -1,64 +1,7 @@
 let carrito = [];
 
-//LISTA DE PRODUCTOS
-for (const producto of listaProductos) {
-  const cajaIndividual = document.createElement(`div`);
-  const linkProducto = document.createElement(`a`);
-  const cajaImagen = document.createElement(`img`);
-  const cajaInferior = document.createElement(`div`);
-  const cajaComprar = document.createElement(`p`);
-  const cajaNombreProducto = document.createElement(`p`);
-  const cajaPrecioLista = document.createElement(`div`);
-  const cajaPrecioEfvo = document.createElement(`div`);
-  const precioLista = document.createElement(`p`);
-  const textoPrecioLista = document.createElement(`p`);
-  const precioEfvo = document.createElement(`p`);
-  const textoPrecioEfvo = document.createElement(`p`);
-  const descuentoPrecioEfvo = document.createElement(`p`);
-  cajaIndividual.className = `cajaIndividual`;
-  cajaImagen.className = `cajaImagen`;
-  cajaInferior.className = `cajaInferior`;
-  cajaComprar.className = `botonComprar`;
-  cajaPrecioLista.className = `cajaPrecioLista`;
-  cajaNombreProducto.className = `nombreModelo`;
-  cajaPrecioEfvo.className = `cajaPrecioEfvo`;
-  precioLista.className = `precioLista`;
-  textoPrecioLista.className = `textoPrecioLista`;
-  precioEfvo.className = `precioEfvo`;
-  textoPrecioEfvo.className = `textoPrecioEfvo`;
-  descuentoPrecioEfvo.className = `descuentoPrecioEfvo`;
-  cajaImagen.src = `${producto.img}`;
-  linkProducto.target = "_blank";
-  linkProducto.setAttribute("href", `${producto.link}`);
-  cajaComprar.id = `${producto.id}`;
-  cajaComprar.innerHTML = `COMPRAR`;
-  cajaNombreProducto.innerHTML = `${producto.modelo}`;
-  precioLista.innerHTML = `$${producto.precio}`;
-  textoPrecioLista.innerHTML = `Tarjeta`;
-  precioEfvo.innerHTML = `$${producto.precioEfectivo()}`;
-  descuentoPrecioEfvo.innerHTML = `-$${producto.descuentoDeProducto()} (10%)`;
-  textoPrecioEfvo.innerHTML = `Efectivo`;
-  cajaProductos.append(cajaIndividual);
-  cajaIndividual.append(linkProducto, cajaInferior, cajaComprar);
-  linkProducto.append(cajaImagen);
-  cajaInferior.append(cajaNombreProducto, cajaPrecioLista, cajaPrecioEfvo);
-  cajaPrecioLista.append(textoPrecioLista, precioLista);
-  cajaPrecioEfvo.append(textoPrecioEfvo, descuentoPrecioEfvo, precioEfvo);
-  const botonComprar = document.getElementById(producto.id);
-  botonComprar.addEventListener(`click`, () => {
-    agregarAlCarrito(producto.id);
-    Swal.fire({
-      position: "bottom-end",
-      imageUrl: `${producto.img}`,
-      icon: `success`,
-      imageWidth: `100px`,
-      imageHeight: `100px`,
-      title: `Has agregado el rascador "${producto.modelo}" a tu carrito`,
-      showConfirmButton: false,
-      timer: 2000,
-    });
-  });
-}
+//funcion para cargar listado general de productos
+domListaProductos()
 
 //LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.onclick = () => {
@@ -127,15 +70,18 @@ cajaBotonBuscar.onclick = () => {
 
 //////////////////////////////////////FUNCIONES GENERALES
 
+//funcion para resetear listado de productos luego de filtrar busqueda
+cajaTodosLosProductos.onclick = () => {
+  domListaProductos()
+}
+
 //funcion de busqueda
 let funcionDeBusqueda = () => {
   resultadoBusquedaValores = listaProductos.filter(
     (rascadores) =>
-      (rascadores.precio >= input1.value &&
-        rascadores.precio <= input2.value &&
-        rascadores.modelo.toLowerCase() === input3.value) ||
-      (rascadores.precio >= input1.value &&
-        rascadores.precio <= input2.value) ||
+    
+      ((rascadores.precio >= input1.value && rascadores.precio <= input2.value) && rascadores.modelo.toLowerCase() === input3.value) ||
+      (rascadores.precio >= input1.value && rascadores.precio <= input2.value) ||
       rascadores.modelo.toLowerCase() === input3.value
   );
 };
@@ -324,27 +270,36 @@ envioDomicilio.onclick = () => {
           const provincia = document.createElement(`div`);
           const cp = document.createElement(`div`);
           const precio = document.createElement(`div`);
+
           cajaOpcionesEnvio.className = `cajaOpcionesEnvio`;
-          domicilio.innerHTML = `Domicilio: ${direccion.domicilio}`;
-          localidad.innerHTML = `Loc: ${direccion.localidad}`;
-          provincia.innerHTML = `Pcia: ${direccion.provincia}`;
-          cp.innerHTML = `CP: ${direccion.cp}`;
-          precio.innerHTML = `Costo: ${direccion.precio}`;
+          domicilio.className = `domicilio`;
+          localidad.className = `localidad`;
+          provincia.className = `provincia`;
+          cp.className =`cp`;
+          precio.className = `precio`;
+
+          domicilio.innerHTML = `<p class="textoEnvio">Domicilio</p><p>${direccion.domicilio}</p>`;
+          localidad.innerHTML = `<p class="textoEnvio">Localidad</p><p>${direccion.localidad}</p>`;
+          provincia.innerHTML = `<p class="textoEnvio">Provincia</p><p>${direccion.provincia}</p>`;
+          cp.innerHTML = `<p class="textoEnvio">Codigo Postal</p><p>${direccion.cp}</p>`;
+          precio.innerHTML = `<p class="textoEnvio">Precio</p><p>${direccion.precio}</p>`;
           cajaEnvioGeneral.append(cajaOpcionesEnvio);
           cajaOpcionesEnvio.append(domicilio, localidad, provincia, cp, precio);
 
           cajaOpcionesEnvio.onclick = () => {
             buscarDondeEnviar(direccion.id);
-          };
+            
+           };
           const buscarDondeEnviar = (idDireccion) => {
             const item = envio.find(
               (direccion) => direccion.id === idDireccion
             );
             contenedorEnvio.innerHTML = `${item.precio}`;
             costoFinalEnvio.innerHTML = `${contenedorEnvio.innerHTML}`;
-          };
-        }
-      });
+            };
+          }
+          
+        });
     });
 };
 
@@ -363,12 +318,19 @@ retiroEnTienda.onclick = () => {
           const provincia = document.createElement(`div`);
           const cp = document.createElement(`div`);
           const precio = document.createElement(`div`);
+
           cajaOpcionesEnvio.className = `cajaOpcionesEnvio`;
-          domicilio.innerHTML = `Domicilio: ${direccion.domicilio}`;
-          localidad.innerHTML = `Loc: ${direccion.localidad}`;
-          provincia.innerHTML = `Pcia: ${direccion.provincia}`;
-          cp.innerHTML = `CP: ${direccion.cp}`;
-          precio.innerHTML = `Costo: ${direccion.precio}`;
+          domicilio.className = `domicilio`;
+          localidad.className = `localidad`;
+          provincia.className = `provincia`;
+          cp.className =`cp`;
+          precio.className = `precio`;
+
+          domicilio.innerHTML = `<p class="textoEnvio">Domicilio</p><p>${direccion.domicilio}</p>`;
+          localidad.innerHTML = `<p class="textoEnvio">Localidad</p><p>${direccion.localidad}</p>`;
+          provincia.innerHTML = `<p class="textoEnvio">Provincia</p><p>${direccion.provincia}</p>`;
+          cp.innerHTML = `<p class="textoEnvio">Codigo Postal</p><p>${direccion.cp}</p>`;
+          precio.innerHTML = `<p class="textoEnvio">Precio</p><p>${direccion.precio}</p>`;
           cajaEnvioGeneral.append(cajaOpcionesEnvio);
           cajaOpcionesEnvio.append(domicilio, localidad, provincia, cp, precio);
 
