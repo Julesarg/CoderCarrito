@@ -5,70 +5,8 @@ domListaProductos();
 
 //LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.onclick = () => {
-  cajaFiltroProductos.innerHTML = "";
-  document.getElementById(`cajaProductos`).style.display = `none`;
-  document.getElementById(`cajaProductos2`).style.display = `grid`;
-  for (const producto of resultadoBusquedaValores) {
-    const cajaIndividual = document.createElement(`div`);
-    const linkProducto = document.createElement(`a`);
-    const cajaImagen = document.createElement(`img`);
-    const cajaInferior = document.createElement(`div`);
-    const cajaNombreProducto = document.createElement(`p`);
-    const cajaPrecioLista = document.createElement(`div`);
-    const textoPrecioLista = document.createElement(`p`);
-    const precioLista = document.createElement(`p`);
-    const cajaPrecioEfvo = document.createElement(`div`);
-    const textoPrecioEfvo = document.createElement(`p`);
-    const descuentoPrecioEfvo = document.createElement(`p`);
-    const precioEfvo = document.createElement(`p`);
-    const cajaComprar = document.createElement(`p`);
-    cajaIndividual.className = `cajaIndividual`;
-    cajaImagen.className = `cajaImagen`;
-    cajaInferior.className = `cajaInferior`;
-    cajaNombreProducto.className = `nombreModelo`;
-    cajaPrecioLista.className = `cajaPrecioLista`;
-    textoPrecioLista.className = `textoPrecioLista`;
-    precioLista.className = `precioLista`;
-    cajaPrecioEfvo.className = `cajaPrecioEfvo`;
-    textoPrecioEfvo.className = `textoPrecioEfvo`;
-    descuentoPrecioEfvo.className = `descuentoPrecioEfvo`;
-    precioEfvo.className = `precioEfvo`;
-    cajaComprar.className = `botonComprar`;
-    cajaComprar.id = `${producto.id}`;
-    linkProducto.target = "_blank";
-    linkProducto.setAttribute("href", `${producto.link}`);
-    cajaImagen.src = `${producto.img}`;
-    cajaNombreProducto.innerHTML = `${producto.modelo}`;
-    textoPrecioLista.innerHTML = `Tarjeta`;
-    textoPrecioEfvo.innerHTML = `Efectivo`;
-    precioLista.innerHTML = `$${producto.precio}`;
-    descuentoPrecioEfvo.innerHTML = `-$${producto.descuentoDeProducto()} (10%)`;
-    precioEfvo.innerHTML = `$${producto.precioEfectivo()}`;
-    cajaComprar.innerHTML = `COMPRAR`;
-    cajaFiltroProductos.append(cajaIndividual);
-    cajaIndividual.append(linkProducto, cajaInferior, cajaComprar);
-    linkProducto.append(cajaImagen);
-    cajaInferior.append(cajaNombreProducto, cajaPrecioLista, cajaPrecioEfvo);
-    cajaPrecioLista.append(textoPrecioLista, precioLista);
-    cajaPrecioEfvo.append(textoPrecioEfvo, descuentoPrecioEfvo, precioEfvo);
-    const botonComprar = document.getElementById(producto.id);
-    botonComprar.addEventListener(`click`, () => {
-      agregarAlCarrito(producto.id);
-      Swal.fire({
-        position: "bottom-end",
-        imageUrl: `${producto.img}`,
-        icon: `success`,
-        imageWidth: `100px`,
-        imageHeight: `100px`,
-        title: `Has agregado el rascador "${producto.modelo}" a tu carrito`,
-        showConfirmButton: false,
-        timer: 2000,
-      });
-    });
-  }
+  domListaProductosFiltrados()  
 };
-
-//////////////////////////////////////FUNCIONES GENERALES
 
 //funcion para resetear listado de productos luego de filtrar busqueda
 cajaTodosLosProductos.onclick = () => {
@@ -178,7 +116,6 @@ botonVaciarCarrito.addEventListener(`click`, () => {
 //funcion actualizar carrito
 const actualizarCarrito = () => {
   cajaCarritoGeneral.innerHTML = "";
-
   for (const producto of carrito) {
     const cajaCarritoProducto = document.createElement(`div`);
     const imagenProducto = document.createElement(`div`);
@@ -190,7 +127,6 @@ const actualizarCarrito = () => {
     const botonCantidad = document.createElement(`div`);
     const botonMasCantidad = document.createElement(`button`);
     const cajaEliminarProducto = document.createElement(`button`);
-
     cajaCarritoProducto.className = `cajaCarritoProducto`;
     imagenProducto.className = `imagenProducto`;
     nombreProducto.className = `nombreProducto`;
@@ -198,7 +134,6 @@ const actualizarCarrito = () => {
     cajaEliminarProducto.className = `eliminarProducto`;
     cantidadProducto.className = `cantidadProducto`;
     cantidadProductoInterior.className = `cantidadProductoInterior`;
-
     cantidadProducto.innerHTML = `<p>Cantidad</p>`;
     imagenProducto.innerHTML = `<img src="${producto.img}">`;
     nombreProducto.innerHTML = `<div class="nombreProductoInterior"><p class="modelo">Modelo</p><p>${producto.modelo}</p></div>`;
@@ -214,7 +149,6 @@ const actualizarCarrito = () => {
                                           <i></i>
                                         </span>
                                       </section>`;
-
     botonMasCantidad.addEventListener(`click`, () =>
       agregarAlCarrito(producto.id)
     );
@@ -224,7 +158,6 @@ const actualizarCarrito = () => {
     cajaEliminarProducto.addEventListener(`click`, () =>
       eliminarDeCarrito(producto.id)
     );
-
     cajaCarritoGeneral.append(cajaCarritoProducto, botonVaciarCarrito);
     cajaCarritoProducto.append(
       imagenProducto,
@@ -239,26 +172,21 @@ const actualizarCarrito = () => {
       botonCantidad,
       botonMasCantidad
     );
-
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
   }
   contadorCarrito.innerText = carrito.length;
-
   montoTotal.innerHTML = `${carrito.reduce(
     (accumulador, producto) =>
       accumulador + producto.precio * producto.cantidad,
     0
   )}`;
   imagenProductos.innerHTML = `<img src="../images/carrito/productos.png">`;
-  textoFinalProductos.innerHTML = `<p>Subtotal Productos:`;
+  textoFinalProductos.innerHTML = `<p>Subtotal Productos`;
   precioFinalProductos.innerHTML = parseInt(`${montoTotal.innerHTML} `);
 };
 
-//funcion eleccion de metodo de envio con fetch
-
-//envio
+//funcion fetch de domicilios y carga de DOM para envios
 const envioDomicilio = document.getElementById(`envioDomicilio`);
-
 envioDomicilio.onclick = () => {
   fetch(`../envio.json`)
     .then((resultado) => resultado.json())
@@ -266,14 +194,12 @@ envioDomicilio.onclick = () => {
       envio.forEach((direccion) => {
         if (direccion.id > 1) {
           const cajaEnvioGeneral = document.getElementById(`cajaEnvioGeneral`);
-
           const cajaOpcionesEnvio = document.createElement(`button`);
           const domicilio = document.createElement(`div`);
           const localidad = document.createElement(`div`);
           const provincia = document.createElement(`div`);
           const cp = document.createElement(`div`);
           const precio = document.createElement(`div`);
-
           cajaOpcionesEnvio.id = `cajaOpcionesEnvio`;
           cajaOpcionesEnvio.className = `cajaOpcionesEnvio`;
           domicilio.className = `domicilio`;
@@ -281,7 +207,6 @@ envioDomicilio.onclick = () => {
           provincia.className = `provincia`;
           cp.className = `cp`;
           precio.className = `precio`;
-
           domicilio.innerHTML = `<p class="textoEnvio">Domicilio</p><p>${direccion.domicilio}</p>`;
           localidad.innerHTML = `<p class="textoEnvio">Localidad</p><p>${direccion.localidad}</p>`;
           provincia.innerHTML = `<p class="textoEnvio">Provincia</p><p>${direccion.provincia}</p>`;
@@ -293,7 +218,6 @@ envioDomicilio.onclick = () => {
           envioDomicilio.onclick = () => {
             cajaOpcionesEnvio[0].remove();
           };
-
           cajaOpcionesEnvio.onclick = () => {
             buscarDondeEnviar(direccion.id);
           };
@@ -302,15 +226,16 @@ envioDomicilio.onclick = () => {
               (direccion) => direccion.id === idDireccion
             );
             imagenEnvio.innerHTML = `<img src="../images/carrito/adomicilio.png">`;
+            signoPrecioEnvio.innerHTML = `$`;
             domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
             precioEnvio.innerHTML = `${item.precio}`;
           };
-        }
+        };
       });
     });
 };
 
-//retiro
+//funcion fetch de domicilios y carga de DOM para retiros
 const retiroEnTienda = document.getElementById(`retiroEnTienda`);
 retiroEnTienda.onclick = () => {
   fetch(`../envio.json`)
@@ -325,14 +250,12 @@ retiroEnTienda.onclick = () => {
           const provincia = document.createElement(`div`);
           const cp = document.createElement(`div`);
           const precio = document.createElement(`div`);
-
           cajaOpcionesEnvio.className = `cajaOpcionesEnvio`;
           domicilio.className = `domicilio`;
           localidad.className = `localidad`;
           provincia.className = `provincia`;
           cp.className = `cp`;
           precio.className = `precio`;
-
           domicilio.innerHTML = `<p class="textoEnvio">Domicilio</p><p>${direccion.domicilio}</p>`;
           localidad.innerHTML = `<p class="textoEnvio">Localidad</p><p>${direccion.localidad}</p>`;
           provincia.innerHTML = `<p class="textoEnvio">Provincia</p><p>${direccion.provincia}</p>`;
@@ -344,7 +267,6 @@ retiroEnTienda.onclick = () => {
           retiroEnTienda.onclick = () => {
             cajaOpcionesEnvio[0].remove();
           };
-
           cajaOpcionesEnvio.onclick = () => {
             buscarDondeRetirar(direccion.id);
           };
@@ -353,18 +275,17 @@ retiroEnTienda.onclick = () => {
               (direccion) => direccion.id === idDireccion
             );
             imagenEnvio.innerHTML = `<img src="../images/carrito/retirolocal.png">`;
+            signoPrecioEnvio.innerHTML = "";
             domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
             precioEnvio.innerHTML = `${item.precio}`;
           };
-        }
+        };
       });
     });
 };
 
 //funcion para actualizar monto total con envio
-
 const botonParaEnvioFinal = document.getElementById(`botonParaEnvioFinal`);
-
 botonParaEnvioFinal.onclick = () => {
   if (
     precioFinalProductos.textContent === "0" &&
@@ -415,14 +336,11 @@ botonParaEnvioFinal.onclick = () => {
     );
     costoFinalProductos.innerHTML = `<p>${finalConCostoEnvio}</p>`;
   } else {
-    costoFinalProductos.innerHTML = "$0";
+    costoFinalProductos.innerHTML = "0";
   }
 };
 
-////trabajando
-
-//carrito SALIDA
-//funcion terminar compra y vaciar carrito
+//funcion terminar compra, vaciar carrito y envio
 terminarCompra.addEventListener(`click`, () => {
   if (carrito.length === 0) {
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
@@ -430,6 +348,8 @@ terminarCompra.addEventListener(`click`, () => {
     alert(`tu carrito esta vacio`);
   } else {
     carrito.length = 0;
+    contenedorEnvio.innerHTML= "";
+    precioEnvio.innerHTML = "";
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
     actualizarCarrito();
     alert(`compra Realizada`);
@@ -439,59 +359,3 @@ terminarCompra.addEventListener(`click`, () => {
 //json
 carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 actualizarCarrito();
-
-//////////////////////FUNCIONES PENDIENTES?
-
-//ej. para COSTO DE ENVIO DEPENDIENDO LOCALIDAD
-
-// if (
-//     baseDeDomicilioCliente[0][0].localidad.toLowerCase() === "capital federal"
-//   ) {
-//     costoDeEnvio = 500;
-//   } else if (
-//     baseDeDomicilioCliente[0][0].localidad.toLowerCase() === "buenos aires"
-//   ) {
-//     costoDeEnvio = 900;
-//   } else {
-//     costoDeEnvio = 1500;
-//   }
-
-//   //monto a abonar dependiendo elecciones
-
-//   let formaDePago = prompt("Elige tu forma de pago \n1.Efectivo\n2.Tarjeta");
-//   if (formaDePago === 1) {
-//     const sumatoriaConDescuento = (producto, descuento, cantidad, envio) => {
-//       return (resultadoFinal = (producto - descuento) * cantidad + envio);
-//     };
-//     sumatoriaConDescuento(
-//       productoElegido.precio,
-//       productoElegido.descuento,
-//       cantidadDeProducto,
-//       costoDeEnvio
-//     );
-
-//     console.log(`El producto elegido es el ${
-//       productoElegido.modelo
-//     } y su precio es de $${productoElegido.precio}\n
-//    El descuento correspondiente al producto elegido es de $${
-//      productoElegido.descuento
-//    } cada uno, por un total de $${(productoElegido.descuento *=
-//       cantidadDeProducto)}\n
-//    El costo de envio es de $${costoDeEnvio}\n
-//    El valor final a abonar es de $${resultadoFinal}`);
-//   } else {
-//     const sumatoriaSinDescuento = (producto, cantidad, envio) => {
-//       return (resultadoFinal = producto * cantidad + envio);
-//     };
-//     sumatoriaSinDescuento(
-//       productoElegido.precio,
-//       cantidadDeProducto,
-//       costoDeEnvio
-//     );
-
-//     console.log(`El producto elegido es el ${productoElegido.modelo} y su precio es de $${productoElegido.precio}\n
-//     El costo de envio es de $${costoDeEnvio}\n
-//     El valor final a abonar es de $${resultadoFinal}`);
-//   }
-
-//   alert("VER RESULTADOS POR CONSOLA");

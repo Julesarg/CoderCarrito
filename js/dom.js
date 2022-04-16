@@ -35,7 +35,7 @@ let input2 = document.getElementById(`cajaBusquedaMaximo`);
 let input3 = document.getElementById(`cajaBusquedaGeneral`);
 
 
-//DOM PARA CARGAR PRODUCTOS GENERAL
+//PARA CARGAR PRODUCTOS GENERAL y LISTA FILTRADO
 const domListaProductos = () => {
   cajaFiltroProductos.innerHTML = "";
   cajaProductos.innerHTML = "";
@@ -101,33 +101,82 @@ const domListaProductos = () => {
   }
 }
 
-
-
-
-
-
-
-
-
+const domListaProductosFiltrados = () =>{
+  cajaFiltroProductos.innerHTML = "";
+  document.getElementById(`cajaProductos`).style.display = `none`;
+  document.getElementById(`cajaProductos2`).style.display = `grid`;
+  for (const producto of resultadoBusquedaValores) {
+    const cajaIndividual = document.createElement(`div`);
+    const linkProducto = document.createElement(`a`);
+    const cajaImagen = document.createElement(`img`);
+    const cajaInferior = document.createElement(`div`);
+    const cajaNombreProducto = document.createElement(`p`);
+    const cajaPrecioLista = document.createElement(`div`);
+    const textoPrecioLista = document.createElement(`p`);
+    const precioLista = document.createElement(`p`);
+    const cajaPrecioEfvo = document.createElement(`div`);
+    const textoPrecioEfvo = document.createElement(`p`);
+    const descuentoPrecioEfvo = document.createElement(`p`);
+    const precioEfvo = document.createElement(`p`);
+    const cajaComprar = document.createElement(`p`);
+    cajaIndividual.className = `cajaIndividual`;
+    cajaImagen.className = `cajaImagen`;
+    cajaInferior.className = `cajaInferior`;
+    cajaNombreProducto.className = `nombreModelo`;
+    cajaPrecioLista.className = `cajaPrecioLista`;
+    textoPrecioLista.className = `textoPrecioLista`;
+    precioLista.className = `precioLista`;
+    cajaPrecioEfvo.className = `cajaPrecioEfvo`;
+    textoPrecioEfvo.className = `textoPrecioEfvo`;
+    descuentoPrecioEfvo.className = `descuentoPrecioEfvo`;
+    precioEfvo.className = `precioEfvo`;
+    cajaComprar.className = `botonComprar`;
+    cajaComprar.id = `${producto.id}`;
+    linkProducto.target = "_blank";
+    linkProducto.setAttribute("href", `${producto.link}`);
+    cajaImagen.src = `${producto.img}`;
+    cajaNombreProducto.innerHTML = `${producto.modelo}`;
+    textoPrecioLista.innerHTML = `Tarjeta`;
+    textoPrecioEfvo.innerHTML = `Efectivo`;
+    precioLista.innerHTML = `$${producto.precio}`;
+    descuentoPrecioEfvo.innerHTML = `-$${producto.descuentoDeProducto()} (10%)`;
+    precioEfvo.innerHTML = `$${producto.precioEfectivo()}`;
+    cajaComprar.innerHTML = `COMPRAR`;
+    cajaFiltroProductos.append(cajaIndividual);
+    cajaIndividual.append(linkProducto, cajaInferior, cajaComprar);
+    linkProducto.append(cajaImagen);
+    cajaInferior.append(cajaNombreProducto, cajaPrecioLista, cajaPrecioEfvo);
+    cajaPrecioLista.append(textoPrecioLista, precioLista);
+    cajaPrecioEfvo.append(textoPrecioEfvo, descuentoPrecioEfvo, precioEfvo);
+    const botonComprar = document.getElementById(producto.id);
+    botonComprar.addEventListener(`click`, () => {
+      agregarAlCarrito(producto.id);
+      Swal.fire({
+        position: "bottom-end",
+        imageUrl: `${producto.img}`,
+        icon: `success`,
+        imageWidth: `100px`,
+        imageHeight: `100px`,
+        title: `Has agregado el rascador "${producto.modelo}" a tu carrito`,
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    });
+  };
+};
 
 //CAJA CARRITO DE PRODUCTOS
 let cajaCarritoProducto;
 const cajaProductos = document.getElementById(`cajaProductos`);
-const contenedorCarritoTotal = document.getElementById(
-  `contenedorCarritoTotal`
-);
+const contenedorCarritoTotal = document.getElementById(`contenedorCarritoTotal`);
 const cajaCarritoGeneral = document.getElementById(`cajaCarritoGeneral`);
 const contadorCarrito = document.getElementById(`contadorCarrito`);
 const botonPaginaCarrito = document.getElementById(`botonPaginaCarrito`);
 const cajaTextoSuperior = document.createElement(`div`);
 const botonVaciarCarrito = document.createElement(`button`);
-
 const cajaMontoTotal = document.createElement(`div`);
 const textoMontoTotal = document.createElement(`p`);
 const montoTotal = document.createElement(`div`);
-
-
-
 contenedorCarritoTotal.className = `contenedorCarritoTotal`;
 cajaTextoSuperior.className = `cajaTextoSuperior`;
 cajaCarritoGeneral.className = `cajaCarritoGeneral`;
@@ -135,7 +184,6 @@ botonVaciarCarrito.className = `botonVaciarCarrito`;
 cajaMontoTotal.className = `cajaMontoTotal`;
 textoMontoTotal.className = `textoMontoTotal`;
 montoTotal.className = `montoTotal`;
-
 cajaTextoSuperior.innerHTML = `<p>Articulo</> <p>Eliminar</p>`;
 botonVaciarCarrito.innerHTML = `<p>Vaciar Carrito</p>`;
 textoMontoTotal.innerHTML = `<p>Subtotal: $`
@@ -145,10 +193,7 @@ contenedorCarritoTotal.append(
   cajaCarritoGeneral,
   cajaMontoTotal
 );
-
 cajaMontoTotal.append(textoMontoTotal, montoTotal)
-
-
 
 //CAJA DE RESULTADO DE BUSQUEDA INICIALMENTE OCULTO
 const cajaFiltroProductos = document.getElementById("cajaProductos2");
@@ -176,50 +221,48 @@ cajaEnvioGeneral.innerHTML = `<div id="cajaFormaDeEnvio" class="cajaFormaDeEnvio
 </div>`;
 contenedorEnvioTotal.append(cajaTextoEnvio, cajaEnvioGeneral);
 
-
 //CAJA FINALIZAR COMPRA Y VACIAR CARRO
 const contenedorFinal = document.getElementById(`contenedorMontoFinal`);
-
 const contenedorProductos = document.createElement(`div`);
 const imagenProductos = document.createElement(`div`)
 const textoFinalProductos = document.createElement(`div`);
+const precioTextoFinalProductos = document.createElement(`div`);
 const precioFinalProductos = document.createElement(`div`);
-
 const contenedorEnvio = document.createElement(`div`);
 const imagenEnvio = document.createElement(`div`);
 const domicilioEnvio = document.createElement(`div`);
+const signoPrecioEnvio = document.createElement(`div`);
 const precioEnvio = document.createElement(`div`);
-
 const contenedorPrecioFinal = document.createElement(`div`);
-
-
+const textoCostoFinal = document.createElement(`div`);
+const signoCostoFinal = document.createElement(`div`);
 const costoFinalProductos = document.createElement(`div`);
-
-
 contenedorFinal.className = `contenedorFinal`;
 contenedorProductos.className = `contenedorProductos`;
 imagenProductos.className = `imagenProductos`;
 textoFinalProductos.className = `textoFinalProductos`;
+precioTextoFinalProductos.className = `precioTextoFinalProductos`;
 precioFinalProductos.className = `precioFinalProductos`;
 contenedorEnvio.className = `contenedorEnvio`;
 imagenEnvio.className  = `imagenEnvio`;
 domicilioEnvio.className = `domicilioEnvio`
+signoPrecioEnvio.className = `signoPrecioEnvio`;
 precioEnvio.className = `precioEnvio`;
-
-
 contenedorPrecioFinal.className = `contenedorPrecioFinal`;
-
+textoCostoFinal.className = `textoCostoFinal`;
+signoCostoFinal.className = `signoCostoFinal`;
 costoFinalProductos.className = `costoFinalProductos`;
-
-
+textoCostoFinal.innerHTML = `Total:`;
+signoCostoFinal.innerHTML = `$`;
+precioTextoFinalProductos.innerHTML = `$`;
 contenedorFinal.append(
   contenedorProductos,
   contenedorEnvio,
   contenedorPrecioFinal
 );
-contenedorProductos.append(imagenProductos,textoFinalProductos, precioFinalProductos);
-contenedorEnvio.append(imagenEnvio, domicilioEnvio,precioEnvio);
-contenedorPrecioFinal.append(costoFinalProductos);
+contenedorProductos.append(imagenProductos,textoFinalProductos, precioTextoFinalProductos,precioFinalProductos);
+contenedorEnvio.append(imagenEnvio, domicilioEnvio,signoPrecioEnvio,precioEnvio);
+contenedorPrecioFinal.append(textoCostoFinal,signoCostoFinal,costoFinalProductos);
 
 
 

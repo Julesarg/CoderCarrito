@@ -2134,6 +2134,7 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   border-radius: 20px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #fa576a;
@@ -2144,26 +2145,23 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 .contenedorFinal .contenedorProductos .imagenProductos {
   display: flex;
   height: auto;
-  width: 40%;
+  width: 25%;
 }
 .contenedorFinal .contenedorProductos .imagenProductos img {
   height: 80px;
   width: auto;
 }
 .contenedorFinal .contenedorProductos .textoFinalProductos {
-  display: flex;
-  width: 40%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  width: 35%;
   text-align: center;
 }
+.contenedorFinal .contenedorProductos .precioTextoFinalProductos {
+  width: 32%;
+  text-align: right;
+}
 .contenedorFinal .contenedorProductos .precioFinalProductos {
-  display: flex;
-  width: 20%;
-  height: 100%;
-  justify-content: flex-end;
-  align-items: center;
+  width: 8%;
+  text-align: left;
 }
 .contenedorFinal .contenedorEnvio {
   display: flex;
@@ -2175,6 +2173,7 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   border-radius: 20px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #fa576a;
@@ -2185,43 +2184,55 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
 .contenedorFinal .contenedorEnvio .imagenEnvio {
   display: flex;
   height: auto;
-  width: 40%;
+  width: 25%;
 }
 .contenedorFinal .contenedorEnvio .imagenEnvio img {
   height: 80px;
   width: auto;
 }
 .contenedorFinal .contenedorEnvio .domicilioEnvio {
-  display: flex;
-  width: 40%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  width: 35%;
   text-align: center;
 }
+.contenedorFinal .contenedorEnvio .signoPrecioEnvio {
+  width: 32%;
+  text-align: right;
+}
 .contenedorFinal .contenedorEnvio .precioEnvio {
-  display: flex;
-  width: 20%;
-  height: 100%;
-  justify-content: flex-end;
-  align-items: center;
+  width: 8%;
+  text-align: left;
 }
 .contenedorFinal .contenedorPrecioFinal {
   display: flex;
-  height: 100px;
   width: 90%;
-  margin-bottom: 10px;
-  justify-content: space-between;
   align-items: center;
-  border-radius: 20px;
+  justify-content: right;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
   background-color: white;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #fa576a;
   text-align: right;
-  padding-left: 40px;
-  padding-right: 40px;
+}
+.contenedorFinal .contenedorPrecioFinal .textoCostoFinal {
+  width: 60%;
+  text-align: right;
+}
+.contenedorFinal .contenedorPrecioFinal .signoCostoFinal {
+  width: 32%;
+  text-align: right;
+}
+.contenedorFinal .contenedorPrecioFinal .costoFinalProductos {
+  width: 8%;
+  text-align: left;
 }
 
 .accordion-collapse {
