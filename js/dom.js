@@ -179,25 +179,47 @@ contenedorEnvioTotal.append(cajaTextoEnvio, cajaEnvioGeneral);
 
 //CAJA FINALIZAR COMPRA Y VACIAR CARRO
 const contenedorFinal = document.getElementById(`contenedorMontoFinal`);
+
 const contenedorProductos = document.createElement(`div`);
+const imagenProductos = document.createElement(`div`)
+const textoFinalProductos = document.createElement(`div`);
+const precioFinalProductos = document.createElement(`div`);
+
 const contenedorEnvio = document.createElement(`div`);
+const imagenEnvio = document.createElement(`div`);
+const domicilioEnvio = document.createElement(`div`);
+const precioEnvio = document.createElement(`div`);
+
 const contenedorPrecioFinal = document.createElement(`div`);
+
+
 const costoFinalProductos = document.createElement(`div`);
-const costoFinalEnvio = document.createElement(`div`);
+
 
 contenedorFinal.className = `contenedorFinal`;
 contenedorProductos.className = `contenedorProductos`;
+imagenProductos.className = `imagenProductos`;
+textoFinalProductos.className = `textoFinalProductos`;
+precioFinalProductos.className = `precioFinalProductos`;
 contenedorEnvio.className = `contenedorEnvio`;
+imagenEnvio.className  = `imagenEnvio`;
+domicilioEnvio.className = `domicilioEnvio`
+precioEnvio.className = `precioEnvio`;
+
+
 contenedorPrecioFinal.className = `contenedorPrecioFinal`;
+
 costoFinalProductos.className = `costoFinalProductos`;
-costoFinalEnvio.className = `costoFinalEnvio`;
+
 
 contenedorFinal.append(
   contenedorProductos,
   contenedorEnvio,
   contenedorPrecioFinal
 );
-contenedorPrecioFinal.append(costoFinalProductos, costoFinalEnvio);
+contenedorProductos.append(imagenProductos,textoFinalProductos, precioFinalProductos);
+contenedorEnvio.append(imagenEnvio, domicilioEnvio,precioEnvio);
+contenedorPrecioFinal.append(costoFinalProductos);
 
 
 

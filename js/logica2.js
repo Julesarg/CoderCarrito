@@ -1,7 +1,7 @@
 let carrito = [];
 
 //funcion para cargar listado general de productos
-domListaProductos()
+domListaProductos();
 
 //LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.onclick = () => {
@@ -72,16 +72,18 @@ cajaBotonBuscar.onclick = () => {
 
 //funcion para resetear listado de productos luego de filtrar busqueda
 cajaTodosLosProductos.onclick = () => {
-  domListaProductos()
-}
+  domListaProductos();
+};
 
 //funcion de busqueda
 let funcionDeBusqueda = () => {
   resultadoBusquedaValores = listaProductos.filter(
     (rascadores) =>
-    
-      ((rascadores.precio >= input1.value && rascadores.precio <= input2.value) && rascadores.modelo.toLowerCase() === input3.value) ||
-      (rascadores.precio >= input1.value && rascadores.precio <= input2.value) ||
+      (rascadores.precio >= input1.value &&
+        rascadores.precio <= input2.value &&
+        rascadores.modelo.toLowerCase() === input3.value) ||
+      (rascadores.precio >= input1.value &&
+        rascadores.precio <= input2.value) ||
       rascadores.modelo.toLowerCase() === input3.value
   );
 };
@@ -247,16 +249,16 @@ const actualizarCarrito = () => {
       accumulador + producto.precio * producto.cantidad,
     0
   )}`;
-  contenedorProductos.innerHTML = `${montoTotal.innerHTML}`;
-  costoFinalProductos.innerHTML = `${parseInt(contenedorProductos.innerHTML)}`;
+  imagenProductos.innerHTML = `<img src="../images/carrito/productos.png">`;
+  textoFinalProductos.innerHTML = `<p>Subtotal Productos:`;
+  precioFinalProductos.innerHTML = parseInt(`${montoTotal.innerHTML} `);
 };
-
-//////////////////TRABAJANDO//////////////////////////////////////////////////////////////////////////////////////////////
 
 //funcion eleccion de metodo de envio con fetch
 
 //envio
 const envioDomicilio = document.getElementById(`envioDomicilio`);
+
 envioDomicilio.onclick = () => {
   fetch(`../envio.json`)
     .then((resultado) => resultado.json())
@@ -264,6 +266,7 @@ envioDomicilio.onclick = () => {
       envio.forEach((direccion) => {
         if (direccion.id > 1) {
           const cajaEnvioGeneral = document.getElementById(`cajaEnvioGeneral`);
+
           const cajaOpcionesEnvio = document.createElement(`button`);
           const domicilio = document.createElement(`div`);
           const localidad = document.createElement(`div`);
@@ -271,35 +274,39 @@ envioDomicilio.onclick = () => {
           const cp = document.createElement(`div`);
           const precio = document.createElement(`div`);
 
+          cajaOpcionesEnvio.id = `cajaOpcionesEnvio`;
           cajaOpcionesEnvio.className = `cajaOpcionesEnvio`;
           domicilio.className = `domicilio`;
           localidad.className = `localidad`;
           provincia.className = `provincia`;
-          cp.className =`cp`;
+          cp.className = `cp`;
           precio.className = `precio`;
 
           domicilio.innerHTML = `<p class="textoEnvio">Domicilio</p><p>${direccion.domicilio}</p>`;
           localidad.innerHTML = `<p class="textoEnvio">Localidad</p><p>${direccion.localidad}</p>`;
           provincia.innerHTML = `<p class="textoEnvio">Provincia</p><p>${direccion.provincia}</p>`;
           cp.innerHTML = `<p class="textoEnvio">Codigo Postal</p><p>${direccion.cp}</p>`;
-          precio.innerHTML = `<p class="textoEnvio">Precio</p><p>${direccion.precio}</p>`;
+          precio.innerHTML = `<p class="textoEnvio">Precio</p><div><p>$</p><p>${direccion.precio}</p></div>`;
           cajaEnvioGeneral.append(cajaOpcionesEnvio);
           cajaOpcionesEnvio.append(domicilio, localidad, provincia, cp, precio);
 
+          envioDomicilio.onclick = () => {
+            cajaOpcionesEnvio[0].remove();
+          };
+
           cajaOpcionesEnvio.onclick = () => {
             buscarDondeEnviar(direccion.id);
-            
-           };
+          };
           const buscarDondeEnviar = (idDireccion) => {
             const item = envio.find(
               (direccion) => direccion.id === idDireccion
             );
-            contenedorEnvio.innerHTML = `${item.precio}`;
-            costoFinalEnvio.innerHTML = `${contenedorEnvio.innerHTML}`;
-            };
-          }
-          
-        });
+            imagenEnvio.innerHTML = `<img src="../images/carrito/adomicilio.png">`;
+            domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
+            precioEnvio.innerHTML = `${item.precio}`;
+          };
+        }
+      });
     });
 };
 
@@ -323,7 +330,7 @@ retiroEnTienda.onclick = () => {
           domicilio.className = `domicilio`;
           localidad.className = `localidad`;
           provincia.className = `provincia`;
-          cp.className =`cp`;
+          cp.className = `cp`;
           precio.className = `precio`;
 
           domicilio.innerHTML = `<p class="textoEnvio">Domicilio</p><p>${direccion.domicilio}</p>`;
@@ -334,6 +341,10 @@ retiroEnTienda.onclick = () => {
           cajaEnvioGeneral.append(cajaOpcionesEnvio);
           cajaOpcionesEnvio.append(domicilio, localidad, provincia, cp, precio);
 
+          retiroEnTienda.onclick = () => {
+            cajaOpcionesEnvio[0].remove();
+          };
+
           cajaOpcionesEnvio.onclick = () => {
             buscarDondeRetirar(direccion.id);
           };
@@ -341,13 +352,74 @@ retiroEnTienda.onclick = () => {
             const item = envio.find(
               (direccion) => direccion.id === idDireccion
             );
-            contenedorEnvio.innerHTML = `${item.precio}`;
-            costoFinalEnvio.innerHTML = `${contenedorEnvio.innerHTML}`;
+            imagenEnvio.innerHTML = `<img src="../images/carrito/retirolocal.png">`;
+            domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
+            precioEnvio.innerHTML = `${item.precio}`;
           };
         }
       });
     });
 };
+
+//funcion para actualizar monto total con envio
+
+const botonParaEnvioFinal = document.getElementById(`botonParaEnvioFinal`);
+
+botonParaEnvioFinal.onclick = () => {
+  if (
+    precioFinalProductos.textContent === "0" &&
+    precioEnvio.innerHTML === "700"
+  ) {
+    let finalConCostoEnvio = parseInt(`${parseInt(precioEnvio.innerHTML)}`);
+    costoFinalProductos.innerHTML = `<p>${finalConCostoEnvio}</p>`;
+  } else if (
+    precioFinalProductos.textContent === "0" &&
+    precioEnvio.innerHTML === "1300"
+  ) {
+    let finalConCostoEnvio = parseInt(`${parseInt(precioEnvio.innerHTML)}`);
+    costoFinalProductos.innerHTML = `<p>${finalConCostoEnvio}</p>`;
+  } else if (
+    precioFinalProductos.textContent != 0 &&
+    precioEnvio.innerHTML === "Gratis"
+  ) {
+    let finalSinCostoEnvio = `${precioFinalProductos.innerHTML}`;
+    costoFinalProductos.innerHTML = `${finalSinCostoEnvio}`;
+  } else if (
+    precioFinalProductos.textContent != 0 &&
+    precioEnvio.innerHTML === "700"
+  ) {
+    let finalConCostoEnvio = parseInt(
+      `${
+        parseInt(precioFinalProductos.innerHTML) +
+        parseInt(precioEnvio.innerHTML)
+      }`
+    );
+    costoFinalProductos.innerHTML = `<p>${finalConCostoEnvio}</p>`;
+  } else if (
+    precioFinalProductos.textContent != 0 &&
+    precioEnvio.innerHTML === "1300"
+  ) {
+    let finalConCostoEnvio = parseInt(
+      `${
+        parseInt(precioFinalProductos.innerHTML) +
+        parseInt(precioEnvio.innerHTML)
+      }`
+    );
+    costoFinalProductos.innerHTML = `<p>${finalConCostoEnvio}</p>`;
+  } else if (
+    precioFinalProductos.textContent != 0 &&
+    precioEnvio.innerHTML === ""
+  ) {
+    let finalConCostoEnvio = parseInt(
+      `${parseInt(precioFinalProductos.innerHTML)}`
+    );
+    costoFinalProductos.innerHTML = `<p>${finalConCostoEnvio}</p>`;
+  } else {
+    costoFinalProductos.innerHTML = "$0";
+  }
+};
+
+////trabajando
 
 //carrito SALIDA
 //funcion terminar compra y vaciar carrito
