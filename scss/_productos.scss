@@ -415,6 +415,103 @@
   }
 }
 
+#exampleModalToggle4{
+  font-size: 0.8rem;
+  .modal-dialog{
+    justify-content: center;
+    .modal-content{
+      align-items: center;
+      width: 50%;
+      border:none;
+      .modal-header{
+        border-bottom: none;
+      }
+      .modal-body{       
+        border-bottom: 1px solid #dee2e6; 
+        border-bottom-width: 90%;
+        div{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .compraOk{
+            font-size: 1.2rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            color: #d9737f;
+            text-align: center;
+            width: 100%;
+            transition: all .3s ease-in-out;
+          }
+          .lds-ellipsis {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            transition: all 2s ease-in-out;
+          }
+          .lds-ellipsis div {
+            position: absolute;
+            top: 33px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #d9737f;
+            transition: all 2s ease-in-out;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+          }
+          .lds-ellipsis div:nth-child(1) {
+            left: 8px;
+            animation: lds-ellipsis1 0.6s infinite;
+          }
+          .lds-ellipsis div:nth-child(2) {
+            left: 8px;
+            animation: lds-ellipsis2 0.6s infinite;
+          }
+          .lds-ellipsis div:nth-child(3) {
+            left: 32px;
+            animation: lds-ellipsis2 0.6s infinite;
+          }
+          .lds-ellipsis div:nth-child(4) {
+            left: 56px;
+            animation: lds-ellipsis3 0.6s infinite;
+          }
+          @keyframes lds-ellipsis1 {
+            0% {
+              transform: scale(0);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+          @keyframes lds-ellipsis3 {
+            0% {
+              transform: scale(1);
+            }
+            100% {
+              transform: scale(0);
+            }
+          }
+          @keyframes lds-ellipsis2 {
+            0% {
+              transform: translate(0, 0);
+            }
+            100% {
+              transform: translate(24px, 0);
+            }
+          }
+      }
+    }
+      .modal-footer{
+        border-top: none;
+
+      }
+
+    }
+  }
+}
+
+
 //carrito
 .modal-dialog {
   max-width: 50%;
@@ -462,29 +559,28 @@
         display: flex;
         flex-direction: column;
         .botonVaciarCarrito {
-          width: 15%;
+          width: 20%;
           margin-bottom: 10px;
+          margin-left: 40%;
+          margin-right: 40%;
           height: fit-content;
           padding: 10px;
           border-style: none;
           border-radius: 40px;
           justify-content: center;
           align-items: center;
-          font-size: 0.8rem;
+          font-size: 1rem;
           font-family: "Poppins", sans-serif;
-          font-weight: 600;
-          color: #c95663;
+          font-weight: 600;          
+          color: rgba(0, 0, 0, 0.6);
           background-color: transparent;
           transition-property: box-shadow;
-          transition-duration: 0.3s;
+          transition-duration: 0.4s;
         }
-        .botonVaciarCarrito:hover,
-        .botonVaciarCarrito:focus,
-        .botonVaciarCarrito:active {
-          box-shadow: inset 0 0 0 4px red, 0 0 1px rgba(0, 0, 0, 0);
+        .botonVaciarCarrito:hover{
+          box-shadow: inset 0 0 0 2px rgba(255, 0, 0, 0.801), 0 0 1px rgba(0, 0, 0, 0);
           border-radius: 20px;
-          color: red;
-          text-shadow: 0px 0px 1px rgb(0 0 0 / 20%);
+          color: rgba(255, 0, 0, 0.801);
           background-color: transparent;
         }
         .cajaCarritoProducto {
@@ -531,10 +627,7 @@
                 border-bottom-color: rgba(0, 0, 0, 0.2);
               }
               p {
-                font-size: 1rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 600;
-                color: #d9737f;
+                font-size: 0.8rem;
                 text-align: center;
                 width: 100%;
               }
@@ -559,10 +652,7 @@
                 border-bottom-color: rgba(0, 0, 0, 0.2);
               }
               p {
-                font-size: 1rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 600;
-                color: #d9737f;
+                font-size: 0.8rem;
                 text-align: center;
                 width: 50%;
               }
@@ -576,6 +666,7 @@
             justify-content: center;
             align-items: center;
             p {
+              font-size: 0.8rem;
               color: #c95663;
               border-bottom-style: solid;
               border-bottom-width: 1px;
@@ -603,7 +694,7 @@
               }
               div {
                 p {
-                  font-size: 1rem;
+                  font-size: 0.8rem;
                   font-family: "Poppins", sans-serif;
                   font-weight: 600;
                   color: #d9737f;
@@ -617,23 +708,15 @@
             border-style: none;
             display: flex;
             width: 20%;
-            height: 90%;
+            height: 100%;
             justify-content: center;
             align-items: center;
-            background-color: transparent;
+            background-color: transparent;            
             section {
               font-size: small;
               .trash {
-                width: 66px;
-                height: 80px;
                 margin: 0 auto;
                 position: relative;
-                -webkit-border-bottom-right-radius: 6px;
-                -webkit-border-bottom-left-radius: 6px;
-                -moz-border-radius-bottomright: 6px;
-                -moz-border-radius-bottomleft: 6px;
-                border-bottom-right-radius: 6px;
-                border-bottom-left-radius: 6px;
                 img {
                   width: 21px;
                   height: auto;
@@ -708,6 +791,10 @@
         font-weight: 600;
         color: white;
         background-color: #d9737f;
+        transition: all .2s ease-in-out;
+      }
+      button:hover{
+        background-color: #f54750;
       }
     }
   }
@@ -724,7 +811,7 @@
   align-items: center;
   .cajaTextoEnvio {
     display: flex;
-    width: 90%;
+    width: 85%;
     margin-bottom: 5px;
     p {
       display: block;
@@ -743,7 +830,8 @@
     flex-direction: column;
     .cajaFormaDeEnvio {
       display: flex;
-      width: 100%;
+      width: 90%;
+      padding-left: 3.5%;
       margin-bottom: 2%;
       .form-select {
         width: 100%;
@@ -762,6 +850,15 @@
         height: auto;
       }
       .dropdown {
+        .btn-secondary {
+          color: white;
+          background-color: #c95663;
+          border-style: none;
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          font-size: 1rem;
+          
+        }
         button:after {
           display: none;
         }
@@ -957,6 +1054,19 @@
   height: fit-content;
   margin-top: 2%;
   align-items: center;
+  .contenedorTextoSuperiorFinal {
+    display: flex;
+    width: 85%;
+    margin-bottom: 5px;
+    p {
+      display: block;
+      text-decoration: none;
+      font-size: 1rem;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      color: #d9737f;
+    }
+  }
   .contenedorProductos {
     display: flex;
     height: 100px;

@@ -21,7 +21,7 @@ cajaBusquedaGeneral.id = `cajaBusquedaGeneral`;
 cajaBotonBuscar.id = `cajaBotonBuscar`;
 cajaBusquedaMinimo.placeholder = `precio min.`;
 cajaBusquedaMaximo.placeholder = `precio max.`;
-cajaTodosLosProductos.innerHTML = `<p>Todos los Productos</p>`
+cajaTodosLosProductos.innerHTML = `<p>Todos los Productos</p>`;
 cajaBotonBuscar.innerHTML = `Buscar`;
 cajaBuscador.append(
   cajaTodosLosProductos,
@@ -98,8 +98,8 @@ const domListaProductos = () => {
         timer: 2000,
       });
     });
-  }
-}
+  };
+};
 
 const domListaProductosFiltrados = () =>{
   cajaFiltroProductos.innerHTML = "";
@@ -186,14 +186,14 @@ textoMontoTotal.className = `textoMontoTotal`;
 montoTotal.className = `montoTotal`;
 cajaTextoSuperior.innerHTML = `<p>Articulo</> <p>Eliminar</p>`;
 botonVaciarCarrito.innerHTML = `<p>Vaciar Carrito</p>`;
-textoMontoTotal.innerHTML = `<p>Subtotal: $`
+textoMontoTotal.innerHTML = `<p>Subtotal: $`;
 montoTotal.innerHTML = `<p>0</p>`;
 contenedorCarritoTotal.append(
   cajaTextoSuperior,
   cajaCarritoGeneral,
   cajaMontoTotal
 );
-cajaMontoTotal.append(textoMontoTotal, montoTotal)
+cajaMontoTotal.append(textoMontoTotal, montoTotal);
 
 //CAJA DE RESULTADO DE BUSQUEDA INICIALMENTE OCULTO
 const cajaFiltroProductos = document.getElementById("cajaProductos2");
@@ -221,8 +221,10 @@ cajaEnvioGeneral.innerHTML = `<div id="cajaFormaDeEnvio" class="cajaFormaDeEnvio
 </div>`;
 contenedorEnvioTotal.append(cajaTextoEnvio, cajaEnvioGeneral);
 
+
 //CAJA FINALIZAR COMPRA Y VACIAR CARRO
 const contenedorFinal = document.getElementById(`contenedorMontoFinal`);
+const contenedorTextoSuperiorFinal = document.createElement(`div`);
 const contenedorProductos = document.createElement(`div`);
 const imagenProductos = document.createElement(`div`)
 const textoFinalProductos = document.createElement(`div`);
@@ -238,6 +240,7 @@ const textoCostoFinal = document.createElement(`div`);
 const signoCostoFinal = document.createElement(`div`);
 const costoFinalProductos = document.createElement(`div`);
 contenedorFinal.className = `contenedorFinal`;
+contenedorTextoSuperiorFinal.className = `contenedorTextoSuperiorFinal`;
 contenedorProductos.className = `contenedorProductos`;
 imagenProductos.className = `imagenProductos`;
 textoFinalProductos.className = `textoFinalProductos`;
@@ -252,10 +255,12 @@ contenedorPrecioFinal.className = `contenedorPrecioFinal`;
 textoCostoFinal.className = `textoCostoFinal`;
 signoCostoFinal.className = `signoCostoFinal`;
 costoFinalProductos.className = `costoFinalProductos`;
+contenedorTextoSuperiorFinal.innerHTML = `<p>Controla tu pedido</p>`
 textoCostoFinal.innerHTML = `Total:`;
 signoCostoFinal.innerHTML = `$`;
 precioTextoFinalProductos.innerHTML = `$`;
 contenedorFinal.append(
+  contenedorTextoSuperiorFinal,
   contenedorProductos,
   contenedorEnvio,
   contenedorPrecioFinal
@@ -263,20 +268,6 @@ contenedorFinal.append(
 contenedorProductos.append(imagenProductos,textoFinalProductos, precioTextoFinalProductos,precioFinalProductos);
 contenedorEnvio.append(imagenEnvio, domicilioEnvio,signoPrecioEnvio,precioEnvio);
 contenedorPrecioFinal.append(textoCostoFinal,signoCostoFinal,costoFinalProductos);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //nodo finalizar compra
 const terminarCompra = document.getElementById(`terminarCompra`);

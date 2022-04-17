@@ -5,7 +5,7 @@ domListaProductos();
 
 //LISTA DE PRODUCTOS FILTRADOS
 cajaBotonBuscar.onclick = () => {
-  domListaProductosFiltrados()  
+  domListaProductosFiltrados();
 };
 
 //funcion para resetear listado de productos luego de filtrar busqueda
@@ -230,7 +230,7 @@ envioDomicilio.onclick = () => {
             domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
             precioEnvio.innerHTML = `${item.precio}`;
           };
-        };
+        }
       });
     });
 };
@@ -279,7 +279,7 @@ retiroEnTienda.onclick = () => {
             domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
             precioEnvio.innerHTML = `${item.precio}`;
           };
-        };
+        }
       });
     });
 };
@@ -343,16 +343,92 @@ botonParaEnvioFinal.onclick = () => {
 //funcion terminar compra, vaciar carrito y envio
 terminarCompra.addEventListener(`click`, () => {
   if (carrito.length === 0) {
-    localStorage.setItem(`carrito`, JSON.stringify(carrito));
-    actualizarCarrito();
-    alert(`tu carrito esta vacio`);
-  } else {
-    carrito.length = 0;
-    contenedorEnvio.innerHTML= "";
+    imagenEnvio.innerHTML = "";
+    domicilioEnvio.innerHTML = "";
+    signoPrecioEnvio.innerHTML = "";
     precioEnvio.innerHTML = "";
     localStorage.setItem(`carrito`, JSON.stringify(carrito));
     actualizarCarrito();
-    alert(`compra Realizada`);
+    const exampleModalToggleLabel4 = document.getElementById(
+      `exampleModalToggleLabel4`
+    );
+    const contenedorCerrarSalida = document.getElementById(
+      `contenedorCerrarSalida`
+    );
+    exampleModalToggleLabel4.innerText = `Tu carrito esta vacio`;
+    contenedorCerrarSalida.innerHTML = `<button class="btn btn-primary" data-bs-toggle="modal" id="cerrarSalida">Cerrar</button>`;
+
+    contenedorCerrarSalida.onclick = () => {
+      const imagenCompraRealizada = document.getElementById(
+        `imagenCompraRealizada`
+      );
+      imagenCompraRealizada.innerHTML = "";
+    };
+  } else if (
+    carrito.length != 0 &&
+    precioEnvio.innerText != "700" &&
+    precioEnvio.innerText != "1300" &&
+    precioEnvio.innerText != "Gratis"
+  ) {
+    imagenEnvio.innerHTML = "";
+    domicilioEnvio.innerHTML = "";
+    signoPrecioEnvio.innerHTML = "";
+    precioEnvio.innerHTML = "";
+    localStorage.setItem(`carrito`, JSON.stringify(carrito));
+    actualizarCarrito();
+    const exampleModalToggleLabel4 = document.getElementById(
+      `exampleModalToggleLabel4`
+    );
+    const contenedorCerrarSalida = document.getElementById(
+      `contenedorCerrarSalida`
+    );
+    exampleModalToggleLabel4.innerText = `Por favor elije un metodo de Envio`;
+    contenedorCerrarSalida.innerHTML = `<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2" id="cerrarSalida">Cerrar</button>`;
+
+    contenedorCerrarSalida.onclick = () => {
+      const imagenCompraRealizada = document.getElementById(
+        `imagenCompraRealizada`
+      );
+      imagenCompraRealizada.innerHTML = "";
+    };
+  } else {
+    carrito.length = 0;
+    imagenEnvio.innerHTML = "";
+    domicilioEnvio.innerHTML = "";
+    signoPrecioEnvio.innerHTML = "";
+    precioEnvio.innerHTML = "";
+    localStorage.setItem(`carrito`, JSON.stringify(carrito));
+    actualizarCarrito();
+    const exampleModalToggleLabel4 = document.getElementById(
+      `exampleModalToggleLabel4`
+    );
+    const contenedorCerrarSalida = document.getElementById(
+      `contenedorCerrarSalida`
+    );
+    const contenedorImagenFinal = document.getElementById(
+      `contenedorImagenFinal`
+    );
+    exampleModalToggleLabel4.innerText = `Finalizando Compra`;
+
+    imagenCompraRealizada = document.createElement(`div`);
+    contenedorCerrarSalida.innerHTML = "";
+    imagenCompraRealizada.id = `imagenCompraRealizada`;
+    imagenCompraRealizada.innerHTML = `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`;
+    contenedorImagenFinal.append(imagenCompraRealizada);
+    setTimeout(() => {
+      imagenCompraRealizada.innerHTML = `<div class="compraOk"><p>Gracias por tu compra!</p><div>`;
+    }, 3000);
+    setTimeout(() => {
+      contenedorCerrarSalida.innerHTML = `<button class="btn btn-primary" data-bs-toggle="modal" id="cerrarSalida">Cerrar</button>`;
+    }, 3000);
+    setTimeout(() => {
+      exampleModalToggleLabel4.innerText = "";
+    }, 3000);
+    
+    contenedorCerrarSalida.onclick = () => {
+      setTimeout(() => {
+        imagenCompraRealizada.innerHTML = ""}, 10);
+    }
   }
 });
 

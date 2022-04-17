@@ -27,17 +27,19 @@
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" async></script>
       <script src="../js/objetos_y_listas.js" async></script>
       <script src="../js/dom.js" async></script>
-      <script src="../js/logica2.js" async></script>   
+      <script src="../js/logica2.js" async></script> 
 </head>
 
 <!--------------------------------------BODY----------------------------------------------------------------->
 
 <body>
     <header>
-        <section class="headerBox">
-            <b class="headerBoxText">rascadores</b>
-            <img src="./images/logo/logo.png"alt="logo" class="logoHeader">
-            <b class="headerBoxText">descansos</b>
+        <section class="headerBox">                    
+            <button type="button" class="botonCarritoHeader" class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">                
+                    <img src="./images/carrito/carritovacio.png" class="imgCarrito">
+                <span id="contadorCarrito" class="contadorCarrito">0</span>
+              </button>  
+        </section>  
     </header>
 
     <section class="navegacion">
