@@ -182,6 +182,7 @@ const actualizarCarrito = () => {
   )}`;
   imagenProductos.innerHTML = `<img src="../images/carrito/productos.png">`;
   textoFinalProductos.innerHTML = `<p>Subtotal Productos`;
+  flechaEnvio2.innerHTML = `<img src="../images/carrito/flechas.png">`;
   precioFinalProductos.innerHTML = parseInt(`${montoTotal.innerHTML} `);
 };
 
@@ -226,8 +227,10 @@ envioDomicilio.onclick = () => {
               (direccion) => direccion.id === idDireccion
             );
             imagenEnvio.innerHTML = `<img src="../images/carrito/adomicilio.png">`;
-            signoPrecioEnvio.innerHTML = `$`;
             domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
+            flechaEnvio.innerHTML = `<img src="../images/carrito/flechas.png">`;
+            signoPrecioEnvio.innerHTML = `$`;
+            
             precioEnvio.innerHTML = `${item.precio}`;
           };
         }
@@ -275,8 +278,10 @@ retiroEnTienda.onclick = () => {
               (direccion) => direccion.id === idDireccion
             );
             imagenEnvio.innerHTML = `<img src="../images/carrito/retirolocal.png">`;
-            signoPrecioEnvio.innerHTML = "";
             domicilioEnvio.innerHTML = `${item.domicilio},<br>${item.localidad},<br>${item.provincia}, CP: ${item.cp}`;
+            flechaEnvio.innerHTML = `<img src="../images/carrito/flechas.png">`;
+            signoPrecioEnvio.innerHTML = "";
+            
             precioEnvio.innerHTML = `${item.precio}`;
           };
         }

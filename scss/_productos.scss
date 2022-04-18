@@ -1097,8 +1097,15 @@
       width: 35%;
       text-align: center;
     }
+    .flechaEnvio{
+      width: 20%;
+      img{
+        height: 30px;
+        width: auto;
+      }
+    }
     .precioTextoFinalProductos{
-      width: 32%;
+      width: 12%;
       text-align: right;
     }
     .precioFinalProductos{
@@ -1138,8 +1145,15 @@
       text-align: center;
 
     }
+    .flechaEnvio{
+      width: 20%;
+      img{
+        height: 30px;
+        width: auto;
+      }
+    }
     .signoPrecioEnvio{
-      width: 32%;
+      width: 12%;
       text-align: right;
     }
     .precioEnvio{

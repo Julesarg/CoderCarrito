@@ -233,6 +233,8 @@ const precioFinalProductos = document.createElement(`div`);
 const contenedorEnvio = document.createElement(`div`);
 const imagenEnvio = document.createElement(`div`);
 const domicilioEnvio = document.createElement(`div`);
+const flechaEnvio = document.createElement(`div`);
+const flechaEnvio2 = document.createElement(`div`);
 const signoPrecioEnvio = document.createElement(`div`);
 const precioEnvio = document.createElement(`div`);
 const contenedorPrecioFinal = document.createElement(`div`);
@@ -249,6 +251,8 @@ precioFinalProductos.className = `precioFinalProductos`;
 contenedorEnvio.className = `contenedorEnvio`;
 imagenEnvio.className  = `imagenEnvio`;
 domicilioEnvio.className = `domicilioEnvio`
+flechaEnvio.className = `flechaEnvio`;
+flechaEnvio2.className = `flechaEnvio`;
 signoPrecioEnvio.className = `signoPrecioEnvio`;
 precioEnvio.className = `precioEnvio`;
 contenedorPrecioFinal.className = `contenedorPrecioFinal`;
@@ -265,8 +269,8 @@ contenedorFinal.append(
   contenedorEnvio,
   contenedorPrecioFinal
 );
-contenedorProductos.append(imagenProductos,textoFinalProductos, precioTextoFinalProductos,precioFinalProductos);
-contenedorEnvio.append(imagenEnvio, domicilioEnvio,signoPrecioEnvio,precioEnvio);
+contenedorProductos.append(imagenProductos,textoFinalProductos, flechaEnvio, precioTextoFinalProductos,precioFinalProductos);
+contenedorEnvio.append(imagenEnvio, domicilioEnvio,flechaEnvio2,signoPrecioEnvio,precioEnvio);
 contenedorPrecioFinal.append(textoCostoFinal,signoCostoFinal,costoFinalProductos);
 
 //nodo finalizar compra

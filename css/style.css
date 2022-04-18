@@ -2260,8 +2260,15 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   width: 35%;
   text-align: center;
 }
+.contenedorFinal .contenedorProductos .flechaEnvio {
+  width: 20%;
+}
+.contenedorFinal .contenedorProductos .flechaEnvio img {
+  height: 30px;
+  width: auto;
+}
 .contenedorFinal .contenedorProductos .precioTextoFinalProductos {
-  width: 32%;
+  width: 12%;
   text-align: right;
 }
 .contenedorFinal .contenedorProductos .precioFinalProductos {
@@ -2299,8 +2306,15 @@ footer .cajaGde .cajaDer .cajaGato:hover .gatoImagen2 {
   width: 35%;
   text-align: center;
 }
+.contenedorFinal .contenedorEnvio .flechaEnvio {
+  width: 20%;
+}
+.contenedorFinal .contenedorEnvio .flechaEnvio img {
+  height: 30px;
+  width: auto;
+}
 .contenedorFinal .contenedorEnvio .signoPrecioEnvio {
-  width: 32%;
+  width: 12%;
   text-align: right;
 }
 .contenedorFinal .contenedorEnvio .precioEnvio {
